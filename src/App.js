@@ -1,7 +1,9 @@
+import Authentication from "./pages/authentication/Authentication.jsx";
+
 function App() {
   return (
-    <div className="App">
-      <h1>Project is Initialized</h1>
+    <div>
+      <Authentication />
     </div>
   );
 }
