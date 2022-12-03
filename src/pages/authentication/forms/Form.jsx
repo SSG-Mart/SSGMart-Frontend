@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './authentication_form.scss';
 
 export default function Form() {
@@ -30,6 +31,13 @@ export default function Form() {
                 {/* Sign up hear */}
             </form>
         </div>
+
+
+export default function Form() {
+    
+  return (
+    <div className='authentication_form_container'>
+
     </div>
   )
 }
