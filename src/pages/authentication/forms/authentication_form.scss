@@ -23,15 +23,15 @@
                 padding: 15px 25px;
                 text-align: center;
                 cursor: pointer;
-                background-color: rgb(49, 49, 49);
-                color: #fff;
+                background-color: rgb(255, 255, 255);
+                color: #000;
                 
             }
         }
         .selected{
             p{
-                background-color: rgb(255, 255, 255);
-                color: #000;
+                background-color: rgb(49, 49, 49);
+                color: #fff;
             }
         }
     }

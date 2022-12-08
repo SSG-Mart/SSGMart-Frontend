@@ -6,7 +6,6 @@ export default function Form() {
   return (
     <div className='authentication_form_container'>
         <div className="choosingPart">
-            {/* <div className={login selected}><p>Login</p></div> */}
             <div className={choseMethod === true ? "login selected" : "login"}><p onClick={()=>setChoseMethod(true)}>Login</p></div>
             <div className={choseMethod === false ? "signUp selected" : "signUp"}><p onClick={()=>setChoseMethod(false)}>Register</p></div>
         </div>
