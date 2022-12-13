@@ -1,0 +1,44 @@
+.home-container {
+    position: absolute;
+
+
+    .left {
+        background-color: transparent;
+        width: 8%;
+        min-height: 100vh;
+        height: fit-content;
+        color: white;
+    }
+    
+    .right {
+        width: 100%;
+        min-height: 100vh;
+        background-color: transparent;
+        /* background-color: rgba(255, 248, 220, 0.74); */
+        height: fit-content;
+        color: white;
+
+
+        .item-list {
+            padding-right: 80px;
+            padding-top: 10%;
+            display: grid;
+            background-color:transparent;
+            grid-template-columns: auto auto auto;
+            grid-auto-flow: row;
+            grid-gap: 10px;
+        
+
+            .img2{
+                width: 80%;
+                margin-top: 4px;
+                margin-left: 100px;
+
+                h1{
+                    text-align: center;
+                    color: black;
+                }
+            }
+        }
+    }
+}

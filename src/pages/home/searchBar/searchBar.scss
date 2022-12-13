@@ -1,0 +1,74 @@
+.searchBar-container {
+    z-index: 1;
+    position: fixed;
+    box-sizing: border-box;
+    position: absolute;
+    padding-top: 30px;
+    margin-left: 120px;
+
+        nav{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-sizing: border-box;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            background-color: rgb(255, 255, 255);
+            width: 100%;
+            border-radius: 10px;
+
+            .logo{
+                box-sizing: content-box;
+                width: 50px;
+                position: relative;
+                margin-left: 20px;
+
+                img{
+                    width: 100%;
+                    margin-top: 4px;
+                    cursor: pointer;
+                }
+            }
+
+            .name{
+                cursor: pointer;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 25px;
+                color: rgb(0, 0, 0);
+                margin-left: 4px;
+            }
+
+            .form {
+                margin-left: 120vh;
+            
+
+                .search {
+                    border-color: white;
+                    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+                    height: 30px;
+                    width: 200px;
+                    background-color: rgba(235, 235, 235, 0.87);
+                    padding-left: 4px;
+                }
+            }
+
+            .search-btn {
+                /* margin-left: 2px;
+                margin-right: 5px
+                border-color: rgb(201, 198, 198)
+                background-color: rgba(255, 255, 255, 0.87)
+                border-radius: 8px
+                width: 60px
+                height: 33px */
+                cursor: pointer;
+                border-color: white;
+                box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+                height: 35px;
+                width: 50px;
+                background-color: rgba(235, 235, 235, 0.87);
+                margin-right: 5px;
+            }
+        }   
+
+}
