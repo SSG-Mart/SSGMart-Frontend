@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./authentication_form.scss";
 import NotificationMessage from "../../../components/notification_message";
 
+
 export default function Form() {
   const navigation = useNavigate();
 
@@ -37,10 +38,14 @@ export default function Form() {
   const [username, setUsername] = useState("");
   const [mobile, setMobile] = useState("");
   const [email, setEmail] = useState("");
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState({
+    file:[],
+  });
   const [password1, setPassword1] = useState("");
   const [password2, setPassword2] = useState("");
   const [checkbox, setCheckBox] = useState(false);
+  const [successUpload, setSuccessUpload] = useState(false);
+
 
   // LOGIN FORM DATA
   const [loginUserName, setLoginUserName] = useState("");
@@ -109,6 +114,40 @@ export default function Form() {
   const [userNameErrorText, setUserNameErrorText] = useState("");
   const [emailErrorText, setEmailErrorText] = useState("");
   const [confirmPasswordErrorText, setConfirmPasswordErrorText] = useState("");
+  
+
+  const handleImageInputChange = (e) => {
+    setImage({
+    //   ...image,
+      file: e.target.files[0],
+    });
+  };
+
+  const submitImage = async() => {
+    const formData = new FormData();
+    console.log(image.file);
+
+    formData.append("avatar", image.file);
+    axios.post("/api/auth/avatar_submit", formData, {
+      headers: {"Content-Type": "multipart/form-data"}
+    })
+    .then(res => {
+        if(res.data === 'Please select a file to upload'){
+            console.log('Please select a file to upload');
+            return false;
+        }
+        else{
+            console.log(res.data);
+            if(res.data === 'Avatar upload success'){
+                setSuccessUpload(true);
+            }
+            else{
+                setSuccessUpload(false);
+            }
+        }
+    })
+  };
+
 
   const pressRegister = (e) => {
     e.preventDefault();
@@ -118,7 +157,7 @@ export default function Form() {
       userName: username,
       mobile: mobile,
       email: email,
-      image: image,
+      image: "image",
       password1: password1,
       password2: password2,
       checkbox: checkbox,
@@ -131,6 +170,7 @@ export default function Form() {
     if (fName === "") {
       setFNameError(true);
       setTotalError(totalError + 1);
+      return false;
     } else {
       setFNameError(false);
     }
@@ -138,12 +178,14 @@ export default function Form() {
     if (fName === "") {
       setLNameError(true);
       setTotalError(totalError + 1);
+      return false;
     } else {
       setLNameError(false);
     }
     if (lName === "") {
       setLNameError(true);
       setTotalError(totalError + 1);
+      return false;
     } else {
       setLNameError(false);
     }
@@ -152,6 +194,7 @@ export default function Form() {
       setUserNameErrorText("Username is required");
       setUsernameError(true);
       setTotalError(totalError + 1);
+      return false;
     } else {
       setUsernameError(false);
     }
@@ -159,6 +202,7 @@ export default function Form() {
     if (mobile === "") {
       setMobileError(true);
       setTotalError(totalError + 1);
+      return false;
     } else {
       setMobileError(false);
     }
@@ -167,17 +211,20 @@ export default function Form() {
       setEmailErrorText("Email is required");
       setEmailError(true);
       setTotalError(totalError + 1);
+      return false;
     } else if (!email.includes("@") || !email.includes(".")) {
       setEmailErrorText("Email is not valid");
       setEmailError(true);
       setTotalError(totalError + 1);
+      return false;
     } else {
       setEmailError(false);
     }
 
-    if (image === "") {
+    if (image.file.length === 0) {
       setImageError(true);
       setTotalError(totalError + 1);
+      return false;
     } else {
       setImageError(false);
     }
@@ -185,6 +232,7 @@ export default function Form() {
     if (password1 === "") {
       setPassword1Error(true);
       setTotalError(totalError + 1);
+      return false;
     } else {
       setPassword1Error(false);
     }
@@ -193,10 +241,12 @@ export default function Form() {
       setConfirmPasswordErrorText("Confirm password is required");
       setPassword2Error(true);
       setTotalError(totalError + 1);
+      return false;
     } else if (password1 !== password2) {
       setConfirmPasswordErrorText("Password does not match");
       setPassword2Error(true);
       setTotalError(totalError + 1);
+      return false;
     } else {
       setPassword2Error(false);
     }
@@ -204,9 +254,14 @@ export default function Form() {
     if (checkbox === false) {
       setCheckBoxError(true);
       setTotalError(totalError + 1);
+      return false;
     } else {
       setCheckBoxError(false);
     }
+
+    submitImage();
+
+    if(!successUpload) return false;
 
     axios
       .post("/api/auth/register", { formData })
@@ -216,6 +271,7 @@ export default function Form() {
             setUserNameErrorText("User name already exist");
             setUsernameError(true);
             setTotalError(totalError + 1);
+            return false;
           } else {
             setUsernameError(false);
           }
@@ -224,6 +280,7 @@ export default function Form() {
             setEmailErrorText("Email already exist");
             setEmailError(true);
             setTotalError(totalError + 1);
+            return false;
           } else {
             setEmailError(false);
           }
@@ -385,7 +442,7 @@ export default function Form() {
             <input
               type="file"
               id="image"
-              onChange={(e) => setImage(e.target.value)}
+              onChange={handleImageInputChange}
             />
             <span
               className="error_message"
