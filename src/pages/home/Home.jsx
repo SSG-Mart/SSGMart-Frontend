@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Sidebar from "../navBar/Sidebar";
 // import Cookies from "js-cookie";
 
 export default function Home() {
@@ -33,6 +34,7 @@ export default function Home() {
   }
 
   return <div>
+    <Sidebar />
     <h1>{home}</h1>
     <button onClick={logOut}>Log Out</button>
   </div>;

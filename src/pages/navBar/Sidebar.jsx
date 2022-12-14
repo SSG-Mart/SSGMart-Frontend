@@ -7,6 +7,7 @@ import {
     FaCompass
 }from "react-icons/fa";
 import { NavLink } from 'react-router-dom';
+import "./Sidebar.scss";
 
 
 const Sidebar = ({children}) => {
