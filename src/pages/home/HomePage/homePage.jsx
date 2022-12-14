@@ -1,6 +1,8 @@
 import React from 'react'
 import './homePage.scss'
-import itemImage from '../Home-image/potato.png'
+import tomato from '../Home-image/potato.png'
+import orange from '../Home-image/Orange.png'
+
 
 export default function homePage() {
   return (
@@ -9,25 +11,45 @@ export default function homePage() {
 
         <div className="right">
                 <div className='item-list'>
+                    
+                    <button className='card-fram'>
+                        <div className='img1'>
+                            <img src={tomato} alt="itemImage" />
+                        </div>
+                        <p className='item-name'>Shop mame</p>
+                        <p className='item-name'>Tomato (250kg)</p>
+                        <p className='price'>Rs 300.00 </p>
+                        <button>See Details</button>
+                    </button>
+                    <button className='card-fram'>
+                        <div className='img1'>
+                            <img src={orange} alt="itemImage" />
+                        </div>
+                        <p className='item-name'>Shop mame</p>
+                        <p className='item-name'>Orange (500kg)</p>
+                        <p className='price'>Rs 400.00 </p>
+                        <button>See Details</button>
+                    </button>
+                    <button className='card-fram'>
+                        <div className='img1'>
+                            <img src={tomato} alt="itemImage" />
+                        </div>
+                        <p className='item-name'>Shop mame</p>
+                        <p className='item-name'>Tomato (250kg)</p>
+                        <p className='price'>Rs 300.00 </p>
+                        <button>See Details</button>
+                    </button>
+                    <button className='card-fram'>
+                        <div className='img1'>
+                            <img src={orange} alt="itemImage" />
+                        </div>
+                        <p className='item-name'>Shop mame</p>
+                        <p className='item-name'>Orange (500kg)</p>
+                        <p className='price'>Rs 400.00 </p>
+                        <button>See Details</button>
+                    </button>
 
-                    <div className='img2'>
-                        <img src={itemImage} alt="itemImage" />
-                        <h1>Potato</h1>
-                    </div>
-                    <div className='img2'>
-                        <img src={itemImage} alt="itemImage" />
-                        <h1>Potato</h1>
-                    </div>
-                    <div className='img2'>
-                        <img src={itemImage} alt="itemImage" />
-                        <h1>Potato</h1>
-                    </div>
-                    <div className='img2'>
-                        <img src={itemImage} alt="itemImage" />
-                        <h1>Potato</h1>
-                    </div>
-
-            </div>
+                </div>
         </div>
     </div>
   )

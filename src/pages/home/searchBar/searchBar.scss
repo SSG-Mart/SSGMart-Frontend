@@ -3,7 +3,6 @@
     position: fixed;
     box-sizing: border-box;
     position: absolute;
-    padding-top: 30px;
     margin-left: 120px;
 
         nav{
@@ -17,6 +16,7 @@
             background-color: rgb(255, 255, 255);
             width: 100%;
             border-radius: 10px;
+            box-shadow: rgba(1, 1, 1, 0.2) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 2px;
 
             .logo{
                 box-sizing: content-box;

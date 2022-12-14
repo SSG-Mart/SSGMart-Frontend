@@ -1,7 +1,6 @@
 .home-container {
     position: absolute;
 
-
     .left {
         background-color: transparent;
         width: 8%;
@@ -11,6 +10,7 @@
     }
     
     .right {
+        overflow: hidden;
         width: 100%;
         min-height: 100vh;
         background-color: transparent;
@@ -18,27 +18,70 @@
         height: fit-content;
         color: white;
 
-
         .item-list {
-            padding-right: 80px;
-            padding-top: 10%;
+            margin-right: 100px;
+            margin-top: 8%;
             display: grid;
             background-color:transparent;
-            grid-template-columns: auto auto auto;
+            grid-template-columns: auto auto auto auto;
             grid-auto-flow: row;
             grid-gap: 10px;
-        
 
-            .img2{
-                width: 80%;
-                margin-top: 4px;
-                margin-left: 100px;
+            .card-fram {
+                border: none;
+                cursor: pointer;
+                overflow: hidden;
+                display: grid;
+                background-color: white;
+                justify-content: center;
+                width: 35vh;
+                height: 50vh;
+                margin-left: 50px;
 
-                h1{
-                    text-align: center;
-                    color: black;
-                }
+                &:hover {
+                    box-shadow: rgba(1, 1, 1, 1.1) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+                }                
+                  
+                    .item-name {
+                        padding-bottom: 2vh;
+                        text-align: center;
+                        color: rgb(27, 27, 255);
+                    }
+
+                    .price {
+                        padding-bottom: 12vh;
+                        text-align: center;
+                        color: black;
+                        font-weight: bold;
+                    }
+
+                    button {
+                        position: absolute;
+                        cursor: pointer;
+                        border-color: rgba(214, 214, 214, 0.377);
+                        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+                        height: 34px;
+                        width: 210px;
+                        background-color: rgba(255, 203, 60, 0.87);
+                        border: none;
+                        margin-top: 44vh;
+                        margin-left: 4px;
+
+                        &:hover {
+                        position: absolute;
+                        border-color: rgba(255, 187, 0, 0.836);
+                        box-shadow: rgba(0, 0, 0, 0.02) 1px 1px 3px 1px, rgba(27, 31, 35, 0.15) 1px 1px 1px 1px;
+                        height: 34px;
+                        width: 210px;
+                        background-color: rgba(255, 187, 0, 0.87);
+                        border: none;
+                        margin-top: 44vh;
+                        margin-left: 4px;
+                        }
+                    }
+                
             }
         }
     }
 }
+
