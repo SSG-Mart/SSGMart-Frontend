@@ -37,7 +37,7 @@ const Sidebar = ({children}) => {
         
     ]
     return (
-        <div className="container">
+        <div className="sidebar-container">
            <div style={{width: isOpen ? "250px" : "60px"}} className="sidebar">
                <div className="top_section">
                    <h1 style={{display: isOpen ? "block" : "none"}} className="logo">SSGmart</h1>
