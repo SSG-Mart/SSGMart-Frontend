@@ -16,7 +16,7 @@ const searchBar = () => (
                 <input className='search' type="text" id="search" placeholder="Search...."/>
             </form> {/* end search class */}
             <div>
-            <button className='search-btn' ></button>
+            <button className='search-btn' ><i class="fa-solid fa-magnifying-glass"></i></button>
 
             </div>
 
