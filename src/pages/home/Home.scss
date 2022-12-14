@@ -4,9 +4,9 @@
     display: flex;
     position: fixed;
     height: 100vh;
-    min-width: 100vw;
-    background-position: center;
+    width: 100vw;
     background-image: url('./Home-image/background.png');
+    background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 }

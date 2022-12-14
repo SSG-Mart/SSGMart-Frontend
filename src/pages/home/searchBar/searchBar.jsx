@@ -4,19 +4,23 @@ import './searchBar.scss'
 const searchBar = () => (
     <div className="searchBar-container">
         <nav>
-            <div className="logo">
-                <img src={Logo} alt="logo" />
-            </div> {/* end logo class */}
+            <div className='logoContainer' style={{display: 'flex', alignItems: 'center'}}>
+                <div className="logo">
+                    <img src={Logo} alt="logo" />
+                </div> {/* end logo class */}
 
-            <div className="name">
-                <p>SSG Mart</p>
-            </div> {/* end name class */}
+                <div className="name">
+                    <p>SSG Mart</p>
+                </div> {/* end name class */}
+            </div>
 
-            <form action="/" method="get" className='form'>
-                <input className='search' type="text" id="search" placeholder="Search...."/>
-            </form> {/* end search class */}
-            <div>
-            <button className='search-btn' ><i class="fa-solid fa-magnifying-glass"></i></button>
+            <div style={{display: 'flex', alignItems: 'center'}}>
+                <form action="/" method="get" className='form'>
+                    <input className='search' type="text" id="search" placeholder="Search...."/>
+                </form> {/* end search class */}
+                <div>
+                <button className='search-btn' ><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
 
             </div>
 

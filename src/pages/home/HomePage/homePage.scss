@@ -1,87 +1,80 @@
 .home-container {
-    position: absolute;
+  position: absolute;
 
-    .left {
-        background-color: transparent;
-        width: 8%;
-        min-height: 100vh;
-        height: fit-content;
-        color: white;
-    }
-    
-    .right {
+  .left {
+    background-color: transparent;
+    width: 8%;
+    min-height: 100vh;
+    height: fit-content;
+    color: white;
+  }
+
+  .right {
+    overflow: hidden;
+    width: 100%;
+    min-height: 100vh;
+    background-color: transparent;
+    height: fit-content;
+    color: white;
+
+    .item-list {
+      margin-right: 100px;
+      margin-top: 8%;
+      display: grid;
+      background-color: transparent;
+      grid-template-columns: auto auto auto auto;
+      grid-auto-flow: row;
+      grid-gap: 10px;
+
+      .card-fram {
+        border: none;
+        cursor: pointer;
         overflow: hidden;
-        width: 100%;
-        min-height: 100vh;
-        background-color: transparent;
-        /* background-color: rgba(255, 248, 220, 0.74); */
-        height: fit-content;
-        color: white;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        background-color: white;
+        width: 95%;
+        height: 350px;
+        margin-left: 50px;
+        transition: 0.3s ease all;
 
-        .item-list {
-            margin-right: 100px;
-            margin-top: 8%;
-            display: grid;
-            background-color:transparent;
-            grid-template-columns: auto auto auto auto;
-            grid-auto-flow: row;
-            grid-gap: 10px;
-
-            .card-fram {
-                border: none;
-                cursor: pointer;
-                overflow: hidden;
-                display: grid;
-                background-color: white;
-                justify-content: center;
-                width: 35vh;
-                height: 50vh;
-                margin-left: 50px;
-
-                &:hover {
-                    box-shadow: rgba(1, 1, 1, 1.1) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-                }                
-                  
-                    .item-name {
-                        padding-bottom: 2vh;
-                        text-align: center;
-                        color: rgb(27, 27, 255);
-                    }
-
-                    .price {
-                        padding-bottom: 12vh;
-                        text-align: center;
-                        color: black;
-                        font-weight: bold;
-                    }
-
-                    button {
-                        position: absolute;
-                        cursor: pointer;
-                        border-color: rgba(214, 214, 214, 0.377);
-                        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-                        height: 34px;
-                        width: 210px;
-                        background-color: rgba(255, 203, 60, 0.87);
-                        border: none;
-                        margin-top: 44vh;
-                        margin-left: 4px;
-
-                        &:hover {
-                        position: absolute;
-                        border-color: rgba(255, 187, 0, 0.836);
-                        box-shadow: rgba(0, 0, 0, 0.02) 1px 1px 3px 1px, rgba(27, 31, 35, 0.15) 1px 1px 1px 1px;
-                        height: 34px;
-                        width: 210px;
-                        background-color: rgba(255, 187, 0, 0.87);
-                        border: none;
-                        margin-top: 44vh;
-                        margin-left: 4px;
-                        }
-                    }
-                
-            }
+        &:hover {
+          box-shadow: rgba(1, 1, 1, 1.1) 0px 1px 3px 0px,
+            rgba(77, 77, 77, 0.15) 0px 0px 0px 1px;
         }
-    }
-}
 
+        .item-name {
+          text-align: center;
+          color: rgb(27, 27, 255);
+        }
+
+        .price {
+          text-align: center;
+          color: black;
+          font-weight: bold;
+        }
+
+        button {
+          cursor: pointer;
+          border-color: rgba(214, 214, 214, 0.377);
+          box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+            rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+          height: 50px;
+          width: 100%;
+          background-color: rgba(255, 203, 60, 0.87);
+          border: none;
+          transition: 0.3s ease all;
+
+
+          &:hover {
+            background-color: rgba(4, 0, 255, 0.87);
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
