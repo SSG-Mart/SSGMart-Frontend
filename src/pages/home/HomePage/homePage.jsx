@@ -23,11 +23,11 @@ export default function homePage() {
                     </div>
                     <div className='card-fram'>
                         <div className='img1'>
-                            <img src={tomato} alt="itemImage" />
+                            <img src={orange} alt="itemImage" />
                         </div>
                         <p className='item-name'>Shop mame</p>
-                        <p className='item-name'>Tomato (250kg)</p>
-                        <p className='price'>Rs 300.00 </p>
+                        <p className='item-name'>Orange (500kg)</p>
+                        <p className='price'>Rs 400.00 </p>
                         <button>See Details</button>
                     </div>
                     <div className='card-fram'>
@@ -41,11 +41,11 @@ export default function homePage() {
                     </div>
                     <div className='card-fram'>
                         <div className='img1'>
-                            <img src={tomato} alt="itemImage" />
+                            <img src={orange} alt="itemImage" />
                         </div>
                         <p className='item-name'>Shop mame</p>
-                        <p className='item-name'>Tomato (250kg)</p>
-                        <p className='price'>Rs 300.00 </p>
+                        <p className='item-name'>Orange (500kg)</p>
+                        <p className='price'>Rs 400.00 </p>
                         <button>See Details</button>
                     </div>
                     
