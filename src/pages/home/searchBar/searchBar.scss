@@ -1,0 +1,72 @@
+.searchBar-container {
+    z-index: 1;
+    position: fixed;
+    box-sizing: border-box;
+    position: absolute;
+    margin-left: 120px;
+
+        nav{
+            position: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-sizing: border-box;
+            width: 85vw;
+            overflow: hidden;
+            // position: relative;
+            background-color: rgb(255, 255, 255);
+            // width: 100%;
+            border-radius: 10px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            box-shadow: rgba(1, 1, 1, 0.2) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 2px;
+
+            .logo{
+                box-sizing: content-box;
+                width: 50px;
+                position: relative;
+                margin-left: 20px;
+
+                img{
+                    width: 100%;
+                    margin-top: 4px;
+                    cursor: pointer;
+                }
+            }
+
+            .name{
+                cursor: pointer;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 25px;
+                color: rgb(0, 0, 0);
+                margin-left: 4px;
+            }
+
+            .form {
+                // margin-left: 120px;
+            
+
+                .search {
+                    // border-color: white;
+                    border: none;
+                    box-shadow: rgba(0, 0, 0, 0.301) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+                    height: 30px;
+                    width: 200px;
+                    background-color: rgb(255, 255, 255);
+                    padding-left: 4px;
+                }
+            }
+
+            .search-btn {
+                cursor: pointer;
+                // border-color: rgb(214, 214, 214);
+                border: none;
+                height: 30px;
+                width: 50px;
+                background-color: rgb(255, 255, 255);
+                box-shadow: rgba(0, 0, 0, 0.301) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+                margin-right: 15px;
+            }
+        }   
+
+}
