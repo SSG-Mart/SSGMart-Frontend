@@ -44,7 +44,6 @@ export default function Form() {
   const [password1, setPassword1] = useState("");
   const [password2, setPassword2] = useState("");
   const [checkbox, setCheckBox] = useState(false);
-  const [successUpload, setSuccessUpload] = useState(false);
 
 
   // LOGIN FORM DATA
@@ -125,7 +124,6 @@ export default function Form() {
 
   const submitImage = async() => {
     const formData = new FormData();
-    console.log(image.file);
 
     formData.append("avatar", image.file);
     axios.post("/api/auth/avatar_submit", formData, {
@@ -133,16 +131,17 @@ export default function Form() {
     })
     .then(res => {
         if(res.data === 'Please select a file to upload'){
-            console.log('Please select a file to upload');
             return false;
         }
         else{
-            console.log(res.data);
             if(res.data === 'Avatar upload success'){
-                setSuccessUpload(true);
+                submitData()
             }
             else{
-                setSuccessUpload(false);
+              setChoseMethod(!choseMethod);
+              setNotificationColor("#38E54D")
+              setNotificationText("Registration successful")
+              setNotificationStyle(true) 
             }
         }
     })
@@ -151,17 +150,7 @@ export default function Form() {
 
   const pressRegister = (e) => {
     e.preventDefault();
-    let formData = {
-      firstName: fName,
-      lastName: lName,
-      userName: username,
-      mobile: mobile,
-      email: email,
-      image: "image",
-      password1: password1,
-      password2: password2,
-      checkbox: checkbox,
-    };
+    
 
     // form validation
 
@@ -259,44 +248,60 @@ export default function Form() {
       setCheckBoxError(false);
     }
 
-    submitImage();
+    if(totalError === 0){
+      submitImage();
+    }
 
-    if(!successUpload) return false;
-
-    axios
-      .post("/api/auth/register", { formData })
-      .then((response) => {
-        if (response.data.data.msg) {
-          if (response.data.data.msg === "User name already exist") {
-            setUserNameErrorText("User name already exist");
-            setUsernameError(true);
-            setTotalError(totalError + 1);
-            return false;
-          } else {
-            setUsernameError(false);
-          }
-
-          if (response.data.data.msg === "Email already exist") {
-            setEmailErrorText("Email already exist");
-            setEmailError(true);
-            setTotalError(totalError + 1);
-            return false;
-          } else {
-            setEmailError(false);
-          }
-
-          if (response.data.data.msg === "Registration successful"){
-            setChoseMethod(!choseMethod);
-            setNotificationColor("#38E54D")
-            setNotificationText("Registration successful")
-            setNotificationStyle(true) 
-          }
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
   };
+
+  const submitData = () => {
+    let formData = {
+      firstName: fName,
+      lastName: lName,
+      userName: username,
+      mobile: mobile,
+      email: email,
+      image: "image",
+      password1: password1,
+      password2: password2,
+      checkbox: checkbox,
+    };
+      axios
+        .post("/api/auth/register", { formData })
+        .then((response) => {
+          if (response.data.data.msg) {
+            if (response.data.data.msg === "User name already exist") {
+              setUserNameErrorText("User name already exist");
+              setUsernameError(true);
+              setTotalError(totalError + 1);
+              return false;
+            } else {
+              setUsernameError(false);
+            }
+  
+            if (response.data.data.msg === "Email already exist") {
+              setEmailErrorText("Email already exist");
+              setEmailError(true);
+              setTotalError(totalError + 1);
+              return false;
+            } else {
+              setEmailError(false);
+            }
+  
+            if (response.data.data.msg === "Registration successful"){
+              setChoseMethod(!choseMethod);
+              setNotificationColor("#38E54D")
+              setNotificationText("Registration successful")
+              setNotificationStyle(true) 
+            }
+          }
+        })
+        .catch((err) => {
+          setNotificationColor("#FF0000")
+          setNotificationText("Register Failed")
+          setNotificationStyle(true)
+        });
+  }
 
   return (
     <>
