@@ -11,7 +11,7 @@ export default function AddItem() {
     const [image,setImage] = useState ("")
     const [discription,setDiscription] = useState ("")
     const [radio,setRadio]=useState();
-    const [subcaragory_value,setSubcaragory_value]=useState();
+
     const [error,setError] = useState(false)
 
     const handleSubmit=(e)=>{
@@ -82,10 +82,10 @@ export default function AddItem() {
                     <div className='Sub-Catagory'>
                         <p>Sub Catagory</p>
                         <select name="sub-catagory" id="catagory" onChange={e=>setSubCatagory(e.target.value)}>
-                            <option value="Sub 1" onChange={e=>setSubcaragory_value(e.target.value)}>Sub-Catagory 1</option>
-                            <option value="Sub 2" onChange={e=>setSubcaragory_value(e.target.value)}>Sub-Catagory 2</option>
-                            <option value="Sub 3" onChange={e=>setSubcaragory_value(e.target.value)}>Sub-Catagory 3</option>
-                            <option value="Sub 4" onChange={e=>setSubcaragory_value(e.target.value)}>Sub-Catagory 4</option>
+                            <option value="Sub 1" >Sub-Catagory 1</option>
+                            <option value="Sub 2" >Sub-Catagory 2</option>
+                            <option value="Sub 3" >Sub-Catagory 3</option>
+                            <option value="Sub 4" >Sub-Catagory 4</option>
                         </select>
                         <br />
                         {error && subCatagory.length<=0?
