@@ -2,6 +2,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Authentication from "./pages/authentication/Authentication.jsx";
 import Home from "./pages/home/Home.jsx";
+
+import AddItem from "./pages/addItem/addItem";
+
 import SellerView from "./pages/seller_profile_for_customer/Seller_view.jsx";
 import NotFound from "./pages/page_not_found/page_not_found.jsx";
 
@@ -10,6 +13,10 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/auth" element={<Authentication />} />
+          <Route path="/addItem" element={<AddItem />} />
+
           <Route path="/" element={<Home />} />
 
           <Route path="/home" element={<Home />} />
@@ -22,6 +29,7 @@ function App() {
           <Route path="/auth" element={<Authentication />} />
 
           <Route path="*" element={<NotFound />} />
+
         </Routes>
       </BrowserRouter>
     </div>

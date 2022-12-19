@@ -38,11 +38,11 @@ const Sidebar = ({children}) => {
     ]
     return (
         <div className="sidebar-container">
-           <div style={{width: isOpen ? "250px" : "60px"}} className="sidebar">
+           <div style={{width: isOpen ? "250px" : "60px", height: isOpen ? "100vh" : "90vh", margin: isOpen ? "0px":"30px", borderRadius: isOpen ? '0px':'25px' }} className="sidebar">
                <div className="top_section">
                    <h1 style={{display: isOpen ? "block" : "none"}} className="logo">SSGmart</h1>
                    <div style={{marginLeft: isOpen ? "75px" : "0px"}} className="bars">
-                       <FaTh onClick={toggle}/>
+                       <FaTh style={{cursor :'pointer'}} onClick={toggle}/>
                    </div>
                </div>
                {
