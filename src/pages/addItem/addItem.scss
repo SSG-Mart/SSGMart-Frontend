@@ -1,0 +1,156 @@
+.addItem-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(238, 214, 214);
+    align-items: center;
+    justify-content: center;
+
+    .addItem-card {
+    border-radius: 15px;
+    width: 50vw;
+    height: 85vh;
+    background-color: white;
+    overflow: hidden;
+    position: relative;
+    box-shadow: rgb(0, 110, 255) 0px 1px 3px 0px,
+        rgba(0, 110, 255, 0.15) 0px 0px 0px 1px;
+
+        .close-btn {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .card-title {
+            text-align: center;
+            padding-bottom: 20px;
+        }
+
+        .table-devision {
+            position: relative;
+            height: 70vh;
+            overflow-y: auto;
+            align-items:center;
+            justify-content: center;
+
+            table {
+                position:relative;
+                table-layout:fixed;
+                align-items: center;
+                justify-content: center;
+                margin-left: auto;
+                margin-right: auto;
+                font-size: 15px;
+                width: 90%;
+
+                label {
+                    color: red;
+                }
+
+                p {
+                    font-weight: bold;
+                    font-size: 20px;
+                    padding-top: 30px;
+                    padding-bottom: 8px;
+                }
+
+                .title {
+
+                    input {
+                        width: 15vw;
+                        height: 3.5vh;
+                    }
+                }
+
+                .Catagory {
+
+                    select {
+                        width: 15.6vw;
+                        height: 4.5vh;
+                    }
+                }
+
+                .quantity {
+
+                    input {
+                        width: 15vw;
+                        height: 3.5vh;
+                    }
+                }
+
+                .unit {
+
+                    .radio {
+                    color: rgb(0, 0, 0);
+                    padding-right: 8px;
+                    }
+                }
+
+                .unit-price {
+
+                    input {
+                        width: 15vw;
+                        height: 3.5vh;
+                    }
+                }
+
+                .Sub-Catagory {
+
+                    select {
+                        width: 15.6vw;
+                        height: 4.5vh;
+                    }
+                }
+
+                .Discription {
+
+                    input {
+                        overflow: hidden;
+                        display: flex;
+                        overflow-y: auto;
+                        width: 15vw;
+                        height: 3.5vh;
+                    }
+                }
+
+                .add-img {
+                    padding-bottom: 34px;
+
+                    input {
+                        width: 15vw;
+                        height: 5vh;
+                    }
+                }
+
+                td {
+                    padding-left: 8%;
+                }
+
+                .submit {
+                    display: flex;
+                    width: 100%;
+                    justify-content: flex-end;
+                    
+                    input {
+                        position: relative;
+                        cursor: pointer;
+                        border-radius: 8px;
+                        border: none;
+                        color: white;
+                        width: 6vw;
+                        height: 6vh;
+                        background-color: rgb(0, 110, 255);
+                        margin-top: 6%;
+                        margin-right: 14%;
+
+                        &:hover {
+                            background-color: rgb(0, 47, 255);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
