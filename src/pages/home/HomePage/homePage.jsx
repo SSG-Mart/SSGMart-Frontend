@@ -3,7 +3,6 @@ import './homePage.scss'
 import tomato from '../Home-image/potato.png'
 import orange from '../Home-image/Orange.png'
 
-
 export default function homePage() {
   return (
     <div className='home-container'>
