@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./authentication_form.scss";
@@ -6,21 +6,6 @@ import NotificationMessage from "../../../components/notification_message";
 
 export default function Form() {
   const navigation = useNavigate();
-
-  useEffect(() => {
-    const checkAuth = async () => {
-      try {
-        var res = await axios.post("/api/auth/checkAuth");
-        if (res.data.userName) {
-          navigation("/");
-        }
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    checkAuth();
-    // eslint-disable-next-line
-  }, []);
 
   const [choseMethod, setChoseMethod] = useState(true); // if true that mean 'login' and false mean select 'sign up'
 
@@ -35,6 +20,8 @@ export default function Form() {
   const [username, setUsername] = useState("");
   const [mobile, setMobile] = useState("");
   const [email, setEmail] = useState("");
+  const [cityID, setCityID] = useState("");
+  const [addressLine1, setAddress1] = useState("");
   const [image, setImage] = useState({
     file: [],
   });
@@ -97,6 +84,10 @@ export default function Form() {
   const [usernameError, setUsernameError] = useState(false);
   const [mobileError, setMobileError] = useState(false);
   const [emailError, setEmailError] = useState(false);
+
+  const [address1Error, setAddress1Error] = useState(false);
+  const [cityError, setCityError] = useState(false);
+
   const [imageError, setImageError] = useState(false);
   const [password1Error, setPassword1Error] = useState(false);
   const [password2Error, setPassword2Error] = useState(false);
@@ -199,6 +190,22 @@ export default function Form() {
       setEmailError(false);
     }
 
+    if (addressLine1 === "") {
+      setAddress1Error(true);
+      setTotalError(totalError + 1);
+      return false;
+    } else {
+      setAddress1Error(false);
+    }
+    
+    if (cityID === "") {
+      setCityError(true);
+      setTotalError(totalError + 1);
+      return false;
+    } else {
+      setCityError(false);
+    }
+    
     if (image.file.length === 0) {
       setImageError(true);
       setTotalError(totalError + 1);
@@ -249,6 +256,8 @@ export default function Form() {
       userName: username,
       mobile: mobile,
       email: email,
+      addressLine1: addressLine1,
+      city_id: cityID,
       image: "image",
       password1: password1,
       password2: password2,
@@ -462,11 +471,11 @@ export default function Form() {
             </div>
 
             <div className="input">
-              <label htmlFor="signEmail">Email</label>
+              <label htmlFor="email1">Email</label>
               <input
                 type="email"
-                placeholder="Enter Email Address"
-                id="signEmail"
+                placeholder="Enter Email"
+                id="email1"
                 onChange={(e) => setEmail(e.target.value)}
               />
               <span
@@ -476,6 +485,63 @@ export default function Form() {
                 {emailErrorText}
               </span>
             </div>
+
+            <div className="input">
+              <label htmlFor="signUpAddress1">Address Line One</label>
+              <input
+                type="Address"
+                placeholder="Enter Address Line One"
+                id="signUpAddress1"
+                onChange={(e) => setAddress1(e.target.value)}
+              />
+              <span
+                className="error_message"
+                style={address1Error ? { display: "flex" } : { display: "none" }}
+              >
+                Address Line One Required
+              </span>
+            </div>
+            
+            <div className="input">
+              <label htmlFor="city">District</label>
+              <select type="Address" placeholder="Enter Your City" id="city" onChange={(e) => setCityID(e.target.value)}>
+                <option value="" style={{display:'none'}}>Select Your District</option>
+                <option value="1">Colombo</option>
+                <option value="2">Kalutara</option>
+                <option value="3">Kandy</option>
+                <option value="4">Matale</option>
+                <option value="5">Nuwara Eliya</option>
+                <option value="6">Galle</option>
+                <option value="7">Matara</option>
+                <option value="8">Hambantota</option>
+                <option value="9">Jaffna</option>
+                <option value="10">Kilinochchi</option>
+                <option value="11">Mannar</option>
+                <option value="12">Vavuniya</option>
+                <option value="13">Mullaitivu</option>
+                <option value="14">Batticaloa</option>
+                <option value="15">Ampara</option>
+                <option value="16">Trincomalee</option>
+                <option value="17">Kurunegala</option>
+                <option value="18">Puttalam</option>
+                <option value="19">Anuradhapura</option>
+                <option value="20">Polonnaruwa</option>
+                <option value="21">Badulla</option>
+                <option value="22">Moneragala</option>
+                <option value="23">Ratnapura</option>
+                <option value="24">Kegalle</option>
+              </select>
+              <span
+                className="error_message"
+                style={cityError ? { display: "flex" } : { display: "none" }}
+              >
+                District Required
+              </span>
+            </div>
+            
+            
+            
+            
 
             <div className="input">
               <label htmlFor="image">Image</label>
