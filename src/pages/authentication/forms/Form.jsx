@@ -20,7 +20,7 @@ export default function Form() {
   const [username, setUsername] = useState("");
   const [mobile, setMobile] = useState("");
   const [email, setEmail] = useState("");
-  const [city, setCity] = useState("");
+  const [cityID, setCityID] = useState("");
   const [addressLine1, setAddress1] = useState("");
   const [image, setImage] = useState({
     file: [],
@@ -198,7 +198,7 @@ export default function Form() {
       setAddress1Error(false);
     }
     
-    if (city === "") {
+    if (cityID === "") {
       setCityError(true);
       setTotalError(totalError + 1);
       return false;
@@ -257,7 +257,7 @@ export default function Form() {
       mobile: mobile,
       email: email,
       addressLine1: addressLine1,
-      city: city,
+      city_id: cityID,
       image: "image",
       password1: password1,
       password2: password2,
@@ -504,32 +504,32 @@ export default function Form() {
             
             <div className="input">
               <label htmlFor="city">District</label>
-              <select type="Address" placeholder="Enter Your City" id="city" onChange={(e) => setCity(e.target.value)}>
-                <option value="">Select Your District</option>
-                <option value="colombo">Colombo</option>
-                <option value="kalutara">Kalutara</option>
-                <option value="kandy">Kandy</option>
-                <option value="matale">Matale</option>
-                <option value="nuwara">Nuwara Eliya</option>
-                <option value="galle">Galle</option>
-                <option value="matara">Matara</option>
-                <option value="hambantota">Hambantota</option>
-                <option value="jaffna">Jaffna</option>
-                <option value="kilinochchi">Kilinochchi</option>
-                <option value="mannar">Mannar</option>
-                <option value="vavuniya">Vavuniya</option>
-                <option value="mullaitivu">Mullaitivu</option>
-                <option value="batticaloa">Batticaloa</option>
-                <option value="ampara">Ampara</option>
-                <option value="trincomalee">Trincomalee</option>
-                <option value="kurunegala">Kurunegala</option>
-                <option value="puttalam">Puttalam</option>
-                <option value="anuradhapura">Anuradhapura</option>
-                <option value="polonnaruwa">Polonnaruwa</option>
-                <option value="badulla">Badulla</option>
-                <option value="moneragala">Moneragala</option>
-                <option value="ratnapura">Ratnapura</option>
-                <option value="kegalle">Kegalle</option>
+              <select type="Address" placeholder="Enter Your City" id="city" onChange={(e) => setCityID(e.target.value)}>
+                <option value="" style={{display:'none'}}>Select Your District</option>
+                <option value="1">Colombo</option>
+                <option value="2">Kalutara</option>
+                <option value="3">Kandy</option>
+                <option value="4">Matale</option>
+                <option value="5">Nuwara Eliya</option>
+                <option value="6">Galle</option>
+                <option value="7">Matara</option>
+                <option value="8">Hambantota</option>
+                <option value="9">Jaffna</option>
+                <option value="10">Kilinochchi</option>
+                <option value="11">Mannar</option>
+                <option value="12">Vavuniya</option>
+                <option value="13">Mullaitivu</option>
+                <option value="14">Batticaloa</option>
+                <option value="15">Ampara</option>
+                <option value="16">Trincomalee</option>
+                <option value="17">Kurunegala</option>
+                <option value="18">Puttalam</option>
+                <option value="19">Anuradhapura</option>
+                <option value="20">Polonnaruwa</option>
+                <option value="21">Badulla</option>
+                <option value="22">Moneragala</option>
+                <option value="23">Ratnapura</option>
+                <option value="24">Kegalle</option>
               </select>
               <span
                 className="error_message"

@@ -37,18 +37,17 @@ function App() {
       ) : (
         <BrowserRouter>
           <Routes>
-            <Route path="/home" element={<Home />} />
-            <Route path="/auth" element={<Authentication />} />
-            <Route path="/addItem" element={<AddItem />} />
 
             <Route path="/" element={<Home />} />
-
-            <Route path="/home" element={<Home />} />
+            
+            <Route path="/addItem" element={<AddItem />} />
 
             {/* This is the can only use for already register as seller */}
             <Route path="/store" element={<SellerView />} />
 
             <Route path="/store/:store_name" element={<SellerView />} />
+
+            <Route path="/auth" element={<Authentication />} />
 
             <Route
               path="/auth"
