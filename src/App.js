@@ -5,10 +5,11 @@ import axios from "axios";
 import Authentication from "./pages/authentication/Authentication.jsx";
 import Home from "./pages/home/Home.jsx";
 
-import AddItem from "./pages/addItem/addItem";
 
 import SellerView from "./pages/seller_profile_for_customer/Seller_view.jsx";
 import NotFound from "./pages/page_not_found/page_not_found.jsx";
+
+
 
 function App() {
   const [isAuth, setIsAuth] = useState(404);
@@ -38,9 +39,9 @@ function App() {
         <BrowserRouter>
           <Routes>
 
-            <Route path="/" element={<Home />} />
-            
-            <Route path="/addItem" element={<AddItem />} />
+            <Route path="/home" element={<Home />} />
+
+
 
             {/* This is the can only use for already register as seller */}
             <Route path="/store" element={<SellerView />} />
