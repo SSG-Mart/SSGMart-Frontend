@@ -11,7 +11,7 @@ export default function Seller_view() {
     // if(typeof(store_name) != 'undefined') console.log(store_name);
     
     const [apiUserData, setApiUserData] = useState({})
-    const [apiItemData, setApiItemData] = useState({})
+    const [apiItemData, setApiItemData] = useState(null)
 
     //
     useEffect(() => {
@@ -41,7 +41,7 @@ export default function Seller_view() {
         </div>
 
         <div className="third_sec">
-            <SecThree apiData={apiItemData} />
+            <SecThree apiData={apiItemData} user_data={apiUserData} />
         </div>
     </div>
   )

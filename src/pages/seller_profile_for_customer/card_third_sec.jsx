@@ -1,13 +1,25 @@
-import React from "react";
-import sampleImage from "../../assets/authentication/authentication_background.jpg";
+import React, {useEffect, useState} from "react";
 import User from "../../assets/user.png";
 
-const CardThirdSec = () => {
+const CardThirdSec = (props) => {
+  const [item_name, setItemName] = useState([]);
+  const [item_description, setDescription] = useState([]);
+  const api_data = props.apiData;
+  const api_user_data = props.userData;
+  console.log(api_data);
+
+
+  useEffect(() => {
+    setItemName((api_data.name.slice(0, 22)));
+    setDescription((api_data.description.slice(0, 55)));
+  }, [api_data.name, api_data.description])
+  
+
   return (
     <>
       <div className="card">
         <div className="item_image">
-          <img src={sampleImage} alt="sampleImage" />
+          <img src={require('../../assets/authentication/authentication_background.jpg')} alt="sampleImage" />
         </div>
 
         <div className="seller_info">
@@ -16,7 +28,8 @@ const CardThirdSec = () => {
           </div>
 
           <div className="information">
-            <p className="name">Ushan</p>
+            {/* <p className="name">{item_name.length >= 30 ? item_name+"..." : item_name}</p> */}
+            <p className="name">{api_user_data.store_name}</p>
             <p className="ratings">
               <i className="fa-solid fa-star"></i> 4/5
             </p>
@@ -24,10 +37,9 @@ const CardThirdSec = () => {
         </div>
 
         <div className="description">
-          <p className="title">Potato</p>
+          <p className="title">{item_name.length >= 23 ? item_name+"..." : item_name}</p>
           <p className="phrase">
-            My name is Ushan Chamod Bandara and my age is 21 years old.{" "}
-            <span>...More</span>{" "}
+          {item_description}{item_description.length >= 55 ? <span>...More</span> : null}
           </p>
           <p className="ending">Ending in: 24h 28 min 04s</p>
         </div>
@@ -37,7 +49,8 @@ const CardThirdSec = () => {
         <div className="bottom">
           <div className="chat"></div>
           <div className="price">
-            RS. 220.00 <span>/kg</span>
+            RS.{api_data.unit_price} 
+            {/* <span>{api_data.unit}</span> */}
           </div>
         </div>
       </div>
