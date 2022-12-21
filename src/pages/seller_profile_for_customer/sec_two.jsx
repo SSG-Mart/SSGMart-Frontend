@@ -2,7 +2,8 @@ import React from "react";
 import Logo from '../../assets/ssg_mart.png'
 import User from '../../assets/user.png'
 
-const SecTwo = () => {
+const SecTwo = (props) => {
+  console.log(props.apiData);
   return (
     <>
       <div className="details">
@@ -17,7 +18,7 @@ const SecTwo = () => {
           <div className="user_image">
             <img src={User} alt="user" />
           </div>
-          <h3 className="seller_name">Ushan</h3>
+          <h3 className="seller_name">{props.apiData.store_name}</h3>
 
           <div className="status">
             <span className="circle" style={{ background: "green" }}></span>
