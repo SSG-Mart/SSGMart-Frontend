@@ -8,6 +8,8 @@ import AddItem from "./pages/addItem/addItem";
 import SellerView from "./pages/seller_profile_for_customer/Seller_view.jsx";
 import NotFound from "./pages/page_not_found/page_not_found.jsx";
 
+import Catagory from "./pages/categoryHome/CatagoryPage"
+
 function App() {
   return (
     <div>
@@ -29,6 +31,7 @@ function App() {
           <Route path="/auth" element={<Authentication />} />
 
           <Route path="*" element={<NotFound />} />
+          <Route path="/catagory" element={<Catagory />} />
 
         </Routes>
       </BrowserRouter>
