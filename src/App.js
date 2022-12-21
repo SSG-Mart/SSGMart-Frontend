@@ -47,8 +47,6 @@ function App() {
 
             <Route path="/store/:store_name" element={<SellerView />} />
 
-            <Route path="/auth" element={<Authentication />} />
-
             <Route
               path="/auth"
               element={isAuth === true ? <Home /> : <Authentication />}

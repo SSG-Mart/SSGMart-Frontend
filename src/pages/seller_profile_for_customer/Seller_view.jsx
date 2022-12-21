@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React,{useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import './seller_view.scss'
@@ -8,7 +8,10 @@ import SecThree from './sec_three'
 
 export default function Seller_view() {
     const { store_name } = useParams()
-    if(typeof(store_name) != 'undefined') console.log(store_name);
+    // if(typeof(store_name) != 'undefined') console.log(store_name);
+    
+    const [apiUserData, setApiUserData] = useState({})
+    const [apiItemData, setApiItemData] = useState({})
 
     //
     useEffect(() => {
@@ -16,14 +19,17 @@ export default function Seller_view() {
         try {
           var res = await axios.post("/api/seller",{store_name:store_name});
           if (res.data) {
-            console.log(res.data);
+            setApiUserData(res.data.data1[0]);
+            setApiItemData(res.data.data2);
           }
         } catch (err) {
           console.log(err);
         }
       };
       getData();
-    },[store_name])
+    // eslint-disable-next-line
+    },[])
+
   return (
     <div className='seller_view_container'>
         <div className="firs_sec">
@@ -31,11 +37,11 @@ export default function Seller_view() {
         </div>
 
         <div className="second_sec">
-            <SecTwo />
+            <SecTwo apiData={apiUserData} />
         </div>
 
         <div className="third_sec">
-            <SecThree />
+            <SecThree apiData={apiItemData} />
         </div>
     </div>
   )
