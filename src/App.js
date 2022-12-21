@@ -5,6 +5,8 @@ import axios from "axios";
 import Authentication from "./pages/authentication/Authentication.jsx";
 import Home from "./pages/home/Home.jsx";
 
+import AddItem from "./pages/addItem/addItem";
+import Selldb from "./pages/Sellers_dashboard/selldb.jsx";
 
 import SellerView from "./pages/seller_profile_for_customer/Seller_view.jsx";
 import NotFound from "./pages/page_not_found/page_not_found.jsx";
@@ -39,7 +41,10 @@ function App() {
         <BrowserRouter>
           <Routes>
 
-            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<Home />} />
+            
+            <Route path="/addItem" element={<AddItem />} />
+            <Route path="/seller/dashboard" element={<Selldb />} />
 
 
 

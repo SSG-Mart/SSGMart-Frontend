@@ -1,0 +1,237 @@
+.main_seldb {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("./seld.PNG");
+  background-size: cover;
+  position: absolute;
+
+  .names {
+    width: 70px;
+    height: 70px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    margin: 20px 800px;
+    position: absolute;
+  }
+  .names h1 {
+    padding: 10px 100px;
+    font-family: sans-serif;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 50px;
+  }
+  .imlg {
+    position: absolute;
+    display: flex;
+  }
+  .back {
+    width: 90vw;
+    height: 87vh;
+    background-color: white;
+    position: relative;
+    margin: 100px 150px;
+    border-radius: 20px;
+    display: flex;
+  }
+  .After_Back {
+    width: 88vw;
+    height: 83vh;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    margin: 20px 20px;
+    border-radius: 20px;
+    display: flex;
+    overflow-y: scroll;
+  }
+  .plus {
+    width: 50px;
+    height: 80px;
+    background-color: rgb(240, 240, 240);
+    margin: 40px 1780px;
+    position: absolute;
+    border-radius: 20px;
+    padding-left: 20px;
+    padding-top: 15px;
+  }
+  .backgt1 {
+    width: 100px;
+    height: 50px;
+    margin: 20px;
+    padding-top: 10px;
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+    text-align: center;
+    background-color: #eaeaea;
+    position: absolute;
+    font-family: sans-serif;
+    border-radius: 5px;
+    box-shadow: 1px 1px 4px;
+  }
+  .backgt2 {
+    width: 220px;
+    height: 50px;
+    padding-top: 10px;
+    margin: 20px 130px;
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+    text-align: center;
+    background-color: #cefcff;
+    position: absolute;
+    font-family: sans-serif;
+    border-radius: 5px;
+    box-shadow: 1px 1px 4px;
+  }
+  .backgt3 {
+    width: 870px;
+    height: 50px;
+    padding-top: 10px;
+    margin: 20px 360px;
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+    text-align: center;
+    background-color: #eaeaea;
+    position: absolute;
+    font-family: sans-serif;
+    border-radius: 5px;
+    box-shadow: 1px 1px 4px;
+  }
+  .backgt4 {
+    width: 420px;
+    height: 50px;
+    padding-top: 10px;
+    margin: 20px 1240px;
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+    text-align: center;
+    background-color: #cefcff;
+    position: absolute;
+    font-family: sans-serif;
+    border-radius: 5px;
+    box-shadow: 1px 1px 4px;
+  }
+  .c1 {
+    margin-top: 70px;
+  }
+  .c1 .backgt1 {
+    padding: 44px 0px;
+  }
+  .c1 .backgt2 {
+    padding-top: 0px;
+    padding-bottom: 87px;
+  }
+  .c1 .backgt3 {
+    padding: 44px 0px;
+    font-size: 25px;
+  }
+  .c1 .backgt4 {
+    padding: 0px 0px;
+    padding-bottom: 87px;
+  }
+  .c2 {
+    margin-top: 145px;
+    position: absolute;
+  }
+  .c3 {
+    margin-top: 145px;
+    position: absolute;
+  }
+  .c4 {
+    margin-top: 145px;
+    position: absolute;
+  }
+  .c5 {
+    margin-top: 145px;
+    position: absolute;
+  }
+  .c6 {
+    margin-top: 145px;
+    position: absolute;
+  }
+  .c7 {
+    margin-top: 145px;
+  }
+  .c8 {
+    margin-top: 145px;
+    position: absolute;
+  }
+  .c1 .backgt2 .text2 {
+    width: 200px;
+    height: 120px;
+    background-image: url("./ss.jpeg");
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    border-radius: 7px;
+    margin: 10px 10px;
+  }
+  .fst {
+    display: flex;
+    position: absolute;
+    margin: 10px;
+    margin-left: 30px;
+    text-align: center;
+    font-size: 20px;
+    gap: 10px;
+    color: white;
+  }
+  .g {
+    width: 180px;
+    height: 35px;
+    background-color: rgb(0, 255, 0);
+    border-radius: 12px;
+    padding-top: 15px;
+  }
+  .o {
+    width: 180px;
+    height: 35px;
+    background-color: rgb(255, 136, 0);
+    border-radius: 12px;
+    padding-top: 15px;
+  }
+  .snd {
+    display: flex;
+    position: absolute;
+    margin: 10px;
+    margin-top: 70px;
+    margin-left: 30px;
+    text-align: center;
+    font-size: 20px;
+    gap: 10px;
+    color: white;
+  }
+  .r {
+    width: 180px;
+    height: 35px;
+    background-color: rgb(255, 0, 0);
+    border-radius: 12px;
+    padding-top: 15px;
+  }
+  .b {
+    width: 180px;
+    height: 35px;
+    background-color: rgb(38, 0, 255);
+    border-radius: 12px;
+    padding-top: 15px;
+  }
+  .g:hover {
+    background-color: rgb(5, 60, 70);
+    box-shadow: 2px 2px 5px;
+    transition: 0.3s;
+  }
+  .o:hover {
+    background-color: rgb(5, 60, 70);
+    box-shadow: 2px 2px 5px;
+    transition: 0.3s;
+  }
+  .r:hover {
+    background-color: rgb(5, 60, 70);
+    box-shadow: 2px 2px 5px;
+    transition: 0.3s;
+  }
+  .b:hover {
+    background-color: rgb(5, 60, 70);
+    box-shadow: 2px 2px 5px;
+    transition: 0.3s;
+  }
+  
+}
