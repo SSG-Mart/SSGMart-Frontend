@@ -2,7 +2,8 @@ import React from "react";
 import Logo from '../../assets/ssg_mart.png'
 import User from '../../assets/user.png'
 
-const SecTwo = () => {
+const SecTwo = (props) => {
+  console.log(props.apiData);
   return (
     <>
       <div className="details">
@@ -17,7 +18,7 @@ const SecTwo = () => {
           <div className="user_image">
             <img src={User} alt="user" />
           </div>
-          <h3 className="seller_name">Ushan</h3>
+          <h3 className="seller_name">{props.apiData.store_name}</h3>
 
           <div className="status">
             <span className="circle" style={{ background: "green" }}></span>
@@ -41,7 +42,7 @@ const SecTwo = () => {
         <div className="store_information">
           <div className="from list_item">
             <span className="first_element">
-              <i class="fa-solid fa-location-dot"></i>
+              <i className="fa-solid fa-location-dot"></i>
               From
             </span>
             <span className="second_element">Polonnaruwa</span>
@@ -49,7 +50,7 @@ const SecTwo = () => {
 
           <div className="member_since list_item">
             <span className="first_element">
-              <i class="fa-solid fa-user"></i>
+              <i className="fa-solid fa-user"></i>
               Member Since
             </span>
             <span className="second_element">
@@ -59,7 +60,7 @@ const SecTwo = () => {
 
           <div className="mobile list_item">
             <span className="first_element">
-              <i class="fa-solid fa-mobile-screen-button"></i>
+              <i className="fa-solid fa-mobile-screen-button"></i>
               Mobile
             </span>
             <span className="second_element">0716654153</span>
