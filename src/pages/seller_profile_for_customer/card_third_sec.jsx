@@ -16,9 +16,12 @@ const CardThirdSec = (props) => {
 
   useEffect(() => {
     setMoreDates(api_data.moreTime);
+    // eslint-disable-next-line
   }, []);
+  
   var timer;
   useEffect(() => {
+    // eslint-disable-next-line
     timer = setInterval(() => {
       setMoreDates(moreDates - 1000);
 

@@ -1,5 +1,6 @@
 import React from "react";
 import CardThirdSec from "./card_third_sec";
+import Loading from '../../assets/loading/loading.gif'
 
 
 const SecThree = (props) => {
@@ -11,7 +12,11 @@ const SecThree = (props) => {
       <h1 className="main_title">{props.user_data.store_name}'s Items</h1>
 
       {
-        api_data === null ? (<div><p>Loading...</p></div>):
+        api_data === null ? (
+          <div style={{height:'100%', width: '100%',display:'flex', alignItems:'center', justifyContent:'center'}}>
+            <img src={Loading} alt="loading_gif" style={{width: '10vw'}} />
+          </div>
+        ):
         api_data.length !== 0 ?(
           <div className="card_container">
               {
