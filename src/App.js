@@ -45,7 +45,7 @@ function App() {
             <Route path="/seller/dashboard" element={<Selldb />} />
 
             {/* This is the can only use for already register as seller */}
-            <Route path="/store" element={<SellerView />} />
+            {/* <Route path="/store" element={<SellerView />} /> */}
 
             <Route path="/store/:store_name" element={<SellerView />} />
 

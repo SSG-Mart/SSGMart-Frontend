@@ -3,7 +3,7 @@ import CardThirdSec from "./card_third_sec";
 
 
 const SecThree = (props) => {
-  console.log(props.apiData);
+  // console.log(props.apiData);
   const api_data = props.apiData;
 
   return (

@@ -5,6 +5,9 @@ import User from '../../assets/user.png'
 const SecTwo = (props) => {
   // console.log(props.apiData);
   const api_data = props.apiData;
+  let compleatDate = new Date(api_data.date_of_register);
+  let date = compleatDate.getDate()+"/"+(compleatDate.getMonth()+1)+"/"+compleatDate.getFullYear();
+
   return (
     <>
       <div className="details">
@@ -55,7 +58,7 @@ const SecTwo = (props) => {
               Member Since
             </span>
             <span className="second_element">
-              {api_data.date_of_register}
+              {date}
             </span>
           </div>
 
