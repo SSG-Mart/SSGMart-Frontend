@@ -3,7 +3,11 @@ import Logo from '../../assets/ssg_mart.png'
 import User from '../../assets/user.png'
 
 const SecTwo = (props) => {
-  console.log(props.apiData);
+  // console.log(props.apiData);
+  const api_data = props.apiData;
+  let compleatDate = new Date(api_data.date_of_register);
+  let date = compleatDate.getDate()+"/"+(compleatDate.getMonth()+1)+"/"+compleatDate.getFullYear();
+
   return (
     <>
       <div className="details">
@@ -18,14 +22,14 @@ const SecTwo = (props) => {
           <div className="user_image">
             <img src={User} alt="user" />
           </div>
-          <h3 className="seller_name">{props.apiData.store_name}</h3>
+          <h3 className="seller_name">{api_data.store_name}</h3>
 
           <div className="status">
             <span className="circle" style={{ background: "green" }}></span>
             <span className="current_status">Online</span>
           </div>
 
-          <div className="ratings">
+          <div className="ratings" style={{display: 'none'}}>
             <div className="rating_stars">
               <i className="fa-solid fa-star"></i>
               <i className="fa-solid fa-star"></i>
@@ -45,7 +49,7 @@ const SecTwo = (props) => {
               <i className="fa-solid fa-location-dot"></i>
               From
             </span>
-            <span className="second_element">Polonnaruwa</span>
+            <span className="second_element">{api_data.city}</span>
           </div>
 
           <div className="member_since list_item">
@@ -54,7 +58,7 @@ const SecTwo = (props) => {
               Member Since
             </span>
             <span className="second_element">
-              17<sup>th</sup> June 2020
+              {date}
             </span>
           </div>
 
@@ -63,7 +67,7 @@ const SecTwo = (props) => {
               <i className="fa-solid fa-mobile-screen-button"></i>
               Mobile
             </span>
-            <span className="second_element">0716654153</span>
+            <span className="second_element">{api_data.mobile}</span>
           </div>
         </div>
       </div>

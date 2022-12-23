@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import axios from "axios";
+import Loading from './assets/loading/loading.gif'
 
 import Authentication from "./pages/authentication/Authentication.jsx";
 import Home from "./pages/home/Home.jsx";
@@ -35,8 +36,11 @@ function App() {
   return (
     <div>
       {isAuth === 404 ? (
-        <div>Loading...</div>
+        <div style={{position:'absolute',height:'100vh', width: '100vw',display:'flex', alignItems:'center', justifyContent:'center'}}>
+          <img src={Loading} alt="loading_gif" style={{width: '10vw'}} />
+        </div>
       ) : (
+        <>
         <BrowserRouter>
           <Routes>
 
@@ -45,7 +49,7 @@ function App() {
             <Route path="/seller/dashboard" element={<Selldb />} />
 
             {/* This is the can only use for already register as seller */}
-            <Route path="/store" element={<SellerView />} />
+            {/* <Route path="/store" element={<SellerView />} /> */}
 
             <Route path="/store/:store_name" element={<SellerView />} />
 
@@ -57,6 +61,7 @@ function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
+        </>
       )}
     </div>
   );
