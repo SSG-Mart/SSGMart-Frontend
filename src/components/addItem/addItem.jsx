@@ -133,7 +133,7 @@ export default function AddItem() {
                 <td>
                     <div className='expire-date'>
                         <p>Expire Date</p>
-                        <input type='number' placeholder='Enter Expire Date' min={1}
+                        <input type='number' value={expireDate} placeholder='Enter Expire Date' min={1}
                         onChange={e=>setExpireDate(e.target.value)}/>
                     </div>
                 </td>
