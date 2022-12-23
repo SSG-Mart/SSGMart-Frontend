@@ -11,7 +11,7 @@ export default function AddItem() {
     const [image,setImage] = useState ("")
     const [discription,setDiscription] = useState ("")
     const [radio,setRadio]=useState();
-    const [expireDate, setExpireDate] = useState("")
+    const [expireDate, setExpireDate] = useState(1)
 
     const [error,setError] = useState(false)
 
@@ -133,7 +133,7 @@ export default function AddItem() {
                 <td>
                     <div className='expire-date'>
                         <p>Expire Date</p>
-                        <input type='number' placeholder='Enter Expire Date'
+                        <input type='number' placeholder='Enter Expire Date' min={1}
                         onChange={e=>setExpireDate(e.target.value)}/>
                     </div>
                 </td>

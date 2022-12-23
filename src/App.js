@@ -5,7 +5,7 @@ import Loading from './assets/loading/loading.gif'
 
 import Authentication from "./pages/authentication/Authentication.jsx";
 import Home from "./pages/home/Home.jsx";
-
+import AddItem from "./components/addItem/addItem";
 import Selldb from "./pages/Sellers_dashboard/selldb.jsx";
 
 import SellerView from "./pages/seller_profile_for_customer/Seller_view.jsx";
@@ -54,6 +54,7 @@ function App() {
             {/* <Route path="/store" element={<SellerView />} /> */}
 
             <Route path="/store/:store_name" element={<SellerView />} />
+            <Route path="additem" element={<AddItem />} />
 
 
           <Route path="*" element={<NotFound />} />
