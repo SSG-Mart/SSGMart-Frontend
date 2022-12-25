@@ -22,7 +22,7 @@ const SecThree = (props) => {
               {
                 api_data.map((item, index) => {
                   return(
-                    <CardThirdSec key={index} apiData={item} userData={props.user_data}  />
+                    <CardThirdSec key={index} apiData={item} userData={props.user_data} />
                   )
                 })
               }
