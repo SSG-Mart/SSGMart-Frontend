@@ -30,6 +30,8 @@ export default function Seller_view() {
   }, []);
 
   return (
+    <>
+
     <div className="seller_view_container">
       <div className="firs_sec"></div>
 
@@ -41,5 +43,6 @@ export default function Seller_view() {
         <SecThree apiData={apiItemData} user_data={apiUserData} />
       </div>
     </div>
+    </>
   );
 }
