@@ -66,53 +66,55 @@ function Popupi() {
                 text ever since the 1500s, when an unknown printer took a galley
                 of type and scrambled it to make a type specimen book.
               </p>
-            </div>
-            <div className="pri">
-              <hr />
-              <p>
-                RS.220.00 <span>/ 1kg</span>
-              </p>
-              <hr />
-            </div>
-            <div className="prodetail">
-              <div className="wrish">
-                <span
-                  onClick={toggle}
-                  className={"toggle--button" + (state ? "toggle--close" : "")}
-                >
-                  {state ? (
-                    <FaHeart color="red" size={20} />
-                  ) : (
-                    <FaRegHeart color="red" size={20} />
-                  )}
-                </span>{" "}
-                {state ? "Added" : "Add wish List"}
+              <div className="pri">
+                <hr />
+                <p>
+                  RS.220.00 <span>/ 1kg</span>
+                </p>
+                <hr />
               </div>
-              <div className="poto"></div>
-              <div className="nameAndStar">
-                <div className="name">
-                  Imeshika_123{" "}
-                  <span>
-                    <BiMessageRoundedDots />
-                  </span>
+              <div className="prodetail">
+                <div className="wrish">
+                  <span
+                    onClick={toggle}
+                    className={
+                      "toggle--button" + (state ? "toggle--close" : "")
+                    }
+                  >
+                    {state ? (
+                      <FaHeart color="red" size={20} />
+                    ) : (
+                      <FaRegHeart color="red" size={20} />
+                    )}
+                  </span>{" "}
+                  {state ? "Added" : "Add wish List"}
                 </div>
-                <div className="flex-container">
-                  {stars.map((star, i) => (
-                    <Star
-                      key={i}
-                      starId={i}
-                      rating={hoverRating || rating}
-                      onMouseEnter={() => setHoverRating(i)}
-                      onMouseLeave={() => setHoverRating(0)}
-                      onClick={() => setRating(i)}
-                    />
-                  ))}
-                </div>
-                <div className="location1">
-                  <GrLocation size={35} /> Habarana Jugle
-                </div>
-                <div className="location2">
-                  <AiOutlinePhone size={35} /> +9471-1025032
+                <div className="poto"></div>
+                <div className="nameAndStar">
+                  <div className="name">
+                    Imeshika_123{" "}
+                    <span>
+                      <BiMessageRoundedDots />
+                    </span>
+                  </div>
+                  <div className="flex-container">
+                    {stars.map((star, i) => (
+                      <Star
+                        key={i}
+                        starId={i}
+                        rating={hoverRating || rating}
+                        onMouseEnter={() => setHoverRating(i)}
+                        onMouseLeave={() => setHoverRating(0)}
+                        onClick={() => setRating(i)}
+                      />
+                    ))}
+                  </div>
+                  <div className="location1">
+                    <GrLocation size={35} /> Habarana Jugle
+                  </div>
+                  <div className="location2">
+                    <AiOutlinePhone size={35} /> +9471-1025032
+                  </div>
                 </div>
               </div>
             </div>
