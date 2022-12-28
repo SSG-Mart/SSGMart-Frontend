@@ -40,9 +40,14 @@ const CardThirdSec = (props) => {
     setDescription(api_data.description.slice(0, 55));
   }, [api_data.name, api_data.description]);
 
+  //pop-up
+  const displayPopup = (api_data, api_user_data) => {
+    console.log(api_data);
+  }
+
   return (
     <>
-      <div className="card">
+      <div className="card" onClick={() => displayPopup(api_data, api_user_data)}>
         <div className="item_image">
           <img
             src={require("../../assets/authentication/authentication_background.jpg")}
