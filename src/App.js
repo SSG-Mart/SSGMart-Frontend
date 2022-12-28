@@ -5,13 +5,15 @@ import Loading from './assets/loading/loading.gif'
 
 import Authentication from "./pages/authentication/Authentication.jsx";
 import Home from "./pages/home/Home.jsx";
-
+import AddItem from "./components/addItem/addItem";
 import Selldb from "./pages/Sellers_dashboard/selldb.jsx";
 
 import SellerView from "./pages/seller_profile_for_customer/Seller_view.jsx";
 import NotFound from "./pages/page_not_found/page_not_found.jsx";
 
 import PopupItem from "./components/popup-item/popup-i";
+
+import Catagory from "./pages/categoryHome/CatagoryPage"
 
 
 function App() {
@@ -55,11 +57,17 @@ function App() {
             {/* <Route path="/store" element={<SellerView />} /> */}
 
             <Route path="/store/:store_name" element={<SellerView />} />
+            <Route path="additem" element={<AddItem />} />
+
+
+          <Route path="*" element={<NotFound />} />
+          <Route path="/catagory" element={<Catagory />} />
 
             <Route
               path="/auth"
               element={isAuth === true ? <Home /> : <Authentication />}
             />
+
 
             <Route path="*" element={<NotFound />} />
           </Routes>

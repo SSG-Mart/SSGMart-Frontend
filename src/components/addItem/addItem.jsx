@@ -11,16 +11,17 @@ export default function AddItem() {
     const [image,setImage] = useState ("")
     const [discription,setDiscription] = useState ("")
     const [radio,setRadio]=useState();
+    const [expireDate, setExpireDate] = useState(1)
 
     const [error,setError] = useState(false)
 
     const handleSubmit=(e)=>{
         e.preventDefault();
-        if(title.length===0||quantity.length===0||unit.length===0||subCatagory.length===0||unitPrice.length===0||image.length){
+        if(title.length===0||quantity.length===0||unit.length===0||subCatagory.length===0||unitPrice.length===0||image.length||expireDate.length){
             setError(true)
         }
         if (title&&quantity&&unit&&subCatagory&&unitPrice&&discription&&image) {
-            console.log(title,quantity,radio,subCatagory,unitPrice,discription,image)
+            console.log(title,quantity,radio,subCatagory,unitPrice,discription,expireDate,image)
         }
     }
 
@@ -130,6 +131,15 @@ export default function AddItem() {
                     </div>
                 </td>
                 <td>
+                    <div className='expire-date'>
+                        <p>Expire Date</p>
+                        <input type='number' value={expireDate} placeholder='Enter Expire Date' min={1}
+                        onChange={e=>setExpireDate(e.target.value)}/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
                     <div className='Discription'>
                         <p>Discription</p>
                         <textarea type='text' rows="4" cols="26" placeholder='Enter Your Discription'
@@ -140,6 +150,7 @@ export default function AddItem() {
                         <label>The discription can't be empty</label> :""}
                     </div>
                 </td>
+                <td></td>
             </tr>
             <tr>
                 <td></td>
