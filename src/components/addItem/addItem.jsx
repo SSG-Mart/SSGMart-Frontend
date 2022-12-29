@@ -14,8 +14,8 @@ export default function AddItem() {
   const [description, setDescription] = useState("");
   const [radio, setRadio] = useState();
   const [expireDate, setExpireDate] = useState(1);
-  const [massage, setMassage] = useState("");
-  const [mainCategoryName, setMainCategoryName] = useState("");
+  // const [massage, setMassage] = useState("");
+  // const [mainCategoryName, setMainCategoryName] = useState("");
 
   const [error, setError] = useState(false);
 
@@ -70,7 +70,7 @@ export default function AddItem() {
         unit_price: unitPrice,
         description: description,
         time_period: expireDate,
-        image: "image",
+        image: image,
         category_id: "1",
         unit: unit,
       };
@@ -79,7 +79,7 @@ export default function AddItem() {
         .post("/api/additem", { userdata })
 
         .then((result) => {
-          setMassage(result.data.msg);
+          // setMassage(result.data.msg);
           console.log(result.data);
         });
     }
@@ -182,10 +182,11 @@ export default function AddItem() {
                         id="category"
                         onChange={(e) => setSubcategory(e.target.value)}
                       >
+                        <option value="1" id="1">Select Sub Catagory</option>
                         {typeof sub_api_category !== "undefined"
                           ? sub_api_category.map((item, key) => {
                               return (
-                                <option key={key} value={item.id}>
+                                <option key={key} value={item.id} >
                                   {item.name}
                                 </option>
                               );
@@ -256,7 +257,7 @@ export default function AddItem() {
                   </td>
                   <td>
                     <div className="expire-date">
-                      <p>Expire Date</p>
+                      <p>Time Periad</p>
                       <input
                         type="number"
                         value={expireDate}
