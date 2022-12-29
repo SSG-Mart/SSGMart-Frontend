@@ -60,6 +60,7 @@ $fs_p: 1rem;
       flex-direction: column;
       justify-content: space-around;
       padding: 6px;
+      cursor: pointer;
     //   border-radius: 7px;
       box-sizing: border-box;
       overflow-y: auto;
@@ -327,6 +328,16 @@ $fs_p: 1rem;
                 span {
                     font-size: $fs_h5;
                 };
+            }
+            .city{
+              font-family: Arial, Helvetica, sans-serif;
+              font-size: 14px;
+              padding-left: 10px;
+              font-weight: bold;
+              i{
+                color: rgb(21, 248, 0);
+                padding-right: 5px;
+              }
             }
         }
 

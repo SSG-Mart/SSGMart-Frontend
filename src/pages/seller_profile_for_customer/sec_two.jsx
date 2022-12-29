@@ -1,16 +1,16 @@
 import React from "react";
 import Logo from '../../assets/ssg_mart.png'
-import User from '../../assets/user.png'
+import { useNavigate } from "react-router-dom";
 
 const SecTwo = (props) => {
-  // console.log(props.apiData);
+  const navigate = useNavigate();
   const api_data = props.apiData;
   let compleatDate = new Date(api_data.date_of_register);
   let date = compleatDate.getDate()+"/"+(compleatDate.getMonth()+1)+"/"+compleatDate.getFullYear();
 
   return (
     <>
-      <div className="details">
+      <div className="details" onClick={() => navigate('/')}>
         <div className="logo">
           <span className="image">
             <img src={Logo} alt="logo" />
@@ -20,7 +20,9 @@ const SecTwo = (props) => {
 
         <div className="second_sec_in_details">
           <div className="user_image">
-            <img src={User} alt="user" />
+            {
+              api_data.image ? <img src={require(`../../../../ssg_mart-backend/img/user/${api_data.image}`)} alt="user" /> : null 
+            }
           </div>
           <h3 className="seller_name">{api_data.store_name}</h3>
 
