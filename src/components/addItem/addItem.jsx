@@ -7,15 +7,13 @@ export default function AddItem() {
   const [title, setTitle] = useState("");
   const [quantity, setQuantity] = useState("");
   const [unit, setUnit] = useState("");
-  const [catagory, setCategory] = useState("");
   const [subcategory, setSubcategory] = useState("");
   const [unitPrice, setUnitPrice] = useState("");
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState(null);
   const [description, setDescription] = useState("");
   const [radio, setRadio] = useState();
   const [expireDate, setExpireDate] = useState(1);
-  // const [massage, setMassage] = useState("");
-  // const [mainCategoryName, setMainCategoryName] = useState("");
+
 
   const [error, setError] = useState(false);
 
@@ -37,6 +35,7 @@ export default function AddItem() {
     };
 
     getCategory();
+    // eslint-disable-next-line
 }, []);
 
   const handleSubmit = async (e) => {
@@ -63,27 +62,50 @@ export default function AddItem() {
     ) {
       // console.log(title,quantity,radio,subcategory,unitPrice,description,expireDate,image,catagory)
 
-      const userdata = {
-        title: title,
-        quantity: quantity,
-        sub_category_id: subcategory,
-        unit_price: unitPrice,
-        description: description,
-        time_period: expireDate,
-        image: image,
-        category_id: "1",
-        unit: unit,
-      };
-      console.log(userdata);
-      await axios
-        .post("/api/additem", { userdata })
-
-        .then((result) => {
-          // setMassage(result.data.msg);
-          console.log(result.data);
-        });
+      submitImage()
+      
     }
   };
+
+
+  function submitImage(){
+    var imageForm = new FormData();
+    imageForm.append("image", image);
+    axios.post('/api/imgupload', imageForm, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    })
+    .then((result) => {
+      // setMassage(result.data.msg);
+      // console.log(result.data);
+      if(result.data !== "error"){
+        submitForm(result.data)
+      }
+    });
+  }
+
+  async function submitForm(x){
+    const userdata = {
+      title: title,
+      quantity: quantity,
+      sub_category_id: subcategory,
+      unit_price: unitPrice,
+      description: description,
+      time_period: expireDate,
+      image: x,
+      category_id: "1",
+      unit: unit,
+    };
+    console.log(userdata);
+    await axios
+      .post("/api/additem", { userdata })
+
+      .then((result) => {
+        // setMassage(result.data.msg);
+        console.log(result.data);
+      });
+  }
 
   return (
     <div className="addItem-container">
@@ -166,7 +188,6 @@ export default function AddItem() {
                         name="category"
                         id="category"
                         disabled
-                        onChange={(e) => setCategory(e.target.value)}
                       >
                         <option id="1">
                           {main_api_category}
@@ -245,7 +266,7 @@ export default function AddItem() {
                         type="file"
                         multiple
                         accept="image/*"
-                        onChange={(e) => setImage(e.target.value)}
+                        onChange={(e) => setImage(e.target.files[0])}
                       />
                       <br />
                       {error && image.length <= 0 ? (
