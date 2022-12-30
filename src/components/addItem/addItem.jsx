@@ -9,9 +9,9 @@ export default function AddItem() {
   const [unit, setUnit] = useState("");
   const [subcategory, setSubcategory] = useState("");
   const [unitPrice, setUnitPrice] = useState("");
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState("");
   const [description, setDescription] = useState("");
-  const [radio, setRadio] = useState();
+  // const [radio, setRadio] = useState();
   const [expireDate, setExpireDate] = useState(1);
 
 
@@ -153,7 +153,7 @@ export default function AddItem() {
                           type="radio"
                           name="radio"
                           value="Kilogram"
-                          onChange={(e) => setRadio(e.target.value)}
+                          
                         />
                         Kilogram
                       </label>
@@ -162,7 +162,7 @@ export default function AddItem() {
                           type="radio"
                           name="radio"
                           value="Liter"
-                          onChange={(e) => setRadio(e.target.value)}
+                          
                         />
                         Liter
                       </label>
@@ -171,7 +171,7 @@ export default function AddItem() {
                           type="radio"
                           name="radio"
                           value="Pieces"
-                          onChange={(e) => setRadio(e.target.value)}
+                          
                         />
                         Pieces
                       </label>
