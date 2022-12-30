@@ -1,6 +1,7 @@
 import React from "react";
 import Logo from '../../assets/ssg_mart.png'
 import { useNavigate } from "react-router-dom";
+import UserLoading from '../../assets/loading/user loading/user_loading001.gif'
 
 const SecTwo = (props) => {
   const navigate = useNavigate();
@@ -10,8 +11,8 @@ const SecTwo = (props) => {
 
   return (
     <>
-      <div className="details" onClick={() => navigate('/')}>
-        <div className="logo">
+      <div className="details">
+        <div className="logo"  onClick={() => navigate('/')}>
           <span className="image">
             <img src={Logo} alt="logo" />
           </span>
@@ -21,7 +22,7 @@ const SecTwo = (props) => {
         <div className="second_sec_in_details">
           <div className="user_image">
             {
-              api_data.image ? <img src={require(`../../../../ssg_mart-backend/img/user/${api_data.image}`)} alt="user" /> : null 
+              api_data.image ? <img src={`http://localhost:8080/api/img/user/${api_data.image}`} alt="user" /> : <img src={UserLoading} alt="loading_image" /> 
             }
           </div>
           <h3 className="seller_name">{api_data.store_name}</h3>

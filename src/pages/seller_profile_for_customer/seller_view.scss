@@ -60,7 +60,7 @@ $fs_p: 1rem;
       flex-direction: column;
       justify-content: space-around;
       padding: 6px;
-      cursor: pointer;
+      
     //   border-radius: 7px;
       box-sizing: border-box;
       overflow-y: auto;
@@ -71,6 +71,7 @@ $fs_p: 1rem;
         align-items: center;
         justify-content: center;
         margin-top: 10px;
+        cursor: pointer;
         .image {
           width: fit-content;
           position: relative;
@@ -102,10 +103,13 @@ $fs_p: 1rem;
         display: flex;
         align-items: center;
         justify-content: center;
+        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+            rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+
         img {
           width: 100px;
-          box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
-            rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+          // box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+          //   rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
           overflow: hidden;
         }
       }

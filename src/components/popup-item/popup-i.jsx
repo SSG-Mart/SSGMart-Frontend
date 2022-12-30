@@ -64,7 +64,7 @@ function Popupi(props) {
           <div className="details">
             <div className="photo" style={{width: '40%', overflow: 'hidden', display:'flex', justifyContent:'center', alignItems:'center'}}>
               {
-                api.item_image ? <img src={require(`../../../../ssg_mart-backend/img/item_image/${api.item_image}`)} alt="item_image" style={{width: '100%'}} /> :null
+                api.item_image ? <img src={`http://localhost:8080/api/img/item/${api.item_image}`} alt="item_image" style={{width: '100%'}} /> :null
               }
               
             </div>
@@ -98,7 +98,7 @@ function Popupi(props) {
                 </div>
                 <div className="poto" style={{width: '60px', height: '60px', overflow: 'hidden', display:'flex', justifyContent:'center', alignItems:'center'}}>
                   {
-                    api.user_image ? <img src={require(`../../../../ssg_mart-backend/img/user/${api.user_image}`)} alt="user_image" style={{width: '60px'}} /> : null
+                    api.user_image ? <img src={`http://localhost:8080/api/img/user/${api.user_image}`} alt="user_image" style={{width: '60px'}} /> : null
                   }
                   
                 </div>
