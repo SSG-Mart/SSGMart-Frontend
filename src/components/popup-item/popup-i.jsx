@@ -4,6 +4,7 @@ import { AiOutlineClose, AiOutlinePhone } from "react-icons/ai";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { BiMessageRoundedDots } from "react-icons/bi";
 import { GrLocation } from "react-icons/gr";
+import { useEffect } from "react";
 
 // star ratind
 const Star = ({ starId, rating, onMouseEnter, onMouseLeave, onClick }) => {
@@ -22,12 +23,12 @@ const Star = ({ starId, rating, onMouseEnter, onMouseLeave, onClick }) => {
       <svg
         height="30px"
         width="30px"
-        class={styleClass}
+        className={styleClass}
         viewBox="0 0 25 23"
         data-rating="1"
       >
         <polygon
-          stroke-width="0"
+          strokeWidth="0"
           points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78"
         />
       </svg>
@@ -35,9 +36,11 @@ const Star = ({ starId, rating, onMouseEnter, onMouseLeave, onClick }) => {
   );
 };
 
-function Popupi() {
+function Popupi(props) {
   // wishList
   const [state, setState] = useState(false);
+  const [api, setAPI] = useState({});
+  
   const toggle = () => {
     setState(!state);
   };
@@ -46,73 +49,84 @@ function Popupi() {
   const [hoverRating, setHoverRating] = useState(0);
   const stars = [1, 2, 3, 4, 5];
 
+  useEffect(() => {
+    setAPI(props.popUpData)
+  }, [props.popUpData, api]);
+
   return (
     <div className="main-s">
       <div className="main">
         <div className="popup">
-          <button className="close">
-            <AiOutlineClose size={20} color="white" />
+          <button className="close" onClick={props.clickClose}>
+            <AiOutlineClose size={20} color="white"  />
           </button>
 
           <div className="details">
-            <div className="photo"></div>
+            <div className="photo" style={{width: '40%', overflow: 'hidden', display:'flex', justifyContent:'center', alignItems:'center'}}>
+              {
+                api.item_image ? <img src={`http://localhost:8080/api/img/item/${api.item_image}`} alt="item_image" style={{width: '100%'}} /> :null
+              }
+              
+            </div>
             <div className="prgph">
-              <h1>Tomatoes</h1>
+              <h1>{api.item_name}</h1>
               <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting{" "}
-                <br />
-                industry. Lorem Ipsum has been the industry's standard dummy{" "}
-                <br />
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book.
+                {api.description}
               </p>
-            </div>
-            <div className="pri">
-              <hr />
-              <p>
-                RS.220.00 <span>/ 1kg</span>
-              </p>
-              <hr />
-            </div>
-            <div className="prodetail">
-              <div className="wrish">
-                <span
-                  onClick={toggle}
-                  className={"toggle--button" + (state ? "toggle--close" : "")}
-                >
-                  {state ? (
-                    <FaHeart color="red" size={20} />
-                  ) : (
-                    <FaRegHeart color="red" size={20} />
-                  )}
-                </span>{" "}
-                {state ? "Added" : "Add wish List"}
+              <div className="pri">
+                <hr />
+                <p>
+                  RS.{api.unit_price} <span>/ 1{api.unit}</span>
+                </p>
+                <hr />
               </div>
-              <div className="poto"></div>
-              <div className="nameAndStar">
-                <div className="name">
-                  Imeshika_123{" "}
-                  <span>
-                    <BiMessageRoundedDots />
-                  </span>
+              <div className="prodetail">
+                <div className="wrish">
+                  <span
+                    onClick={toggle}
+                    className={
+                      "toggle--button" + (state ? "toggle--close" : "")
+                    }
+                  >
+                    {state ? (
+                      <FaHeart color="red" size={20} />
+                    ) : (
+                      <FaRegHeart color="red" size={20} />
+                    )}
+                  </span>{" "}
+                  {state ? "Added" : "Add wish List"}
                 </div>
-                <div className="flex-container">
-                  {stars.map((star, i) => (
-                    <Star
-                      key={i}
-                      starId={i}
-                      rating={hoverRating || rating}
-                      onMouseEnter={() => setHoverRating(i)}
-                      onMouseLeave={() => setHoverRating(0)}
-                      onClick={() => setRating(i)}
-                    />
-                  ))}
+                <div className="poto" style={{width: '60px', height: '60px', overflow: 'hidden', display:'flex', justifyContent:'center', alignItems:'center'}}>
+                  {
+                    api.user_image ? <img src={`http://localhost:8080/api/img/user/${api.user_image}`} alt="user_image" style={{width: '60px'}} /> : null
+                  }
+                  
                 </div>
-                <div className="location1">
-                  <GrLocation size={35} /> Habarana Jugle
-                </div>
-                <div className="location2">
-                  <AiOutlinePhone size={35} /> +9471-1025032
+                <div className="nameAndStar">
+                  <div className="name">
+                    {api.store_name}
+                    <span>
+                      <BiMessageRoundedDots />
+                    </span>
+                  </div>
+                  <div className="flex-container">
+                    {stars.map((star, i) => (
+                      <Star
+                        key={i}
+                        starId={i}
+                        rating={hoverRating || rating}
+                        onMouseEnter={() => setHoverRating(i)}
+                        onMouseLeave={() => setHoverRating(0)}
+                        onClick={() => setRating(i)}
+                      />
+                    ))}
+                  </div>
+                  <div className="location1">
+                    <GrLocation size={35} /> {api.city}
+                  </div>
+                  <div className="location2">
+                    <AiOutlinePhone size={35} /> {api.mobile}
+                  </div>
                 </div>
               </div>
             </div>

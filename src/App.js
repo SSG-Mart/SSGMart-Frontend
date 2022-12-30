@@ -11,6 +11,7 @@ import Selldb from "./pages/Sellers_dashboard/selldb.jsx";
 import SellerView from "./pages/seller_profile_for_customer/Seller_view.jsx";
 import NotFound from "./pages/page_not_found/page_not_found.jsx";
 
+import PopupItem from "./components/popup-item/popup-i";
 
 import Catagory from "./pages/categoryHome/CatagoryPage"
 
@@ -49,6 +50,8 @@ function App() {
             <Route path="/" element={<Home />} />
             
             <Route path="/seller/dashboard" element={<Selldb />} />
+            <Route path="/Item/Popup" element={<PopupItem />} />
+
 
             {/* This is the can only use for already register as seller */}
             {/* <Route path="/store" element={<SellerView />} /> */}

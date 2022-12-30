@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import User from "../../assets/user.png";
+import UserLoading from "../../assets/loading/user loading/user_loading001.gif";
 
 const CardThirdSec = (props) => {
   let [moreDates, setMoreDates] = useState(0);
@@ -18,7 +18,7 @@ const CardThirdSec = (props) => {
     setMoreDates(api_data.moreTime);
     // eslint-disable-next-line
   }, []);
-  
+
   var timer;
   useEffect(() => {
     // eslint-disable-next-line
@@ -38,26 +38,42 @@ const CardThirdSec = (props) => {
   useEffect(() => {
     setItemName(api_data.name.slice(0, 22));
     setDescription(api_data.description.slice(0, 55));
-  }, [api_data.name, api_data.description]);
+    // eslint-disable-next-line
+  }, []);
 
   //pop-up
   const displayPopup = (api_data, api_user_data) => {
-    console.log(api_data);
-  }
+    props.togglePopUp([api_data, api_user_data]);
+  };
 
   return (
     <>
-      <div className="card" onClick={() => displayPopup(api_data, api_user_data)}>
+      <div
+        className="card"
+        onClick={() => displayPopup(api_data, api_user_data)}
+      >
         <div className="item_image">
-          <img
-            src={require("../../assets/authentication/authentication_background.jpg")}
-            alt="sampleImage"
-          />
+          {api_data.image ? (
+            <img
+              src={`http://localhost:8080/api/img/item/${api_data.image}`}
+              alt="sampleImage"
+            />
+          ) : (
+            <img src={UserLoading} alt="loading_image" />
+          )}
         </div>
 
         <div className="seller_info">
           <div className="image">
-            <img src={User} alt="userProfile" />
+            {/* <img src={require(`../../../../ssg_mart-backend/img/user/${api_user_data.image}`)} alt="userProfile" /> */}
+            {api_user_data.image ? (
+              <img
+                src={`http://localhost:8080/api/img/user/${api_user_data.image}`}
+                alt="user"
+              />
+            ) : (
+              <img src={UserLoading} alt="loading_image" />
+            )}
           </div>
 
           <div className="information">
@@ -84,10 +100,13 @@ const CardThirdSec = (props) => {
         <hr />
 
         <div className="bottom">
-          <div className="chat"></div>
+          <div className="city">
+            <i className="fa-solid fa-location-dot"></i>
+            {api_user_data.city}
+          </div>
           <div className="price">
             RS.{api_data.unit_price}
-            {/* <span>{api_data.unit}</span> */}
+            <span>/ 1{api_data.unit}</span>
           </div>
         </div>
       </div>

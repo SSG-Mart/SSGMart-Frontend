@@ -4,7 +4,6 @@ import Loading from '../../assets/loading/loading.gif'
 
 
 const SecThree = (props) => {
-  // console.log(props.apiData);
   const api_data = props.apiData;
 
   return (
@@ -22,7 +21,7 @@ const SecThree = (props) => {
               {
                 api_data.map((item, index) => {
                   return(
-                    <CardThirdSec key={index} apiData={item} userData={props.user_data} />
+                    <CardThirdSec key={index} apiData={item} userData={props.user_data} togglePopUp = {props.togglePopUp} />
                   )
                 })
               }
