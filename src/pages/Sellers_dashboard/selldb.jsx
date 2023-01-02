@@ -8,9 +8,6 @@ function selldb() {
   return (
     <div className="main_seldb">
       <div className="names">
-        <img className="imlg" src={Imlg} alt="Imagein" />
-        <h1>SSGMart</h1>
-
       <div className="header-section">
 
         <div className="names">
