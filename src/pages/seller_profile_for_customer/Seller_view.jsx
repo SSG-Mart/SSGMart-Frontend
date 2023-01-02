@@ -5,6 +5,7 @@ import "./seller_view.scss";
 import SecTwo from "./sec_two";
 import SecThree from "./sec_three";
 import PopUp from "../../components/popup-item/popup-i";
+import Sidebar from "../navBar/Sidebar";
 
 export default function Seller_view( props ) {
   const { store_name } = useParams();
@@ -60,7 +61,9 @@ export default function Seller_view( props ) {
       <PopUp popUpData = {popUpData} clickClose={clickClose} />
     </div>
     <div className="seller_view_container">
-      <div className="firs_sec"></div>
+      <div className="firs_sec">
+      <Sidebar />
+      </div>
 
       <div className="second_sec">
         <SecTwo apiData={apiUserData} />

@@ -22,7 +22,7 @@ $fs_h5: 0.83rem;
 $fs_p: 1rem;
 
 .seller_view_container {
-  background-color: $container_bc;
+  // background-color: $container_bc;
   width: 100vw;
   box-sizing: border-box;
   height: 100vh;
@@ -35,7 +35,9 @@ $fs_p: 1rem;
 
   // first section
   .firs_sec {
-    width: 100px;
+    // width: 100px;
+    width: fit-content;
+    border-right: 1px solid #d8d8d8;
   }
 
   // second section
