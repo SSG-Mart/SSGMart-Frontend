@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "./popup-i.scss";
-import { AiOutlineClose, AiOutlinePhone } from "react-icons/ai";
+import Itempicture from "./tom.PNG";
+import Profilepic from "./pro.jpeg";
+import { ImLocation } from "react-icons/im";
+import { BsPhone } from "react-icons/bs";
+import { MdMessage } from "react-icons/md";
+import { IoClose } from "react-icons/io5";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
-import { BiMessageRoundedDots } from "react-icons/bi";
-import { GrLocation } from "react-icons/gr";
-import { useEffect } from "react";
 
 // star ratind
 const Star = ({ starId, rating, onMouseEnter, onMouseLeave, onClick }) => {
@@ -23,12 +25,12 @@ const Star = ({ starId, rating, onMouseEnter, onMouseLeave, onClick }) => {
       <svg
         height="30px"
         width="30px"
-        className={styleClass}
+        class={styleClass}
         viewBox="0 0 25 23"
         data-rating="1"
       >
         <polygon
-          strokeWidth="0"
+          stroke-width="0"
           points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78"
         />
       </svg>
@@ -36,105 +38,94 @@ const Star = ({ starId, rating, onMouseEnter, onMouseLeave, onClick }) => {
   );
 };
 
-function Popupi(props) {
-  // wishList
-  const [state, setState] = useState(false);
-  const [api, setAPI] = useState({});
+function Itempopup() {
+    // wishList
+    const [state, setState] = useState(false);
+    const toggle = () => {
+      setState(!state);
+    };
+    //   star Rating
+    const [rating, setRating] = useState(0);
+    const [hoverRating, setHoverRating] = useState(0);
+    const stars = [1, 2, 3, 4, 5];
   
-  const toggle = () => {
-    setState(!state);
-  };
-  //   star Rating
-  const [rating, setRating] = useState(0);
-  const [hoverRating, setHoverRating] = useState(0);
-  const stars = [1, 2, 3, 4, 5];
-
-  useEffect(() => {
-    setAPI(props.popUpData)
-  }, [props.popUpData, api]);
-
   return (
-    <div className="main-s">
-      <div className="main">
-        <div className="popup">
-          <button className="close" onClick={props.clickClose}>
-            <AiOutlineClose size={20} color="white"  />
-          </button>
-
-          <div className="details">
-            <div className="photo" style={{width: '40%', overflow: 'hidden', display:'flex', justifyContent:'center', alignItems:'center'}}>
-              {
-                api.item_image ? <img src={`http://localhost:8080/api/img/item/${api.item_image}`} alt="item_image" style={{width: '100%'}} /> :null
-              }
-              
-            </div>
-            <div className="prgph">
-              <h1>{api.item_name}</h1>
-              <p>
-                {api.description}
-              </p>
-              <div className="pri">
-                <hr />
-                <p>
-                  RS.{api.unit_price} <span>/ 1{api.unit}</span>
-                </p>
-                <hr />
+    <div className="main_container">
+      <div className="card">
+        
+        <div className="left">
+          <img className="itempicture" src={Itempicture} alt="item_picture" />
+        </div>
+        <div className="right">
+          <h1>Tomatoes</h1>
+          <div className="discribtion">
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it to make a type specimen book.
+            </p>
+          </div>
+          <hr />
+          <div className="price">
+            <h2>
+              Rs.220.00 <span>/1kg</span>
+            </h2>
+          </div>
+          <hr />
+          <div className="wrish">
+                <span
+                  onClick={toggle}
+                  className={"toggle--button" + (state ? "toggle--close" : "")}
+                >
+                  {state ? (
+                    <FaHeart color="red" size={20} />
+                  ) : (
+                    <FaRegHeart color="red" size={20} />
+                  )}
+                </span>{" "}
+                {state ? "Added" : "Add wish List"}
               </div>
-              <div className="prodetail">
-                <div className="wrish">
-                  <span
-                    onClick={toggle}
-                    className={
-                      "toggle--button" + (state ? "toggle--close" : "")
-                    }
-                  >
-                    {state ? (
-                      <FaHeart color="red" size={20} />
-                    ) : (
-                      <FaRegHeart color="red" size={20} />
-                    )}
-                  </span>{" "}
-                  {state ? "Added" : "Add wish List"}
+          <div className="profmain">
+            <div className="profile">
+              <img className="pro_pic" src={Profilepic} alt="Profile_picture" />
+            </div>
+            <div className="name">
+              <div className="nameandmassage">
+                <h3>Imeshika_123</h3>
+                <MdMessage className="massageicon" color="#3D64EE" size={27} />
+              </div>
+              <div className="flex-container">
+                  {stars.map((star, i) => (
+                    <Star
+                      key={i}
+                      starId={i}
+                      rating={hoverRating || rating}
+                      onMouseEnter={() => setHoverRating(i)}
+                      onMouseLeave={() => setHoverRating(0)}
+                      onClick={() => setRating(i)}
+                    />
+                  ))}
                 </div>
-                <div className="poto" style={{width: '60px', height: '60px', overflow: 'hidden', display:'flex', justifyContent:'center', alignItems:'center'}}>
-                  {
-                    api.user_image ? <img src={`http://localhost:8080/api/img/user/${api.user_image}`} alt="user_image" style={{width: '60px'}} /> : null
-                  }
-                  
+              <div className="contact">
+                <div className="location">
+                  <ImLocation color="gray" />
+                  Habarana town
                 </div>
-                <div className="nameAndStar">
-                  <div className="name">
-                    {api.store_name}
-                    <span>
-                      <BiMessageRoundedDots />
-                    </span>
-                  </div>
-                  <div className="flex-container">
-                    {stars.map((star, i) => (
-                      <Star
-                        key={i}
-                        starId={i}
-                        rating={hoverRating || rating}
-                        onMouseEnter={() => setHoverRating(i)}
-                        onMouseLeave={() => setHoverRating(0)}
-                        onClick={() => setRating(i)}
-                      />
-                    ))}
-                  </div>
-                  <div className="location1">
-                    <GrLocation size={35} /> {api.city}
-                  </div>
-                  <div className="location2">
-                    <AiOutlinePhone size={35} /> {api.mobile}
-                  </div>
+                <div className="number">
+                  <BsPhone color="gray" />
+                  071-1025032
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <div className="close">
+            <IoClose color="white" size={30} />
+          </div>
       </div>
     </div>
   );
 }
 
-export default Popupi;
+export default Itempopup;
