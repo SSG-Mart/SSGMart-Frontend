@@ -7,16 +7,14 @@ import { FaPlus } from "react-icons/fa";
 function selldb() {
   return (
     <div className="main_seldb">
-
+      <div className="names">
       <div className="header-section">
 
         <div className="names">
           <img className="logo" src={Logo} alt="logo" />
         </div>
-        <div>
           <h1>SSG Mart</h1>
         </div>
-
       </div>
 
       <div className="main-body-section">
