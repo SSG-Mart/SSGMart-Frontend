@@ -1,52 +1,44 @@
 import React from "react";
 import "./homePage.scss";
-import tomato from "../Home-image/potato.png";
-import orange from "../Home-image/Orange.png";
+import { useEffect } from "react";
+import axios from "axios";
+import { useState } from "react";
+
+export default function HomePage() {
+  const [itemdata, setitemData] = useState([])
+
+  useEffect(()=>{
+    axios.post("/api/home")
+    .then(res => {
+      console.log("Post from ::::",res.data)
+      setitemData(res.data)
+    }).catch(err => console.log(err))
+  }, [])
 
 
-export default function homePage() {
+  const arr = itemdata.map ((data)=>{
+    return(
+      <div className="card-frame">
+      <div className="img1">
+        <img src={`api/img/item/${data.image}`} alt="itemImage" />
+      </div>
+      <p className="shop-name">{data.store_name}</p>
+      <p className="item-name">{data.name}</p>
+      <p className="price">Rs.{data.unit_price}.00</p>
+      <button>See Details</button>
+    </div>
+    )
+  })
   return (
     <div className="home-container">
-      <div className="left"></div>
+      <div className="left">
+      </div>
 
       <div className="right">
         <div className="item-list">
-          <div className="card-fram">
-            <div className="img1">
-              <img src={tomato} alt="itemImage" />
-            </div>
-            <p className="item-name">Shop mame</p>
-            <p className="item-name">Tomato (250kg)</p>
-            <p className="price">Rs 300.00 </p>
-            <button>See Details</button>
-          </div>
-          <div className="card-fram">
-            <div className="img1">
-              <img src={orange} alt="itemImage" />
-            </div>
-            <p className="item-name">Shop mame</p>
-            <p className="item-name">Orange (500kg)</p>
-            <p className="price">Rs 400.00 </p>
-            <button>See Details</button>
-          </div>
-          <div className="card-fram">
-            <div className="img1">
-              <img src={tomato} alt="itemImage" />
-            </div>
-            <p className="item-name">Shop mame</p>
-            <p className="item-name">Tomato (250kg)</p>
-            <p className="price">Rs 300.00 </p>
-            <button>See Details</button>
-          </div>
-          <div className="card-fram">
-            <div className="img1">
-              <img src={orange} alt="itemImage" />
-            </div>
-            <p className="item-name">Shop mame</p>
-            <p className="item-name">Orange (500kg)</p>
-            <p className="price">Rs 400.00 </p>
-            <button>See Details</button>
-          </div>
+
+          {arr}
+
         </div>
       </div>
     </div>

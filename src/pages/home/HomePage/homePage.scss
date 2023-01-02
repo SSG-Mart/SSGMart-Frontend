@@ -19,16 +19,16 @@
 
     .item-list {
       margin-right: 100px;
-      margin-top: 8%;
+      margin-top: 100px;
       display: grid;
       background-color: transparent;
       grid-template-columns: auto auto auto auto;
       grid-auto-flow: row;
       grid-gap: 10px;
 
-      .card-fram {
+      .card-frame {
         border: none;
-        cursor: pointer;
+        // cursor: pointer;
         overflow: hidden;
         position: relative;
         display: flex;
@@ -36,7 +36,7 @@
         align-items: center;
         justify-content: space-between;
         background-color: white;
-        width: 80%;
+        width: 230px;
         height: 340px;
         margin-left: 50px;
         transition: 0.3s ease all;
@@ -46,7 +46,12 @@
             rgba(77, 77, 77, 0.15) 0px 0px 0px 1px;
         }
 
-        .item-name {
+        img{
+          height:150px;
+          width:230px;
+        }
+
+        .item-name, .shop-name {
           text-align: center;
           color: rgb(27, 27, 255);
         }

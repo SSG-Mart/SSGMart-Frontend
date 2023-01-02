@@ -12,7 +12,7 @@
         justify-content: space-between;
         align-items: center;
         height: 6vh;
-        width: 67.2vw;
+        min-width: 100%;
         background-color:rgb(255, 255, 255);
         color: rgb(0, 0, 0);
         text-indent: 4px;
@@ -44,7 +44,7 @@
         display: flex;
         align-items: center;
         height: 6vh;
-        width: 20vw;
+        min-width: 30%;
         background-color:rgb(255, 255, 255);
         color: rgb(0, 0, 0);
 
