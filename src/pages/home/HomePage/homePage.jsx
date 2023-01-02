@@ -10,15 +10,14 @@ export default function HomePage() {
   useEffect(()=>{
     axios.post("/api/home")
     .then(res => {
-      console.log("Post from ::::",res.data)
       setitemData(res.data)
     }).catch(err => console.log(err))
   }, [])
 
 
-  const arr = itemdata.map ((data)=>{
+  const arr = itemdata.map ((data, key)=>{
     return(
-      <div className="card-frame">
+      <div className="card-frame" key={key}>
       <div className="img1">
         <img src={`api/img/item/${data.image}`} alt="itemImage" />
       </div>
