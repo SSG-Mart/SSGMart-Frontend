@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
 
-export default function HomePage() {
+export default function HomePage(props) {
   const [itemdata, setitemData] = useState([])
 
   useEffect(()=>{
@@ -24,7 +24,7 @@ export default function HomePage() {
       <p className="shop-name">{data.store_name}</p>
       <p className="item-name">{data.name}</p>
       <p className="price">Rs.{data.unit_price}.00</p>
-      <button>See Details</button>
+      <button onClick={() => props.setPopUpData(data)}>See Details</button>
     </div>
     )
   })
