@@ -13,8 +13,7 @@ const Row = (props) => {
       description: props.item.description,
       unit_price: props.item.unit_price,
       unit: props.item.unit,
-      store_name: props.item.store_name
-      ,
+      store_name: props.item.store_name,
       city: props.item.city_name,
       mobile: props.item.mobile,
       item_image: props.item.image,
@@ -46,7 +45,7 @@ const Row = (props) => {
         </div>
         <div className="button-section">
           <div className="fst_section">
-            <label className="add-btn">Add Discount</label>
+            <label className="add-btn" onClick={() => props.clickDiscount(props.item.item_id, props.item.discount)}>Add Discount</label>
             <label className="preview-btn" onClick={showPreview}>Preview</label>
           </div>
           <div className="snd_section">

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import AddItem from "../../components/addItem/addItem";
 import Itempopup from "../../components/popup-item/popup-i";
+import DiscountPopup from "./components/discount_popup";
 import "./selldb.scss";
 import Logo from "./ssg_mart.png";
 import { FaPlus } from "react-icons/fa";
@@ -11,9 +12,10 @@ import Row from "./components/Row";
 function Selldb() {
   const [toggleAddItem, setToggleAddItem] = useState(false);
   const [data, setData] = useState();
-  const [trigger, setTrigger] = useState();
+  const [trigger, setTrigger] = useState(false);
   const [popUpData, setPopUpData] = useState([]);
   const [preview, setPreview] = useState(false);
+  
 
 
   useEffect(() => {
@@ -27,7 +29,7 @@ function Selldb() {
     // eslint-disable-next-line
   }, [trigger]);
 
-  //close popup preview
+  //popup preview
   function clickClose() {
     setPreview(false)
   }
@@ -37,9 +39,27 @@ function Selldb() {
     setPreview(true)
   }
 
+  //discount pop-up
+  const [discountPopup, setDiscountPopup] = useState(false);
+  const [DiscountItemId, setDiscountItemId] = useState(null);
+  const [discountPrice, setDiscountPrice] = useState(null);
+  function clickDiscount(e,x) {
+    setDiscountItemId(e);
+    setDiscountPrice(x);
+    setDiscountPopup(true);
+  }
+  
+  function clickDiscountClose() {
+    setDiscountPopup(false);
+  }
+
   return (
     <>
-    <div style={preview ? null : {display:'none'}}>
+    <div style={discountPopup ? null : {display: 'none'}}>
+      <DiscountPopup clickDiscountClose={clickDiscountClose} itemID={DiscountItemId} discountPrice={discountPrice} trigger={setTrigger} triggerValue={trigger} />
+    </div>
+
+    <div style={preview ? null : {display:'none'}}> {/** preview popup */}
       <Itempopup popUpData = {popUpData} clickClose={clickClose} />
     </div>
       <div
@@ -71,7 +91,7 @@ function Selldb() {
                 <div className="headre-data">
                   <span className="Topic_No">ID</span>
                   <span className="Topic_Image">Image</span>
-                  <span className="Topic_Discription">Discription</span>
+                  <span className="Topic_Discription">Description</span>
                   <span className="Topic_ABC">ABC</span>
                 </div>
               </div>
@@ -81,7 +101,8 @@ function Selldb() {
               {
                 typeof(data) === 'undefined' ? null :
                 data.map((item, index) => {
-                  return <Row key={index} item={item} trigger={setTrigger} triggerValue={trigger} showPreview={showPreview} />
+                  if(new Date(item.expire_date) > new Date())
+                    return <Row key={index} item={item} trigger={setTrigger} triggerValue={trigger} showPreview={showPreview} clickDiscount={clickDiscount} />
                 })
               }
 
