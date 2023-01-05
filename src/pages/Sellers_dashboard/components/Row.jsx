@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from "react";
 // import item_image from "../ss.jpeg";
-
 import axios from "axios";
+import Edit from "./Edit";
 
 const Row = (props) => {
-  console.log(props.item);
+  // console.log(props.item);
   const [discount, setDiscount] = useState(0);
 
   useEffect(() => {
@@ -38,9 +38,21 @@ const Row = (props) => {
   }
   
   // edit item
+  const [toggle, setToggle] = useState(false);
+  
+  function display(){
+    setToggle(true)
+  }
+  
+  function hidden(){
+    setToggle(false)
+  }
+
   return (
     <>
-
+      <div style={toggle ? null :{display: 'none'}}>
+        <Edit hidden={hidden} apiData = {props.item} /> 
+      </div>
       <div className="detail-body">
         <div className="Data_No">{props.item.item_id}</div>
         <div className="Data_Image">
@@ -56,7 +68,7 @@ const Row = (props) => {
           </div>
           <div className="snd_section">
             <label className="Remove-btn" onClick={removeItem}>Remove Item</label>
-            <label className="edit-btn">Edit</label>
+            <label className="edit-btn" onClick={display}>Edit</label>
           </div>
         </div>
       </div>

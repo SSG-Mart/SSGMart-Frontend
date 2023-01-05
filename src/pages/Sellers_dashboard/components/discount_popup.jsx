@@ -13,7 +13,6 @@ const DiscountPopup = (props) => {
       itemID: props.itemID,
       discountPrice: discount,
     });
-    console.log(res.data);
     props.trigger(!props.triggerValue);
     props.clickDiscountClose();
   }

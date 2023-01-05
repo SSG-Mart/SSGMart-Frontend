@@ -3,7 +3,6 @@ import axios from "axios";
 import AddItem from "../../components/addItem/addItem";
 import Itempopup from "../../components/popup-item/popup-i";
 import DiscountPopup from "./components/discount_popup";
-import Edit from "./components/Edit";
 import "./selldb.scss";
 import Logo from "./ssg_mart.png";
 import { FaPlus } from "react-icons/fa";
@@ -56,20 +55,10 @@ function Selldb(props) {
     setDiscountPopup(false);
   }
 
-  //edit items
-  const [toggleEdit, setToggleEdit] = useState(false);
-  function displayEdit() {
-    setToggleEdit(true);
-  }
-  function hiddenEdit() {
-    setToggleEdit(false);
-  }
+  
 
   return (
     <>
-    {/* <div style={toggleEdit ? null : {display: 'none'}} >
-      <Edit hiddenEdit={hiddenEdit} />
-    </div> */}
 
     <div style={discountPopup ? null : {display: 'none'}}>
       <DiscountPopup clickDiscountClose={clickDiscountClose} itemID={DiscountItemId} discountPrice={discountPrice} trigger={setTrigger} triggerValue={trigger}  />
