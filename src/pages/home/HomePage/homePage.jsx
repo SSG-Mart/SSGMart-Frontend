@@ -10,12 +10,14 @@ export default function HomePage(props) {
   useEffect(()=>{
     axios.post("/api/home")
     .then(res => {
-      setitemData(res.data)
+      if(res.data !== "No data found"){
+        setitemData(res.data)
+      }
+      else console.log("No data found");
     }).catch(err => console.log(err))
   }, [])
-
-
-  const arr = itemdata.map ((data, key)=>{
+  
+  const arr =  itemdata.map ((data, key)=>{
     return(
       <div className="card-frame" key={key}>
       <div className="img1">

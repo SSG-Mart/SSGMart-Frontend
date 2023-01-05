@@ -23,6 +23,7 @@ function Selldb(props) {
     async function fetchData() {
       var res = await axios.post("/api/dashboard");
       setData(res.data);
+      console.log(res.data);
     }
     fetchData();
     // eslint-disable-next-line
