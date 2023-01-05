@@ -3,13 +3,14 @@ import axios from "axios";
 import AddItem from "../../components/addItem/addItem";
 import Itempopup from "../../components/popup-item/popup-i";
 import DiscountPopup from "./components/discount_popup";
+import Edit from "./components/Edit";
 import "./selldb.scss";
 import Logo from "./ssg_mart.png";
 import { FaPlus } from "react-icons/fa";
 
 import Row from "./components/Row";
 
-function Selldb() {
+function Selldb(props) {
   const [toggleAddItem, setToggleAddItem] = useState(false);
   const [data, setData] = useState();
   const [trigger, setTrigger] = useState(false);
@@ -25,7 +26,6 @@ function Selldb() {
       setData(res.data);
     }
     fetchData();
-    console.log(data);
     // eslint-disable-next-line
   }, [trigger]);
 
@@ -42,21 +42,37 @@ function Selldb() {
   //discount pop-up
   const [discountPopup, setDiscountPopup] = useState(false);
   const [DiscountItemId, setDiscountItemId] = useState(null);
-  const [discountPrice, setDiscountPrice] = useState(null);
-  function clickDiscount(e,x) {
+  const [discountPrice, setDiscountPrice] = useState();
+  function clickDiscount(e, x) {
     setDiscountItemId(e);
-    setDiscountPrice(x);
+    setDiscountPrice(x)
+    console.log(x);
+    // setTrigger(!trigger)
     setDiscountPopup(true);
   }
   
   function clickDiscountClose() {
+    setTrigger(!trigger)
     setDiscountPopup(false);
+  }
+
+  //edit items
+  const [toggleEdit, setToggleEdit] = useState(false);
+  function displayEdit() {
+    setToggleEdit(true);
+  }
+  function hiddenEdit() {
+    setToggleEdit(false);
   }
 
   return (
     <>
+    {/* <div style={toggleEdit ? null : {display: 'none'}} >
+      <Edit hiddenEdit={hiddenEdit} />
+    </div> */}
+
     <div style={discountPopup ? null : {display: 'none'}}>
-      <DiscountPopup clickDiscountClose={clickDiscountClose} itemID={DiscountItemId} discountPrice={discountPrice} trigger={setTrigger} triggerValue={trigger} />
+      <DiscountPopup clickDiscountClose={clickDiscountClose} itemID={DiscountItemId} discountPrice={discountPrice} trigger={setTrigger} triggerValue={trigger}  />
     </div>
 
     <div style={preview ? null : {display:'none'}}> {/** preview popup */}
@@ -100,6 +116,7 @@ function Selldb() {
             <div className="body-section">
               {
                 typeof(data) === 'undefined' ? null :
+                // eslint-disable-next-line
                 data.map((item, index) => {
                   if(new Date(item.expire_date) > new Date())
                     return <Row key={index} item={item} trigger={setTrigger} triggerValue={trigger} showPreview={showPreview} clickDiscount={clickDiscount} />

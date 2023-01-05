@@ -1,0 +1,101 @@
+.edit_dashboard{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(14, 14, 14, 0.726);
+    z-index: 999;
+
+    .mainCard{
+        background-color: #fff;
+        padding: 30px;
+        width: max-content;
+        border-radius: 7px;
+        box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.2);
+
+        .mainTitle{
+            h1{
+                font-size: 30px;
+                font-weight: 600;
+                color: rgb(255, 72, 0);
+                text-align: center;
+                padding: 10px;
+                font-family: Arial, Helvetica, sans-serif;
+                padding: 10px;
+            }
+        }
+
+    }
+    
+    .inputs{
+        display: flex;
+        // padding: 10px;
+
+        .lineLeft, .lineRight{
+            display: flex;
+            flex-direction: column;
+            padding: 15px 15px 0px 0px;
+            
+            label{
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 18px;
+                font-weight: 600;
+                color: rgb(24, 24, 24);
+                padding-bottom: 3px;
+            }
+
+            input, select{
+                padding: 7px;
+                font: 17px Arial, Helvetica, sans-serif;
+                margin-bottom: 10px;
+            }
+
+            textarea{
+                // padding: 7px;
+                font: 17px Arial, Helvetica, sans-serif; 
+                height: 39px;
+                max-height: 100px;
+                max-width: 234px;
+                padding: 5px;
+                box-sizing: content-box;
+            }
+
+        }
+    }
+
+    .btn{
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+        padding-top: 25px;
+        
+        button{
+            padding: 7px 10px;
+            margin-right: 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 20px;
+            font-weight: 400;
+            color: #fff;
+            background-color: rgb(255, 72, 0);
+            cursor: pointer;
+            transition: 0.3s ease all
+        };
+
+        .update{
+            background-color: rgb(44, 187, 0);
+        }
+        .cancel{
+            background-color: rgb(255, 71, 86);
+        }
+
+        .update:hover{
+            background-color: rgb(53, 226, 0);
+        }
+        .cancel:hover{
+            background-color: rgb(255, 11, 31);
+        }
+    }
+}

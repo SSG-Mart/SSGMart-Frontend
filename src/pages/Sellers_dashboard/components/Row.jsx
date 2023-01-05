@@ -1,9 +1,15 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 // import item_image from "../ss.jpeg";
+
 import axios from "axios";
 
 const Row = (props) => {
   console.log(props.item);
+  const [discount, setDiscount] = useState(0);
+
+  useEffect(() => {
+    setDiscount(props.item.discount)
+  },[props.trigger])
 
   //add discount
   // preview
@@ -45,7 +51,7 @@ const Row = (props) => {
         </div>
         <div className="button-section">
           <div className="fst_section">
-            <label className="add-btn" onClick={() => props.clickDiscount(props.item.item_id, props.item.discount)}>Add Discount</label>
+            <label className="add-btn" onClick={() => props.clickDiscount(props.item.item_id, discount)}>Add Discount</label>
             <label className="preview-btn" onClick={showPreview}>Preview</label>
           </div>
           <div className="snd_section">
