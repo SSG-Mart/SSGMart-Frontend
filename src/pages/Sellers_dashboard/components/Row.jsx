@@ -51,7 +51,7 @@ const Row = (props) => {
   return (
     <>
       <div style={toggle ? null :{display: 'none'}}>
-        <Edit hidden={hidden} apiData = {props.item} /> 
+        <Edit hidden={hidden} apiData = {props.item} trigger={props.trigger} triggerValue={props.triggerValue} /> 
       </div>
       <div className="detail-body">
         <div className="Data_No">{props.item.item_id}</div>

@@ -24,6 +24,7 @@ const Edit = (props) => {
     }
     var res = await axios.post("/api/dashboard/update", {data01});
     if(res.data === "successfully_updated"){
+      props.trigger(!props.triggerValue)
       props.hidden();
     }
   }
