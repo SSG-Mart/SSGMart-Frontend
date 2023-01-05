@@ -16,6 +16,7 @@ import PopupItem from "./components/popup-item/popup-i";
 import Catagory from "./pages/categoryHome/CatagoryPage";
 
 import About from "./pages/AboutUs/about";
+import Contact from "./pages/Contactus/contact";
 
 
 function App() {
@@ -73,8 +74,9 @@ function App() {
 
             <Route path="*" element={<NotFound />} />
 
-            {/* This is a about us page in this website */}
-            <Route path="/about.us" element={<About />} />
+            {/* These are about us and contact us pages in this website */}
+            <Route path="/about/us" element={<About />} />
+            <Route path="/contact/us" element={<Contact />} />
           </Routes>
         </BrowserRouter>
         </>
