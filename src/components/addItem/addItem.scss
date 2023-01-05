@@ -1,10 +1,12 @@
 .addItem-container {
+  position: absolute;
   display: flex;
   width: 100vw;
   height: 100vh;
-  background-color: rgb(238, 214, 214);
+  background-color: rgba(0, 0, 0, 0.836);
   align-items: center;
   justify-content: center;
+  z-index: 999;
 
   .addItem-card {
     border-radius: 15px;
