@@ -6,10 +6,12 @@ import DiscountPopup from "./components/discount_popup";
 import "./selldb.scss";
 import Logo from "./ssg_mart.png";
 import { FaPlus } from "react-icons/fa";
-
+import { useNavigate } from "react-router-dom";
 import Row from "./components/Row";
 
 function Selldb(props) {
+  const navigate = useNavigate();
+
   const [toggleAddItem, setToggleAddItem] = useState(false);
   const [data, setData] = useState();
   const [trigger, setTrigger] = useState(false);
@@ -22,8 +24,19 @@ function Selldb(props) {
     // axios async call
     async function fetchData() {
       var res = await axios.post("/api/dashboard");
-      setData(res.data);
-      console.log(res.data);
+      // if(res.data.error.type !== "error"){
+      //   setData(res.data);
+      // }
+      // else navigate('/')
+      // console.log("DATA : ",res.data.error.type);
+
+      //
+      if(typeof(res.data.error) === 'undefined'){
+        if(typeof(res.data) === 'string') navigate('/')
+        else setData(res.data);
+      }else{
+        navigate('/')
+      }
     }
     fetchData();
     // eslint-disable-next-line
