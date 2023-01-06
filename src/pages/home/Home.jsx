@@ -28,7 +28,8 @@ export default function Home() {
       city: e.district_name,
       mobile:e.mobile,
       item_image:e.image,
-      user_image:e.user_image
+      user_image:e.user_image,
+      discount: e.discount,
     }
     showPopUp(data);
   }
