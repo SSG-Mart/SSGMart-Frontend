@@ -51,6 +51,7 @@ function Itempopup(props) {
 
   // Set data ( ushan )
   let data = props.popUpData;
+  console.log(data);
 
   return (
     <div className="main_container">
@@ -69,9 +70,10 @@ function Itempopup(props) {
           </div>
           <hr />
           <div className="price">
-            <h2>
+            <h2> 
               Rs.{data.unit_price} <span>/1{data.unit}</span>
             </h2>
+            
           </div>
           <hr />
           <div className="wrish">
