@@ -4,6 +4,7 @@ import SearchBar from "./searchBar/searchBar";
 import HomePage from "./HomePage/homePage";
 import "./Home.scss";
 import PopUp from "../../components/popup-item/popup-i"
+import Select from './Become_a_seller/Become';
 
 export default function Home() {
   const [data, setData] = useState({});
@@ -34,7 +35,18 @@ export default function Home() {
     showPopUp(data);
   }
 
+
+  const [becomeASeller ,becomePopUpSet] = useState(false);
   
+  const popUpBecomeASeller = () => {
+    becomePopUpSet(true);
+  }
+  
+  const hiddenBecomeASeller = () => {
+    becomePopUpSet(false);
+  }
+
+  const [triggerHome, setTrigger] = useState(new Date());
 
   return (
     <>
@@ -42,8 +54,13 @@ export default function Home() {
       <PopUp popUpData = {data} clickClose={clickClose} />
     </div>
     <div className="home-container">
+      <div style={becomeASeller ? null : {display: 'none'}}>
+        <Select hiddenBecomeASeller={hiddenBecomeASeller} trigger={setTrigger} />
+      </div>
+
       <Sidebar />
-      <SearchBar />
+
+      <SearchBar popUpBecomeASeller={popUpBecomeASeller} trigger={triggerHome} />
       <HomePage setPopUpData={setPopUpData} showPopUp={showPopUp} />
     </div>
     </>
