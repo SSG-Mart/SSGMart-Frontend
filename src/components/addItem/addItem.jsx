@@ -3,7 +3,7 @@ import axios from "axios";
 import { AiFillCloseCircle } from "react-icons/ai";
 import "./addItem.scss";
 
-export default function AddItem() {
+export default function AddItem(props) {
   const [title, setTitle] = useState("");
   const [quantity, setQuantity] = useState("");
   const [unit, setUnit] = useState("");
@@ -24,7 +24,7 @@ export default function AddItem() {
   useEffect(() => {
     const getCategory = async () => {
       try {
-        var res = await axios.post("api/additem/getcategory");
+        var res = await axios.post("/api/additem/getcategory");
         main_set_api_category(res.data[0].name);
         console.log(main_api_category);
         
@@ -107,12 +107,16 @@ export default function AddItem() {
       });
   }
 
+  const toggleAddItem = () => {
+    props.toggleAdd(false);
+  }
+
   return (
     <div className="addItem-container">
       <div className="addItem-card">
         {/* close button */}
         <div className="close-btn">
-          <AiFillCloseCircle size={30} color="red" />
+          <AiFillCloseCircle size={30} color="red" onClick={toggleAddItem} />
         </div>
 
         {/* Title of the card */}
@@ -203,7 +207,7 @@ export default function AddItem() {
                         id="category"
                         onChange={(e) => setSubcategory(e.target.value)}
                       >
-                        <option value="1" id="1">Select Sub Catagory</option>
+                        <option value="1" id="1" style={{visibility: 'hidden'}}>Select Sub Category</option>
                         {typeof sub_api_category !== "undefined"
                           ? sub_api_category.map((item, key) => {
                               return (

@@ -13,7 +13,10 @@ import NotFound from "./pages/page_not_found/page_not_found.jsx";
 
 import PopupItem from "./components/popup-item/popup-i";
 
-import Catagory from "./pages/categoryHome/CatagoryPage"
+import Catagory from "./pages/categoryHome/CatagoryPage";
+
+import About from "./pages/AboutUs/about";
+import Contact from "./pages/Contactus/contact";
 
 
 function App() {
@@ -70,6 +73,10 @@ function App() {
 
 
             <Route path="*" element={<NotFound />} />
+
+            {/* These are about us and contact us pages in this website */}
+            <Route path="/about/us" element={<About />} />
+            <Route path="/contact/us" element={<Contact />} />
           </Routes>
         </BrowserRouter>
         </>

@@ -25,12 +25,12 @@ const Star = ({ starId, rating, onMouseEnter, onMouseLeave, onClick }) => {
       <svg
         height="30px"
         width="30px"
-        class={styleClass}
+        className={styleClass}
         viewBox="0 0 25 23"
         data-rating="1"
       >
         <polygon
-          stroke-width="0"
+          strokeWidth="0"
           points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78"
         />
       </svg>
@@ -51,6 +51,7 @@ function Itempopup(props) {
 
   // Set data ( ushan )
   let data = props.popUpData;
+  console.log(data);
 
   return (
     <div className="main_container">
@@ -69,9 +70,10 @@ function Itempopup(props) {
           </div>
           <hr />
           <div className="price">
-            <h2>
+            <h2> 
               Rs.{data.unit_price} <span>/1{data.unit}</span>
             </h2>
+            
           </div>
           <hr />
           <div className="wrish">
