@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react";
-// import item_image from "../ss.jpeg";
 import axios from "axios";
 import Edit from "./Edit";
 
@@ -9,6 +8,7 @@ const Row = (props) => {
 
   useEffect(() => {
     setDiscount(props.item.discount)
+    // eslint-disable-next-line
   },[props.trigger])
 
   //add discount
