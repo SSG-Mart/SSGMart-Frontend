@@ -26,8 +26,7 @@ const SearchBar = (props) => {
   // ----------------------------------------------------------------------
 
   const [search, setSearch] = useState ("");
-  const [searchedData, setSearchedData] = useState ("");
-  console.log(searchedData);
+
 
   useEffect(() => {
     axios.post("/api/become/alreadySeller").then((res) => {
@@ -42,6 +41,7 @@ const SearchBar = (props) => {
       }
     });
   }, [props.trigger]);
+
   return (
     <div className="searchBar-container">
       <nav>
@@ -89,16 +89,12 @@ const SearchBar = (props) => {
               type="text"
               id="search"
               placeholder="Search...."
-              onChange={(event) =>{
-                setSearch (event.target.value);
-              }}
+              onChange={e => setSearch(e.target.value)}
             />
           </form>{" "}
           {/* end search class */}
           <div>
-            <button className="search-btn" onClick={event =>{
-              setSearchedData (search)
-            }}>
+            <button className="search-btn" onClick={()=> props.setSearch(search) }>
               <i className="fa-solid fa-magnifying-glass"></i>
             </button>
           </div>
