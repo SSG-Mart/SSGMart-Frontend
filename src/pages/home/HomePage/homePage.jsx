@@ -6,6 +6,11 @@ import { useState } from "react";
 
 export default function HomePage(props) {
   const [itemdata, setitemData] = useState([])
+  const search = props.search;
+
+  // this is variable for search
+  console.log(search);
+
 
   useEffect(()=>{
     axios.post("/api/home")

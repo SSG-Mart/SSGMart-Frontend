@@ -6,6 +6,7 @@ import Logo from "../../../assets/ssg_mart.png";
 import "./searchBar.scss";
 
 const SearchBar = (props) => {
+  const [search, setSearch] = useState("");
     const navigate = useNavigate();
   //
   const [response, setResponse] = useState();
@@ -70,11 +71,12 @@ const SearchBar = (props) => {
               type="text"
               id="search"
               placeholder="Search...."
+              onChange={e => setSearch(e.target.value)}
             />
           </form>{" "}
           {/* end search class */}
           <div>
-            <button className="search-btn">
+            <button className="search-btn" onClick={() => props.setSearch(search)}>
               <i className="fa-solid fa-magnifying-glass"></i>
             </button>
           </div>
