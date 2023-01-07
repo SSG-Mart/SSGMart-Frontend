@@ -47,7 +47,7 @@ export default function Home() {
   }
 
   const [triggerHome, setTrigger] = useState(new Date());
-
+  const [search, setSearch] = useState ("");
   return (
     <>
     <div style={popUpState ? null : {display: 'none'}}>
@@ -60,8 +60,8 @@ export default function Home() {
 
       <Sidebar />
 
-      <SearchBar popUpBecomeASeller={popUpBecomeASeller} trigger={triggerHome} />
-      <HomePage setPopUpData={setPopUpData} showPopUp={showPopUp} />
+      <SearchBar popUpBecomeASeller={popUpBecomeASeller} trigger={triggerHome} setSearch={setSearch} />
+      <HomePage setPopUpData={setPopUpData} showPopUp={showPopUp} searchData={search} />
     </div>
     </>
   );
