@@ -27,24 +27,26 @@ export default function HomePage(props) {
   
   useEffect(() => {
     let arr =  itemdata.map ((data, key)=>{
-      return(
-        <div className="card-frame" key={key}>
-        <div className="img1">
-          <img src={`api/img/item/${data.image}`} alt="itemImage" />
+      if((data.store_name.toLowerCase().includes(searchData.toLowerCase())) || (data.name.toLowerCase().includes(searchData.toLowerCase()))){
+        return(
+          <div className="card-frame" key={key}>
+          <div className="img1">
+            <img src={`api/img/item/${data.image}`} alt="itemImage" />
+          </div>
+          <p className="shop-name">{data.store_name}</p>
+          <p className="item-name">{data.name}</p>
+          <p className="price">Rs.{data.unit_price}.00</p>
+          <button onClick={() => props.setPopUpData(data)}>See Details</button>
         </div>
-        <p className="shop-name">{data.store_name}</p>
-        <p className="item-name">{data.name}</p>
-        <p className="price">Rs.{data.unit_price}.00</p>
-        <button onClick={() => props.setPopUpData(data)}>See Details</button>
-      </div>
-      )
+        )
+      }
     })
 
     setArr(arr)
 
     console.log(searchData);
     // eslint-disable-next-line
-  }, [searchData])
+  }, [searchData, itemdata])
   return (
     <div className="home-container">
       <div className="left">
