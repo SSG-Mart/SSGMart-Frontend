@@ -10,6 +10,25 @@ const SearchBar = (props) => {
   //
   const [response, setResponse] = useState();
 
+  // ----------------------------------------------------------------------
+  // ----------------------------------------------------------------------
+  // ----------------------------------------------------------------------
+  // ----------------------------------------------------------------------
+  // ----------------------------------------------------------------------
+  // ----------------------------------------------------------------------
+  // ----------------------------------------------------------------------
+  // ----------------------------------------------------------------------
+  // ----------------------------------------------------------------------
+  // ----------------------------------------------------------------------
+  // ----------------------------------------------------------------------
+  // ----------------------------------------------------------------------
+  // ----------------------------------------------------------------------
+  // ----------------------------------------------------------------------
+
+  const [search, setSearch] = useState ("");
+  const [searchedData, setSearchedData] = useState ("");
+  console.log(searchedData);
+
   useEffect(() => {
     axios.post("/api/become/alreadySeller").then((res) => {
       if (res.data === "unauthorized user") {
@@ -45,18 +64,18 @@ const SearchBar = (props) => {
         {
             response === "unauthorized" ? (
                 <>
-                    <input type="button" value="Become a seller" onClick={() => navigate('/auth')} />
+                    <input className="Become-a-seller" type="button" value="Become a seller" onClick={() => navigate('/auth')} />
                 </>
             )
             : response === "exist" ? (
                 <>
-                    <input type="button" value="Seller Dashboard" onClick={() => navigate('/seller/dashboard')} />
+                    <input className="Seller-Dashboard" type="button" value="Dashboard" onClick={() => navigate('/seller/dashboard')} />
                 </>
             ):
             (
                 // not exist
                 <>
-                    <input type="button" value="Become a seller" onClick={() => props.popUpBecomeASeller()} />
+                    <input className="Become-a-seller" type="button" value="Become a seller" onClick={() => props.popUpBecomeASeller()} />
                 </>
             )
 
@@ -70,11 +89,16 @@ const SearchBar = (props) => {
               type="text"
               id="search"
               placeholder="Search...."
+              onChange={(event) =>{
+                setSearch (event.target.value);
+              }}
             />
           </form>{" "}
           {/* end search class */}
           <div>
-            <button className="search-btn">
+            <button className="search-btn" onClick={event =>{
+              setSearchedData (search)
+            }}>
               <i className="fa-solid fa-magnifying-glass"></i>
             </button>
           </div>
