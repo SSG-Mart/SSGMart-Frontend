@@ -26,6 +26,7 @@ export default function HomePage(props) {
 
   
   useEffect(() => {
+    // eslint-disable-next-line
     let arr =  itemdata.map ((data, key)=>{
       if((data.store_name.toLowerCase().includes(searchData.toLowerCase())) || (data.name.toLowerCase().includes(searchData.toLowerCase()))){
         return(
