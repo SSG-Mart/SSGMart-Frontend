@@ -7,7 +7,7 @@ import "./searchBar.scss";
 
 const SearchBar = (props) => {
   const [search, setSearch] = useState("");
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   //
   const [response, setResponse] = useState();
 
@@ -42,41 +42,47 @@ const SearchBar = (props) => {
         </div>
 
         <div style={{ display: "flex", alignItems: "center" }}>
-
-        {
-            response === "unauthorized" ? (
-                <>
-                    <input type="button" value="Become a seller" onClick={() => navigate('/auth')} />
-                </>
-            )
-            : response === "exist" ? (
-                <>
-                    <input type="button" value="Seller Dashboard" onClick={() => navigate('/seller/dashboard')} />
-                </>
-            ):
-            (
-                // not exist
-                <>
-                    <input type="button" value="Become a seller" onClick={() => props.popUpBecomeASeller()} />
-                </>
-            )
-
-        }
-          
-
-
+          {response === "unauthorized" ? (
+            <>
+              <input
+                type="button"
+                value="Become a seller"
+                onClick={() => navigate("/auth")}
+              />
+            </>
+          ) : response === "exist" ? (
+            <>
+              <input
+                type="button"
+                value="Seller Dashboard"
+                onClick={() => navigate("/seller/dashboard")}
+              />
+            </>
+          ) : (
+            // not exist
+            <>
+              <input
+                type="button"
+                value="Become a seller"
+                onClick={() => props.popUpBecomeASeller()}
+              />
+            </>
+          )}
           <form action="/" method="get" className="form">
             <input
               className="search"
               type="text"
               id="search"
               placeholder="Search...."
-              onChange={e => setSearch(e.target.value)}
+              onChange={(e) => setSearch(e.target.value)}
             />
           </form>{" "}
           {/* end search class */}
           <div>
-            <button className="search-btn" onClick={() => props.setSearch(search)}>
+            <button
+              className="search-btn"
+              onClick={() => props.setSearch(search)}
+            >
               <i className="fa-solid fa-magnifying-glass"></i>
             </button>
           </div>
