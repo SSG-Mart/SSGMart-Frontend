@@ -51,7 +51,6 @@ function Itempopup(props) {
 
   // Set data ( ushan )
   let data = props.popUpData;
-  console.log(data);
 
   return (
     <div className="main_container">

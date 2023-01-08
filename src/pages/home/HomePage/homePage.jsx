@@ -6,6 +6,12 @@ import { useState } from "react";
 
 export default function HomePage(props) {
   const [itemdata, setitemData] = useState([])
+  const [searchData, setSearchData] = useState("")
+  const [arr, setArr] = useState()
+
+  useEffect(() => {
+    setSearchData(props.searchData)
+  }, [searchData,props.searchData]);
 
   useEffect(()=>{
     axios.post("/api/home")
@@ -15,21 +21,33 @@ export default function HomePage(props) {
       }
       else console.log("No data found");
     }).catch(err => console.log(err))
-  }, [])
+  }, [searchData])
+
+
   
-  const arr =  itemdata.map ((data, key)=>{
-    return(
-      <div className="card-frame" key={key}>
-      <div className="img1">
-        <img src={`api/img/item/${data.image}`} alt="itemImage" />
-      </div>
-      <p className="shop-name">{data.store_name}</p>
-      <p className="item-name">{data.name}</p>
-      <p className="price">Rs.{data.unit_price}.00</p>
-      <button onClick={() => props.setPopUpData(data)}>See Details</button>
-    </div>
-    )
-  })
+  useEffect(() => {
+    // eslint-disable-next-line
+    let arr =  itemdata.map ((data, key)=>{
+      if((data.store_name.toLowerCase().includes(searchData.toLowerCase())) || (data.name.toLowerCase().includes(searchData.toLowerCase()))){
+        return(
+          <div className="card-frame" key={key}>
+          <div className="img1">
+            <img src={`api/img/item/${data.image}`} alt="itemImage" />
+          </div>
+          <p className="shop-name">{data.store_name}</p>
+          <p className="item-name">{data.name}</p>
+          <p className="price">Rs.{data.unit_price}.00</p>
+          <button onClick={() => props.setPopUpData(data)}>See Details</button>
+        </div>
+        )
+      }
+    })
+
+    setArr(arr)
+
+    console.log(searchData);
+    // eslint-disable-next-line
+  }, [searchData, itemdata])
   return (
     <div className="home-container">
       <div className="left">
