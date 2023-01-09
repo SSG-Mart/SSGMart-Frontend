@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, {useState} from "react";
 import Sidebar from "../navBar/Sidebar";
 import SearchBar from "./searchBar/searchBar";
 import HomePage from "./HomePage/homePage";
@@ -46,12 +46,7 @@ export default function Home() {
   };
 
   const [triggerHome, setTrigger] = useState(new Date());
-
-  //search
-  const [search, setSearch] = useState("");
-
-  useEffect(() => {}, []);
-
+  const [search, setSearch] = useState ("");
   return (
     <>
       <div style={popUpState ? null : { display: "none" }}>
@@ -67,17 +62,9 @@ export default function Home() {
 
         <Sidebar />
 
-        <SearchBar
-          popUpBecomeASeller={popUpBecomeASeller}
-          trigger={triggerHome}
-          setSearch={setSearch}
-        />
-        <HomePage
-          setPopUpData={setPopUpData}
-          showPopUp={showPopUp}
-          search={search}
-        />
-      </div>
+      <SearchBar popUpBecomeASeller={popUpBecomeASeller} trigger={triggerHome} setSearch={setSearch} />
+      <HomePage setPopUpData={setPopUpData} showPopUp={showPopUp} searchData={search} />
+    </div>
     </>
   );
 }
