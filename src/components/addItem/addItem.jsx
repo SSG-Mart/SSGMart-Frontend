@@ -103,7 +103,12 @@ export default function AddItem(props) {
 
       .then((result) => {
         // setMassage(result.data.msg);
-        console.log(result.data);
+        console.log(result.data.result);
+        if(result.data.result === "add item successfully"){
+          document.getElementById("form001").reset();
+          props.setTrigger(!props.trigger);
+          props.toggleAdd(false);
+        }
       });
   }
 
@@ -126,7 +131,7 @@ export default function AddItem(props) {
 
         {/* Main Table */}
         <div className="table-decision">
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} id="form001">
             <table border={0}>
               <tbody>
                 <tr>
