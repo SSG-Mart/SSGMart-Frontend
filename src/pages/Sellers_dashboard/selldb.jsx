@@ -85,7 +85,7 @@ function Selldb(props) {
         className="add_item"
         style={toggleAddItem ? null : { display: "none" }}
       >
-        <AddItem toggleAdd={setToggleAddItem} />
+        <AddItem toggleAdd={setToggleAddItem} trigger={trigger} setTrigger={setTrigger} />
       </div>
       <div className="main_seldb">
         <div className="names">
