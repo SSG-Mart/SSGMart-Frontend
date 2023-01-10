@@ -5,7 +5,8 @@ import "./seller_view.scss";
 import SecTwo from "./sec_two";
 import SecThree from "./sec_three";
 import PopUp from "../../components/popup-item/popup-i";
-import Sidebar from "../navBar/Sidebar";
+// import Sidebar from "../navBar/Sidebar";
+import Nav from "../navBar/Nav";
 
 export default function Seller_view( props ) {
   const { store_name } = useParams();
@@ -62,7 +63,8 @@ export default function Seller_view( props ) {
     </div>
     <div className="seller_view_container">
       <div className="firs_sec">
-      <Sidebar />
+      {/* <Sidebar /> */}
+      <Nav />
       </div>
 
       <div className="second_sec">
