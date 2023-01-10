@@ -4,6 +4,7 @@
     z-index: 2;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
+
     .icon{
         width: 60px;
         // background-color: rgb(0, 0, 0);
@@ -36,6 +37,7 @@
 
         ul{
             margin-top: 20px;
+            overflow: hidden;
             li {
                 display: flex;
                 align-items: center;
@@ -46,6 +48,7 @@
                 margin: 0 5px;
                 border-radius: 4px;
                 margin-bottom: 15px;
+                
                 
                 padding-left: 9px;
                 i{
