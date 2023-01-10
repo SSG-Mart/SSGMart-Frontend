@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import Sidebar from "../navBar/Sidebar";
+import Nav from "../navBar/Nav";
 import SearchBar from "./searchBar/searchBar";
 import HomePage from "./HomePage/homePage";
 import "./Home.scss";
@@ -60,7 +60,7 @@ export default function Home() {
           />
         </div>
 
-        <Sidebar />
+        <Nav />
 
       <SearchBar popUpBecomeASeller={popUpBecomeASeller} trigger={triggerHome} setSearch={setSearch} />
       <HomePage setPopUpData={setPopUpData} showPopUp={showPopUp} searchData={search} />

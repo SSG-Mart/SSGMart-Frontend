@@ -1,5 +1,5 @@
 import React from 'react'
-import Sidebar from '../navBar/Sidebar'
+import Sidebar from '../navBar/Nav'
 import Filetr from './filterSection/filter'
 import './CatagoryPage.scss'
 import tomato from '../home/Home-image/potato.png'

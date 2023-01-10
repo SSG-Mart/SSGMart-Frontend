@@ -8,6 +8,7 @@ import Logo from "./ssg_mart.png";
 import { FaPlus } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import Row from "./components/Row";
+import Nav from "../navBar/Nav";
 
 function Selldb(props) {
   const navigate = useNavigate();
@@ -73,7 +74,6 @@ function Selldb(props) {
 
   return (
     <>
-
     <div style={discountPopup ? null : {display: 'none'}}>
       <DiscountPopup clickDiscountClose={clickDiscountClose} itemID={DiscountItemId} discountPrice={discountPrice} trigger={setTrigger} triggerValue={trigger}  />
     </div>
@@ -88,6 +88,12 @@ function Selldb(props) {
         <AddItem toggleAdd={setToggleAddItem} trigger={trigger} setTrigger={setTrigger} />
       </div>
       <div className="main_seldb">
+
+        <div className="left">
+          <Nav />
+        </div>
+
+        <div className="right">
         <div className="names">
           <div className="header-section">
             <div className="names">
@@ -140,6 +146,7 @@ function Selldb(props) {
           </div>
         </div>
       </div>
+        </div>
     </>
   );
 }
