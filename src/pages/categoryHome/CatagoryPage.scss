@@ -68,8 +68,8 @@
                     margin-top: 150px;
                     display: grid;
                     background-color: transparent;
-                    grid-template-columns: auto auto auto auto;
-                    grid-auto-flow: row;
+                    grid-template-columns: auto auto auto;
+                    // grid-auto-flow: row;
                     grid-gap: 10px;
 
                     .card-fram {
