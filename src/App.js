@@ -41,6 +41,7 @@ function App() {
 
   return (
     <div>
+      
       {isAuth === 404 ? (
         <div style={{position:'absolute',height:'100vh', width: '100vw',display:'flex', alignItems:'center', justifyContent:'center'}}>
           <img src={Loading} alt="loading_gif" style={{width: '10vw'}} />
