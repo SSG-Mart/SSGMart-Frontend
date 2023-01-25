@@ -13,7 +13,7 @@ import NotFound from "./pages/page_not_found/page_not_found.jsx";
 
 import PopupItem from "./components/popup-item/popup-i";
 
-import Catagory from "./pages/categoryHome/CatagoryPage";
+import Catagory from "./pages/CatagoryPage/catagoryHome";
 
 import About from "./pages/AboutUs/about";
 import Contact from "./pages/Contactus/contact";
