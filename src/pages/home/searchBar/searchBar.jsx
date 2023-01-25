@@ -10,7 +10,7 @@ const SearchBar = (props) => {
   //
   const [response, setResponse] = useState();
 
-  const [search, setSearch] = useState ("");
+  // const [search, setSearch] = useState ("");
 
 
   useEffect(() => {
@@ -74,15 +74,15 @@ const SearchBar = (props) => {
               type="text"
               id="search"
               placeholder="Search...."
-              onChange={(e) => setSearch(e.target.value)}
+              onChange={(e) => props.setSearch(e.target.value)}
             />
           </form>{" "}
           {/* end search class */}
-          <div>
+          {/* <div>
             <button className="search-btn" onClick={()=> props.setSearch(search) }>
               <i className="fa-solid fa-magnifying-glass"></i>
             </button>
-          </div>
+          </div> */}
         </div>
       </nav>
     </div>
