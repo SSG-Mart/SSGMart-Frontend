@@ -15,6 +15,8 @@ import PopupItem from "./components/popup-item/popup-i";
 
 import Catagory from "./pages/CatagoryPage/catagoryHome";
 
+import Wishlist from "./pages/wishlist/wishlist";
+
 import About from "./pages/AboutUs/about";
 import Contact from "./pages/Contactus/contact";
 
@@ -66,6 +68,7 @@ function App() {
 
           <Route path="*" element={<NotFound />} />
           <Route path="/catagory" element={<Catagory />} />
+          <Route path="/wishlist" element={<Wishlist />} />
 
             <Route
               path="/auth"
