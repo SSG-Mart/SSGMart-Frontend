@@ -18,6 +18,8 @@ import Catagory from "./pages/CatagoryPage/catagoryHome";
 import About from "./pages/AboutUs/about";
 import Contact from "./pages/Contactus/contact";
 
+import UserProfile from "./pages/user_profile/User_profile_view";
+
 
 function App() {
   const [isAuth, setIsAuth] = useState(404);
@@ -63,9 +65,10 @@ function App() {
             <Route path="/store/:store_name" element={<SellerView />} />
             <Route path="additem" element={<AddItem />} />
 
-
-          <Route path="*" element={<NotFound />} />
           <Route path="/catagory" element={<Catagory />} />
+          
+          <Route path="/profile" element={<UserProfile />} />
+
 
             <Route
               path="/auth"

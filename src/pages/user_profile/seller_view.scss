@@ -1,0 +1,122 @@
+.user_view_container {
+  width: 100vw;
+  box-sizing: border-box;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+
+  // start of styling
+
+  // first section
+  .firs_sec {
+    // width: 100px;
+    width: fit-content;
+  }
+
+  // second section
+  .second_sec {
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    display: flex;
+    // align-items: center;
+    justify-content: center;
+    padding-top: 40px;
+    box-sizing: border-box;
+    height: 100vh;
+
+    .container {
+      width: 100%;
+      display: flex;
+      // height: 100vh;
+      // justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      overflow-y: auto;
+      overflow-x: auto;
+      .profile_pic {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        overflow: hidden;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        img{
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .form {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        form {
+
+          .form_container {
+            display: flex;
+          }
+
+          //meadia query
+          @media only screen and (max-width: 930px) {
+            .form_container {
+              display: block;
+            }
+          }
+          .sec {
+            display: flex;
+            flex-direction: column;
+            margin: 0 20px;
+          }
+
+          .button{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+            margin-bottom: 20px;
+
+
+            button{
+                width: 400px;
+                padding: 10px;
+                border: none;
+                border-radius: 5px;
+                background-color: rgb(55, 25, 228);
+                color: rgb(255, 255, 255);
+                transition: 0.2s ease-in-out;
+                margin-top: 10px;
+
+                &:hover{
+                    background-color: rgb(255, 94, 0);
+                    color: rgb(255, 255, 255);
+                }
+            }
+          }
+
+          input, select {
+            width: 400px;
+            height: 40px;
+            border: 1px solid rgb(219, 219, 219);
+            border-radius: 5px;
+            padding-left: 10px;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+            margin-bottom: 15px;
+          }
+
+          label{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 2px;
+          }
+        }
+      }
+    }
+  }
+}
