@@ -55,6 +55,13 @@ const Nav = () => {
       name: "Dashboard",
       icon: "fa-solid fa-gauge",
     },
+    {
+      id: 3,
+      seller: true,
+      path: "/catagory",
+      name: "Category",
+      icon: "fa-solid fa-sitemap",
+    },
     // {
     //   id: 3,
     // seller: true,
@@ -96,7 +103,7 @@ const Nav = () => {
           {/* User Icon */}
           {userID !== -1 ? (
             <>
-              <li className="image_li">
+              <li className="image_li" onClick={() => navigate("/profile")}>
                 <div className="image">
                   <img
                     src={`http://localhost:8080/api/img/user/userID/${userID}`}
@@ -133,6 +140,21 @@ const Nav = () => {
           {item.map((item) => {
             if (item.seller === false) {
               return null;
+            }
+            if(item.id === 3){
+              return(
+                <NavLink key={item.id} to={item.path} activeclassname="active">
+                <li>
+                  <i className={item.icon} title={item.name}></i>
+                  <span
+                    className="pageName"
+                    style={toggle ? null : { display: "none" }}
+                  >
+                    {item.name}
+                  </span>
+                </li>
+              </NavLink>
+              )
             }
             return (
               <NavLink key={item.id} to={item.path} activeclassname="active">
