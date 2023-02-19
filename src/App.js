@@ -64,7 +64,7 @@ function App() {
             <Route path="additem" element={<AddItem />} />
 
 
-          <Route path="*" element={<NotFound />} />
+          
           <Route path="/catagory" element={<Catagory />} />
 
             <Route
@@ -73,11 +73,12 @@ function App() {
             />
 
 
-            <Route path="*" element={<NotFound />} />
+            
 
             {/* These are about us and contact us pages in this website */}
-            <Route path="/about/us" element={<About />} />
-            <Route path="/contact/us" element={<Contact />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
         </>
