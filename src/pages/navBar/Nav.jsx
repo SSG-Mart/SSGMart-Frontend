@@ -141,20 +141,20 @@ const Nav = () => {
             if (item.seller === false) {
               return null;
             }
-            if(item.id === 3){
-              return(
+            if (item.id === 3) {
+              return (
                 <NavLink key={item.id} to={item.path} activeclassname="active">
-                <li>
-                  <i className={item.icon} title={item.name}></i>
-                  <span
-                    className="pageName"
-                    style={toggle ? null : { display: "none" }}
-                  >
-                    {item.name}
-                  </span>
-                </li>
-              </NavLink>
-              )
+                  <li>
+                    <i className={item.icon} title={item.name}></i>
+                    <span
+                      className="pageName"
+                      style={toggle ? null : { display: "none" }}
+                    >
+                      {item.name}
+                    </span>
+                  </li>
+                </NavLink>
+              );
             }
             return (
               <NavLink key={item.id} to={item.path} activeclassname="active">
@@ -171,8 +171,33 @@ const Nav = () => {
             );
           })}
 
-          {/* logout */}
+          {/* About */}
+          <NavLink to="/about" activeclassname="active">
+            <li>
+              <i class="fa-solid fa-circle-info" title="About Us"></i>
+              <span
+                className="pageName"
+                style={toggle ? null : { display: "none" }}
+              >
+                About Us
+              </span>
+            </li>
+          </NavLink>
 
+          {/* About */}
+          <NavLink to="/contact" activeclassname="active">
+            <li>
+              <i class="fa-solid fa-handshake" title="Contact Us"></i>
+              <span
+                className="pageName"
+                style={toggle ? null : { display: "none" }}
+              >
+                Contact Us
+              </span>
+            </li>
+          </NavLink>
+
+          {/* logout */}
           {userID !== -1 ? (
             <li className="logout" onClick={logout}>
               <i className="fa-solid fa-right-from-bracket" title="Logout"></i>
