@@ -1,0 +1,132 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.Main {
+  width: 100vw;
+  height: 100vh;
+  font-size: 10px;
+  font-family: sans-serif;
+  background-color: rgb(255, 255, 255);
+
+  .card {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-color: gray;
+    background-image: url(./seld.PNG);
+    background-position: center;
+    background-size: cover;
+
+    .left {
+      width: 150px;
+      height: 100%;
+      background-color: transparent;
+    }
+    .right {
+      width: 90%;
+      height: 100%;
+      background-color: transparent;
+      display: list-item;
+
+      .headr {
+        width: 95%;
+        height: 6%;
+        background-color: rgb(217, 217, 217);
+        text-align: center;
+        font-size: 3em;
+        color: rgb(0, 71, 143);
+        font-weight: bold;
+        padding-top: 1%;
+        margin-top: 1%;
+        border-radius: 10px;
+      }
+      .cardpack {
+        width: 100%;
+        height: 90%;
+        background-color: transparent;
+        overflow-y: scroll;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        gap: 50px 50px;
+        justify-content: left;
+
+        .detailcard {
+          width: 250px;
+          height: 300px;
+          cursor: pointer;
+          flex-direction: column;
+          transition: 0.3s ease all;
+          background-color: white;
+          margin-top: 10%;
+          margin-left: 25%;
+          border-radius: 10px;
+          display: flex;
+          text-align: center;
+
+          .photo {
+            width: 100%;
+            height: 50%;
+            border-radius: 10px;
+            background-color: gray;
+            background-image: url(./image.jpeg);
+          }
+          h2 {
+            margin-top: 5%;
+            font-size: 2.5em;
+          }
+          h3 {
+            margin-top: 5%;
+            font-size: 1.5em;
+            color: rgb(0, 209, 0);
+          }
+          .view {
+            width: 150px;
+            height: 26px;
+            background-color: rgb(36, 36, 65);
+            color: white;
+            font-size: 1.8em;
+            padding-top: 5px;
+            margin-top: 10%;
+            border-radius: 50px;
+            margin-left: 50px;
+          }
+          .view:hover {
+            background-color: rgb(97, 97, 159);
+            color: black;
+            font-weight: bold;
+          }
+        }
+        .detailcard:hover {
+          box-shadow: 0px 0px 10px;
+        }
+      }
+      @media only screen and (max-width: 1000px) {
+        .cardpack {
+          flex-direction: column;
+          grid-template-columns: auto auto;
+        }
+      }
+      @media only screen and (max-width: 1250px) {
+        .cardpack {
+          flex-direction: column;
+          grid-template-columns: auto auto auto;
+        }
+      }
+      @media only screen and (max-width: 1070px) {
+        .cardpack {
+          flex-direction: column;
+          grid-template-columns: auto auto;
+        }
+      }
+      @media only screen and (max-width: 766px) {
+        .cardpack {
+          flex-direction: column;
+          grid-template-columns: auto;
+        }
+      }
+    }
+  }
+}

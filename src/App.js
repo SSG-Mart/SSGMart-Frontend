@@ -15,8 +15,12 @@ import PopupItem from "./components/popup-item/popup-i";
 
 import Catagory from "./pages/CatagoryPage/catagoryHome";
 
+import Wishlist from "./pages/wishlist/wishlist";
+
 import About from "./pages/AboutUs/about";
 import Contact from "./pages/Contactus/contact";
+
+import UserProfile from "./pages/user_profile/User_profile_view";
 
 
 function App() {
@@ -63,9 +67,11 @@ function App() {
             <Route path="/store/:store_name" element={<SellerView />} />
             <Route path="additem" element={<AddItem />} />
 
-
-          
           <Route path="/catagory" element={<Catagory />} />
+          
+          <Route path="/profile" element={<UserProfile />} />
+
+          <Route path="/wishlist" element={<Wishlist />} />
 
             <Route
               path="/auth"
