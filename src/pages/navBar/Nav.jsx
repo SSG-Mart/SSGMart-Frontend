@@ -174,7 +174,7 @@ const Nav = () => {
           {/* About */}
           <NavLink to="/about" activeclassname="active">
             <li>
-              <i class="fa-solid fa-circle-info" title="About Us"></i>
+              <i className="fa-solid fa-circle-info" title="About Us"></i>
               <span
                 className="pageName"
                 style={toggle ? null : { display: "none" }}
@@ -187,7 +187,7 @@ const Nav = () => {
           {/* About */}
           <NavLink to="/contact" activeclassname="active">
             <li>
-              <i class="fa-solid fa-handshake" title="Contact Us"></i>
+              <i className="fa-solid fa-handshake" title="Contact Us"></i>
               <span
                 className="pageName"
                 style={toggle ? null : { display: "none" }}

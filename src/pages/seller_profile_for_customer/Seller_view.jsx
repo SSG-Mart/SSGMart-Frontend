@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./seller_view.scss";
 import SecTwo from "./sec_two";
@@ -9,8 +9,11 @@ import PopUp from "../../components/popup-item/popup-i";
 import Nav from "../navBar/Nav";
 
 export default function Seller_view( props ) {
+  const navigate = useNavigate();
   const { store_name } = useParams();
-  // if(typeof(store_name) != 'undefined') console.log(store_name);
+  if(store_name === 'undefined'){
+    navigate('/404');
+  } 
 
   const [apiUserData, setApiUserData] = useState({});
   const [apiItemData, setApiItemData] = useState(null);
@@ -29,6 +32,7 @@ export default function Seller_view( props ) {
         }
       } catch (err) {
         console.log(err);
+        navigate('/404');
       }
     };
     getData();

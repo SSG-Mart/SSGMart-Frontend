@@ -253,6 +253,7 @@ $fs_p: 1rem;
           padding: 3px 7px;
           padding-top: 10px;
           padding-bottom: 5px;
+          margin-bottom: 0;
 
           .image{
             border-radius: 100%;
@@ -294,6 +295,7 @@ $fs_p: 1rem;
         .description {
           height: 100%;
           padding: 5px 7px;
+          background-color: rgb(255, 255, 255);
           .title{
             font-size: $fs_h3;
             font-family: $main_title_ff;
