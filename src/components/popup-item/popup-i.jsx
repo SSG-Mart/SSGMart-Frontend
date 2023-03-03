@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {useNavigate } from "react-router-dom"
 import "./popup-i.scss";
 // import Itempicture from "./tom.PNG";
 // import Profilepic from "./pro.jpeg";
@@ -39,6 +40,7 @@ const Star = ({ starId, rating, onMouseEnter, onMouseLeave, onClick }) => {
 };
 
 function Itempopup(props) {
+  const navigate = useNavigate();
   // wishList
   const [state, setState] = useState(false);
   const toggle = () => {
@@ -51,6 +53,10 @@ function Itempopup(props) {
 
   // Set data ( ushan )
   let data = props.popUpData;
+
+  const gotoSellerProfile = (store_name) => {
+      navigate(`/store/${store_name}`);
+  }
 
   return (
     <div className="main_container">
@@ -94,7 +100,7 @@ function Itempopup(props) {
             </div>
             <div className="name">
               <div className="nameandmassage">
-                <h3>{data.store_name}</h3>
+                <h3 onClick={() => gotoSellerProfile(data.store_name)}>{data.store_name}</h3>
                 <MdMessage className="massageicon" color="#3D64EE" size={27} />
               </div>
               <div className="flex-container">

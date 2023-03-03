@@ -1,18 +1,20 @@
+import {useNavigate} from "react-router-dom"
 import "./about.scss";
 import { FaHome } from "react-icons/fa";
 import { BsPhone } from "react-icons/bs";
 
 function Head() {
+  const navigate = useNavigate();
   return (
     <div className="page_container">
       <div className="aftermain">
         <div className="head">
-          <button>
+          <button onClick={() => navigate('/')}>
             <FaHome />
             Home
           </button>
           <hr />
-          <button>
+          <button onClick={() => navigate('/contact')}>
             <BsPhone />
             Contact
           </button>
