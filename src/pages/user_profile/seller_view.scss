@@ -5,6 +5,9 @@
   overflow: hidden;
   display: flex;
   flex-direction: row;
+  background-image: url('../../assets/profile_background.jpg');
+  background-size: cover;
+  background-position: center;
 
   // start of styling
 
@@ -16,7 +19,7 @@
 
   // second section
   .second_sec {
-    background-color: rgb(255, 255, 255);
+    // background-color: rgb(255, 255, 255);
     width: 100%;
     display: flex;
     // align-items: center;
@@ -107,6 +110,7 @@
             font-size: 18px;
             box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
             margin-bottom: 15px;
+            background-color: #fff;
           }
 
           label{
