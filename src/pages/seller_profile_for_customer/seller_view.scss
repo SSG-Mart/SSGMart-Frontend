@@ -127,19 +127,26 @@ $fs_p: 1rem;
       .status {
         display: flex;
         align-items: center;
-        background-color: $s_sec_status_dc;
+        justify-content: center;
         padding: 2px 8px;
-        border-radius: 50px;
-        margin-top: 3px;
-        .circle {
-          width: 8px;
-          height: 8px;
-          border-radius: 50%;
-          margin-right: 9px;
-        }
-        .current_status {
-          font-size: 11px;
-          font-family: $small_title_ff;
+        border-radius: 9px;
+        margin-top: 25px;
+
+        
+        div{
+          padding: 12px 15px;
+          border-radius: 5px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+          i{
+            font-size: 18px;
+            padding-right: 10px;;
+          }
+
+          span{
+            font-size: 18px;
+            font-family: Arial, Helvetica, sans-serif;
+          }
         }
       }
 
@@ -281,9 +288,9 @@ $fs_p: 1rem;
                 align-items: center;
                 justify-content: flex-start;
                 font-size: $fs_h4;
-                font-family: $small_title_ff;
-                font-size: $fs_h5;
-                color: gold;
+                font-family: "Roboto", sans-serif;
+                font-size: 12px;
+                // color: gold;
                 i{
                     font-size: 12px;
                     padding-right: 5px;

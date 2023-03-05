@@ -8,6 +8,8 @@ const CardThirdSec = (props) => {
 
   const api_data = props.apiData;
   const api_user_data = props.userData;
+  // console.log(api_user_data);
+
 
   const [dates, setDates] = useState(0);
   const [hours, setHours] = useState(0);
@@ -78,9 +80,18 @@ const CardThirdSec = (props) => {
 
           <div className="information">
             <p className="name">{api_user_data.store_name}</p>
-            <p className="ratings">
-              <i className="fa-solid fa-star"></i> 4/5
-            </p>
+            {api_user_data.veryfy_seller == 1 ? (
+              <p className="ratings" style={{color:'green'}}>
+              <i className="fa-solid fa-shield-halved"></i> Verify Seller
+              </p>
+            )
+            :
+            (
+                <p className="ratings" style={{color:'gray'}}>
+                <i className="fa-solid fa-circle-exclamation"></i> Seller Not Verify
+                </p>
+            )}
+            
           </div>
         </div>
 

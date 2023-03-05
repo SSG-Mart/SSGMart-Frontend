@@ -28,8 +28,22 @@ const SecTwo = (props) => {
           <h3 className="seller_name">{api_data.store_name}</h3>
 
           <div className="status">
-            <span className="circle" style={{ background: "green" }}></span>
-            <span className="current_status">Online</span>
+            {
+              api_data.veryfy_seller == 1 ?(
+                <div style={{backgroundColor:"#03C988", color:"#fff"}}>
+                  <i className="fa-solid fa-circle-exclamation"></i>
+                  <span className="status_text">Verify Seller</span>
+                </div>
+              )
+              :
+              (
+                <div style={{backgroundColor:"#F16767", color:"#eee"}}>
+                  <i className="fa-solid fa-circle-exclamation"></i>
+                  <span className="status_text">Seller Not Verify</span>
+                </div>
+              )
+            }
+            
           </div>
 
           <div className="ratings" style={{display: 'none'}}>

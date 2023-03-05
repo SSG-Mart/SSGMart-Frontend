@@ -5,7 +5,7 @@ import Loading from '../../assets/loading/loading.gif'
 
 const SecThree = (props) => {
   const api_data = props.apiData;
-
+  console.log(api_data);
   return (
     <>
       <h1 className="main_title">{props.user_data.store_name}'s Items</h1>
