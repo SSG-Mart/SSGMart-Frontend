@@ -19,6 +19,7 @@ export default function AddItem(props) {
 
   //Main Category and sub category
   const [main_api_category, main_set_api_category] = useState("");
+  const [main_api_category_id, main_set_api_category_id] = useState("");
   const [sub_api_category, sub_set_api_category] = useState();
 
   useEffect(() => {
@@ -26,6 +27,7 @@ export default function AddItem(props) {
       try {
         var res = await axios.post("/api/additem/getcategory");
         main_set_api_category(res.data[0].name);
+        main_set_api_category_id(res.data[0].id);
         console.log(main_api_category);
         
         sub_set_api_category(res.data[1].list_of_sub_category);
@@ -94,7 +96,7 @@ export default function AddItem(props) {
       description: description,
       time_period: expireDate,
       image: x,
-      category_id: "1",
+      category_id: main_api_category_id,
       unit: unit,
     };
     console.log(userdata);
