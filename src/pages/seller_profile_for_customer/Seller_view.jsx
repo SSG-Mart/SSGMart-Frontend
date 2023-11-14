@@ -26,13 +26,13 @@ export default function Seller_view( props ) {
       try {
         var res = await axios.post("/api/seller", { store_name: store_name });
         if (res.data) {
-          // console.log(res.data);
+          console.log("Data", res.data);
           setApiUserData(res.data.data1[0]);
           setApiItemData(res.data.data2);
         }
       } catch (err) {
         console.log(err);
-        navigate('/404');
+        // navigate('/404');
       }
     };
     getData();
