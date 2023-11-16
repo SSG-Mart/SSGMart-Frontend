@@ -29,7 +29,7 @@ const SecTwo = (props) => {
 
           <div className="status">
             {
-              api_data.veryfy_seller == 1 ?(
+              api_data.verify_seller == 1 ?(
                 <div style={{backgroundColor:"#03C988", color:"#fff"}}>
                   <i className="fa-solid fa-circle-exclamation"></i>
                   <span className="status_text">Verify Seller</span>
