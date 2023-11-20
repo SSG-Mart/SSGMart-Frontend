@@ -13,6 +13,7 @@ import Wishlist from "./pages/wishlist/wishlist";
 import About from "./pages/AboutUs/about";
 import Contact from "./pages/Contactus/contact";
 import NotFound from "./pages/page_not_found/page_not_found.jsx";
+import WishList from "./pages/wish-list/WishList";
 
 function App() {
   const [isAuth, setIsAuth] = useState(404);
@@ -61,6 +62,8 @@ function App() {
               <Route path="/auth" element={isAuth === true ? <Home /> : <Authentication />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
+              {/* <Route path="/wish-list" element={ isAuth === true ? <WishList /> : <Authentication />} /> */}
+              <Route path="/wish-list" element={ <WishList /> } />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
