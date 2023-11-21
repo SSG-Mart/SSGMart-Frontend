@@ -80,7 +80,7 @@ const CardThirdSec = (props) => {
 
           <div className="information">
             <p className="name">{api_user_data.store_name}</p>
-            {api_user_data.veryfy_seller == 1 ? (
+            {api_user_data.verify_seller === 1 ? (
               <p className="ratings" style={{color:'green'}}>
               <i className="fa-solid fa-shield-halved"></i> Verify Seller
               </p>

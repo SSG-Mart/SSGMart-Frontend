@@ -26,7 +26,7 @@ export default function Seller_view( props ) {
       try {
         var res = await axios.post("/api/seller", { store_name: store_name });
         if (res.data) {
-          console.log("Data", res.data);
+          console.log("User Data", res.data.data1[0]);
           setApiUserData(res.data.data1[0]);
           setApiItemData(res.data.data2);
         }
