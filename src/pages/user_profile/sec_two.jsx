@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import uuid from 'react-uuid';
+import { PORT } from "../../util";
 // import Logo from '../../assets/ssg_mart.png'
 // import { useNavigate } from "react-router-dom";
 // import UserLoading from '../../assets/loading/user loading/user_loading001.gif'
@@ -95,7 +96,7 @@ const SecTwo = (props) => {
       <div className="container">
         <div className="profile_pic">
           <img
-            src={`http://localhost:8080/api/img/user/userID/${userID}`}
+            src={`http://localhost:${PORT}/api/img/user/userID/${userID}`}
             alt="userImage"
             title="Profile"
           />
