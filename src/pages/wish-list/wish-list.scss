@@ -36,26 +36,28 @@ $fs_p: 1rem;
 
   .content{
     width: 100%;
-    padding: 10px;
+    padding: 15px;
     padding-top: 10px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     height: 100vh;
     overflow-y: auto;
-    align-items: center;
 
     h2{
       width: 100%;
       font-family: Arial, Helvetica, sans-serif;
-      padding-bottom: 15px;
+      padding: 15px 0;
     }
 
     .grid{
       display: grid;
-      grid-template-columns: auto auto auto auto;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
       grid-gap: 10px;
+      column-gap: 10px;
       margin: 10px 0;
+      align-items: center;
+      justify-items: center;
 
       .card {
         background-color: #fff;
@@ -75,6 +77,25 @@ $fs_p: 1rem;
           display: flex;
           align-items: center;
           justify-content: center;
+          position: relative;
+
+          .like-heart{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            opacity: 0.7;
+            color: #a3a3a3;
+            font-size: 20px;
+            cursor: pointer;
+            transition: 0.3s ease all;
+            z-index: 5;
+            padding: 5px;
+            
+            &:hover{
+              scale: 1.2;
+              opacity: 1;
+            }
+          }
 
           img{
             width: 100%;
@@ -195,16 +216,16 @@ $fs_p: 1rem;
       }
 
       @media screen and (max-width: 1500px) {
-        grid-template-columns: auto auto auto auto;
+        // grid-template-columns: auto auto auto auto;
       }
       @media screen and (max-width: 1110px) {
-        grid-template-columns: auto auto auto;
+        // grid-template-columns: auto auto auto;
       }
       @media screen and (max-width: 880px) {
-        grid-template-columns: auto auto;
+        // grid-template-columns: auto auto;
       }
       @media screen and (max-width: 610px) {
-        grid-template-columns: auto;
+        // grid-template-columns: auto;
       }
     }
 

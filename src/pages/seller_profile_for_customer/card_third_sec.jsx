@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import UserLoading from "../../assets/loading/user loading/user_loading001.gif";
+import { FaHeart } from "react-icons/fa";
+import axios from "axios";
+import { PORT } from "../../util";
 
 const CardThirdSec = (props) => {
   let [moreDates, setMoreDates] = useState(0);
   const [item_name, setItemName] = useState([]);
   const [item_description, setDescription] = useState([]);
+  const [like, setLike] = useState(null);
 
   const api_data = props.apiData;
   const api_user_data = props.userData;
@@ -20,6 +24,26 @@ const CardThirdSec = (props) => {
     setMoreDates(api_data.moreTime);
     // eslint-disable-next-line
   }, []);
+  
+  useEffect(() => {
+    const getLike = async () => {
+      try{
+        var res = await axios.get("/api/seller/like/"+api_data.item_id);
+        if (res.data) {
+          console.log("Like Data", res.data);
+          setLike(res.data.like)
+        }
+        else{
+          console.log(res);
+        }
+      }
+      catch(err){
+        console.log(err);
+      }
+
+    }
+    getLike()
+  }, [like]);
 
   var timer;
   useEffect(() => {
@@ -48,29 +72,70 @@ const CardThirdSec = (props) => {
     props.togglePopUp([api_data, api_user_data]);
   };
 
-  return (
+
+  const clickLike = async (item_id) => {
+    if(like){
+      // Delete from wish-list
+      try{
+        var res = await axios.delete("/api/seller/like/"+item_id);
+        if (res.data) {
+          console.log("Like Data", res.data);
+          setLike(res.data.like)
+        }
+        else{
+          console.log(res);
+        }
+      }
+      catch(err){
+        console.log(err);
+      }
+    }
+    else{
+      // add to wish-list
+      try{
+        var res2 = await axios.post("/api/seller/like/"+item_id);
+        if (res2.data) {
+          console.log("Like Data", res2.data);
+          setLike(res2.data.like)
+        }
+        else{
+          console.log(res2);
+        }
+      }
+      catch(err){
+        console.log(err);
+      }
+    }
+
+    if(props.setRefresh){
+      props.setRefresh(prv=>!prv)
+    }
+  }
+
+  if(api_data && typeof(like) !== 'undefined') return (
     <>
       <div
         className="card"
-        onClick={() => displayPopup(api_data, api_user_data)}
       >
         <div className="item_image">
+        {typeof(like) !== 'undefined' && <FaHeart className="like-heart" color={like ? 'red' : null} onClick={() => clickLike(api_data.item_id)} />}
           {api_data.image ? (
             <img
-              src={`http://localhost:8080/api/img/item/${api_data.image}`}
+              src={`http://localhost:${PORT}/api/img/item/${api_data.image}`}
               alt="sampleImage"
+              onClick={() => displayPopup(api_data, api_user_data)}
             />
           ) : (
-            <img src={UserLoading} alt="loading_image" />
+            <img src={UserLoading} alt="loading_image" onClick={() => displayPopup(api_data, api_user_data)} />
           )}
         </div>
 
-        <div className="seller_info">
+        <div className="seller_info" onClick={() => displayPopup(api_data, api_user_data)}>
           <div className="image">
             {/* <img src={require(`../../../../ssg_mart-backend/img/user/${api_user_data.image}`)} alt="userProfile" /> */}
             {api_user_data.image ? (
               <img
-                src={`http://localhost:8080/api/img/user/${api_user_data.image}`}
+                src={`http://localhost:${PORT}/api/img/user/${api_user_data.image}`}
                 alt="user"
               />
             ) : (
@@ -95,7 +160,7 @@ const CardThirdSec = (props) => {
           </div>
         </div>
 
-        <div className="description">
+        <div className="description" onClick={() => displayPopup(api_data, api_user_data)}>
           <p className="title">
             {item_name.length >= 23 ? item_name + "..." : item_name}
           </p>
@@ -110,7 +175,7 @@ const CardThirdSec = (props) => {
 
         <hr />
 
-        <div className="bottom">
+        <div className="bottom" onClick={() => displayPopup(api_data, api_user_data)}>
           <div className="city">
             <i className="fa-solid fa-location-dot"></i>
             {api_user_data.city}

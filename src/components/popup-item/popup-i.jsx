@@ -8,6 +8,7 @@ import { BsPhone } from "react-icons/bs";
 import { MdMessage } from "react-icons/md";
 import { IoClose } from "react-icons/io5";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
+import { PORT } from "../../util";
 
 // star ratind
 const Star = ({ starId, rating, onMouseEnter, onMouseLeave, onClick }) => {
@@ -64,7 +65,7 @@ function Itempopup(props) {
         <div className="left">
           <img
             className="itempicture"
-            src={`http://localhost:8080/api/img/item/${data.item_image}`}
+            src={`http://localhost:${PORT}/api/img/item/${data.item_image}`}
             alt="item_picture"
           />
         </div>
@@ -96,7 +97,7 @@ function Itempopup(props) {
           </div>
           <div className="profmain">
             <div className="profile">
-              <img className="pro_pic" src={`http://localhost:8080/api/img/user/${data.user_image}`} alt="Profile_picture" />
+              <img className="pro_pic" src={`http://localhost:${PORT}/api/img/user/${data.user_image}`} alt="Profile_picture" />
             </div>
             <div className="name">
               <div className="nameandmassage">

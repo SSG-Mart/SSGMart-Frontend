@@ -244,14 +244,37 @@ $fs_p: 1rem;
 
         .item_image {
         //   background-color: rgb(223, 70, 70);
-          height: 130px;
+          height: 1000px;
           display: flex;
           align-items: center;
           justify-content: center;
+          position: relative;
+          overflow: hidden;
 
           img{
             width: 100%;
             min-height: 130px;
+            background-color: #a3a3a3;
+          }
+
+          .like-heart{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            // opacity: 0.8;
+            color: #ffffff;
+            font-size: 20px;
+            cursor: pointer;
+            transition: 0.3s ease all;
+            z-index: 5;
+            padding: 5px;
+            background-color: rgba(255, 126, 126, 0.438);
+            border-radius: 10px;
+            
+            &:hover{
+              scale: 1.2;
+              // opacity: 1;
+            }
           }
         }
         .seller_info {

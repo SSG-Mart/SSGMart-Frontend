@@ -9,18 +9,18 @@ import PopUp from '../../components/popup-item/popup-i'
 const WishList = () => {
   const [apiUserData, setApiUserData] = useState(null);
   const [apiItemData, setApiItemData] = useState(null);
+  const [data, setData] = useState(null);
   const [popUpToggle, setPopUpToggle] = useState(false);
   const[popUpData,setPopUpData] = useState({});
+  const[refresh,setRefresh] = useState(false);
 
   useEffect(() => {
     const getData = async () => {
       try{
         var res = await axios.get("api/user/wish-list");
         if (res.data) {
-          console.log("User Data", res.data);
-          setApiUserData(res.data.user_data)
-          
-          setApiItemData(res.data.item_data)
+          console.log(res.data);
+          setData(res.data);
         }
         else{
           console.log(res);
@@ -32,7 +32,7 @@ const WishList = () => {
 
     }
     getData()
-  },[])
+  },[refresh])
 
   const clickShow = (e) => {
     // console.log("E : ",e);
@@ -53,27 +53,52 @@ const WishList = () => {
   const clickClose = () => {
     setPopUpToggle(false)
   }
-  if(apiUserData && apiItemData) return (
+  if(data) return (
     <>
     <div style={popUpToggle ? null : {display:'none'}}>
       <PopUp popUpData = {popUpData} clickClose={clickClose} />
     </div>
     <div id='wish-list-container'>
+
       <div className="nav"><Nav /></div>
 
       <div className="content">
         <h2>Wish List</h2>
-        <div className="grid card_container">
+        <div className="grid">
           {
-            apiItemData.map((item, index) => {
+            data.map(({item, user_data}, index) => {
               return(
                 <>
-                  <CardThirdSec key={index} apiData={item} userData={apiUserData} togglePopUp = {clickShow} />
+                  <CardThirdSec key={index} setRefresh={setRefresh} apiData={item} userData={user_data} togglePopUp = {clickShow} />
                 </>
               )
             })
           }
-          {/* <CardThirdSec apiData={apiItemData} userData={apiUserData} togglePopUp = {popUpToggle} /> */}
+
+        </div>
+      </div>
+    </div>
+    </>
+  )
+  else return (
+    <>
+    <div style={popUpToggle ? null : {display:'none'}}>
+      <PopUp popUpData = {popUpData} clickClose={clickClose} />
+    </div>
+    <div id='wish-list-container'>
+
+      <div className="nav"><Nav /></div>
+
+      <div className="content">
+        <h2>Wish List</h2>
+        <div className="">
+          <h6 style={{
+            // textAlign: 'center',
+            marginTop: '10px',
+            color: 'gray',
+            fontSize: '20px',
+            fontWeight: 'bold'
+          }}>No Items in Wish List</h6>
         </div>
       </div>
     </div>

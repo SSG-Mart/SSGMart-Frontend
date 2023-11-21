@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./nav.scss";
+import { PORT } from "../../util";
 
 const Nav = () => {
   const navigate = useNavigate();
@@ -106,7 +107,7 @@ const Nav = () => {
               <li className="image_li" onClick={() => navigate("/profile")}>
                 <div className="image">
                   <img
-                    src={`http://localhost:8080/api/img/user/userID/${userID}`}
+                    src={`http://localhost:${PORT}/api/img/user/userID/${userID}`}
                     alt="userImage"
                     title="Profile"
                   />
