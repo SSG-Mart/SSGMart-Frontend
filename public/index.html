@@ -13,5 +13,16 @@
   </head>
   <body>
     <div id="root"></div>
+    <script type="text/javascript">
+      function add_chat() {
+        var hccid = 62667191;
+        var nt = document.createElement("script");
+        nt.async = true;
+        nt.src = "https://www.mylivechat.com/chatinline.aspx?hccid=" + hccid;
+        var ct = document.getElementsByTagName("script")[0];
+        ct.parentNode.insertBefore(nt, ct);
+      }
+      add_chat();
+    </script>
   </body>
 </html>
