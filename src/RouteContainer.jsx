@@ -15,30 +15,35 @@ import WishList from "./pages/wish-list/WishList";
 import AuthLayout from "./layouts/AuthLayout.jsx";
 import OtherLayout from "./layouts/OtherLayout.jsx";
 
-const RouteContainer = ({isAuth}) => {
+const RouteContainer = ({ isAuth }) => {
   return (
     <BrowserRouter>
-            <Routes>
-              <Route path="/auth" element={<AuthLayout />} >
-                <Route path="/auth" element={isAuth === true ? <Home /> : <Authentication />} />
-              </Route>
-              <Route path="/" element={<OtherLayout />} >
-                <Route path="/" element={<Home />} />
-                <Route path="/seller/dashboard" element={<Selldb />} />
-                <Route path="/store/:store_name" element={<SellerView />} />
-                <Route path="/catagory" element={<Catagory />} />
-                <Route path="/profile" element={<UserProfile />} />
-                <Route path="/wishlist" element={<Wishlist />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/wish-list" element={ isAuth === true ? <WishList /> : <Authentication />} />
+      <Routes>
+        <Route path="/auth" element={<AuthLayout />}>
+          <Route
+            path="/auth"
+            element={isAuth === true ? <Home /> : <Authentication />}
+          />
+        </Route>
+        <Route path="/" element={<OtherLayout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/seller/dashboard" element={<Selldb />} />
+          <Route path="/store/:store_name" element={<SellerView />} />
+          <Route path="/catagory" element={<Catagory />} />
+          <Route path="/profile" element={<UserProfile />} />
+          <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route
+            path="/wish-list"
+            element={isAuth === true ? <WishList /> : <Authentication />}
+          />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
 
-              </Route>
-              {/* <Route path="/wish-list" element={ <WishList /> } /> */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </BrowserRouter>
-  )
-}
-
-export default RouteContainer
+export default RouteContainer;

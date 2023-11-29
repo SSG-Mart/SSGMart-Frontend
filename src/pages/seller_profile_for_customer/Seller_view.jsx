@@ -6,7 +6,6 @@ import SecTwo from "./sec_two";
 import SecThree from "./sec_three";
 import PopUp from "../../components/popup-item/popup-i";
 // import Sidebar from "../navBar/Sidebar";
-import Nav from "../navBar/Nav";
 
 export default function Seller_view( props ) {
   const navigate = useNavigate();
@@ -66,9 +65,7 @@ export default function Seller_view( props ) {
       <PopUp popUpData = {popUpData} clickClose={clickClose} />
     </div>
     <div className="seller_view_container">
-      <div className="firs_sec">
-      {/* <Sidebar /> */}
-      <Nav />
+      <div className="firs_sec" style={{width: '50px'}}>
       </div>
 
       <div className="second_sec">
