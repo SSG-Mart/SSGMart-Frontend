@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import Edit from "./Edit";
+import {PORT} from "../../../util";
 
 const Row = (props) => {
   // console.log(props.item);
@@ -56,7 +57,7 @@ const Row = (props) => {
       <div className="detail-body">
         <div className="Data_No">{props.item.item_id}</div>
         <div className="Data_Image">
-          <img src={`http://localhost:8080/api/img/item/${props.item.image}`} alt="Item" />
+          <img src={`http://localhost:${PORT}/api/img/item/${props.item.image}`} alt="Item" />
         </div>
         <div className="Data_Discription">
           {props.item.description}
