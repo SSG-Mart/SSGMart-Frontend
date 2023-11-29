@@ -15,9 +15,9 @@ export default function Home() {
           <img className="l" src={Large} alt="Backcard" />
           <img className="m" src={Medium} alt="Middlecard" />
           <img className="s" src={Small} alt="frontcard" />
-          <button onClick={() => navigate("/")}>
+          {/* <button onClick={() => navigate("/")}>
             <FaHome size={16} /> Home
-          </button>
+          </button> */}
           <div className="media">
             <button className="facebook">
               <FaFacebook size={45} />
