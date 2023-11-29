@@ -1,13 +1,13 @@
-import {useNavigate} from "react-router-dom"
+
 import "./contact.scss";
-import { FaHome, FaFacebook, FaWhatsapp, FaInstagram } from "react-icons/fa";
+import { FaFacebook, FaWhatsapp, FaInstagram } from "react-icons/fa";
 import { MdHome, MdMail, MdMessage, MdPhone } from "react-icons/md";
 import Small from "./1.png";
 import Medium from "./2.png";
 import Large from "./3.png";
 
 export default function Home() {
-  const navigate = useNavigate();
+  
   return (
     <div className="bc-contact">
       <div className="background">
@@ -15,9 +15,9 @@ export default function Home() {
           <img className="l" src={Large} alt="Backcard" />
           <img className="m" src={Medium} alt="Middlecard" />
           <img className="s" src={Small} alt="frontcard" />
-          <button onClick={() => navigate("/")}>
+          {/* <button onClick={() => navigate("/")}>
             <FaHome size={16} /> Home
-          </button>
+          </button> */}
           <div className="media">
             <button className="facebook">
               <FaFacebook size={45} />

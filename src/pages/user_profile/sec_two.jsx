@@ -2,9 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import uuid from 'react-uuid';
 import { PORT } from "../../util";
-// import Logo from '../../assets/ssg_mart.png'
-// import { useNavigate } from "react-router-dom";
-// import UserLoading from '../../assets/loading/user loading/user_loading001.gif'
 
 const SecTwo = (props) => {
 

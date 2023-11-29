@@ -8,7 +8,6 @@ import Logo from "./ssg_mart.png";
 import { FaPlus } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import Row from "./components/Row";
-import Nav from "../navBar/Nav";
 
 function Selldb(props) {
   const navigate = useNavigate();
@@ -90,7 +89,7 @@ function Selldb(props) {
       <div className="main_seldb">
 
         <div className="left">
-          <Nav />
+          {/* <Nav /> */}
         </div>
 
         <div className="right">

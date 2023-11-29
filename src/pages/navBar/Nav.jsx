@@ -41,37 +41,6 @@ const Nav = () => {
     });
   }, [trigger]);
 
-  const item = [
-    {
-      id: 1,
-      seller: true,
-      path: "/",
-      name: "Home",
-      icon: "fa-solid fa-house-chimney",
-    },
-    {
-      id: 2,
-      seller: seller,
-      path: "/seller/dashboard",
-      name: "Dashboard",
-      icon: "fa-solid fa-gauge",
-    },
-    {
-      id: 3,
-      seller: true,
-      path: "/catagory",
-      name: "Category",
-      icon: "fa-solid fa-sitemap",
-    },
-    // {
-    //   id: 3,
-    // seller: true,
-    //   path: "/store/ushan",
-    //   name: "Store",
-    //   icon: "fa-solid fa-store",
-    // },
-  ];
-
   const logout = () => {
     axios
       .post("/api/auth/logout")
@@ -138,42 +107,61 @@ const Nav = () => {
             </>
           )}
 
-          {item.map((item) => {
-            if (item.seller === false) {
-              return null;
-            }
-            if (item.id === 3) {
-              return (
-                <NavLink key={item.id} to={item.path} activeclassname="active">
-                  <li>
-                    <i className={item.icon} title={item.name}></i>
-                    <span
-                      className="pageName"
-                      style={toggle ? null : { display: "none" }}
-                    >
-                      {item.name}
-                    </span>
-                  </li>
+          {/* Home */}
+          <NavLink to="/">
+            <li>
+              <i className="fa-solid fa-house-chimney" title="Home"></i>
+              <span
+                className="pageName"
+                style={toggle ? null : { display: "none" }}
+              >
+                Home
+              </span>
+            </li>
+          </NavLink>
+
+          {/* Category */}
+          {seller && (
+            <NavLink to="/seller/dashboard">
+              <li>
+                <i className="fa-solid fa-gauge" title="Dashboard"></i>
+                <span
+                  className="pageName"
+                  style={toggle ? null : { display: "none" }}
+                >
+                  Dashboard
+                </span>
+              </li>
+            </NavLink>
+          )}
+
+          {/* Category */}
+          <NavLink to="catagory">
+            <li className="category_li catagory">
+              <span>
+              <i className="fa-solid fa-sitemap" title="Category"></i>
+              <span
+                className="pageName"
+                style={toggle ? null : { display: "none" }}
+              >
+                Category
+              </span>
+              </span>
+
+              <ul className="sub-list">
+                <NavLink to="/catagory/food">
+                  <li className="food">Food</li>
                 </NavLink>
-              );
-            }
-            return (
-              <NavLink key={item.id} to={item.path} activeclassname="active">
-                <li>
-                  <i className={item.icon} title={item.name}></i>
-                  <span
-                    className="pageName"
-                    style={toggle ? null : { display: "none" }}
-                  >
-                    {item.name}
-                  </span>
-                </li>
-              </NavLink>
-            );
-          })}
+                
+                <NavLink to="/catagory/solid">
+                  <li className="solid">Solid</li>
+                </NavLink>
+              </ul>
+            </li>
+          </NavLink>
 
           {/* About */}
-          <NavLink to="/about" activeclassname="active">
+          <NavLink to="/about">
             <li>
               <i className="fa-solid fa-circle-info" title="About Us"></i>
               <span
@@ -186,7 +174,7 @@ const Nav = () => {
           </NavLink>
 
           {/* About */}
-          <NavLink to="/contact" activeclassname="active">
+          <NavLink to="/contact">
             <li>
               <i className="fa-solid fa-handshake" title="Contact Us"></i>
               <span
