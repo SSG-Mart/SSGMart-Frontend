@@ -119,6 +119,19 @@ const Nav = () => {
               </span>
             </li>
           </NavLink>
+          
+          {/* Home */}
+          <NavLink to="/wish-list">
+            <li>
+              <i className="fa-solid fa-heart" title="Wish-List"></i>
+              <span
+                className="pageName"
+                style={toggle ? null : { display: "none" }}
+              >
+                Home
+              </span>
+            </li>
+          </NavLink>
 
           {/* Category */}
           {seller && (

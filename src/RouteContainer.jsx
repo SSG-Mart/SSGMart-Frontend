@@ -27,8 +27,8 @@ const RouteContainer = ({ isAuth }) => {
         </Route>
         <Route path="/" element={<OtherLayout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/seller/dashboard" element={<Selldb />} />
-          <Route path="/store/:store_name" element={<SellerView />} />
+          <Route path="/seller" element={<Selldb />} />
+          {/* <Route path="/store/:store_name" element={<SellerView />} /> */}
           <Route path="/catagory" element={<Catagory />} />
           <Route path="/profile" element={<UserProfile />} />
           <Route path="/wishlist" element={<Wishlist />} />
