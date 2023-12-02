@@ -1,19 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import axios from "axios";
 import Loading from "./assets/loading/loading.gif";
+import RouteContainer from "./RouteContainer";
 
-import Authentication from "./pages/authentication/Authentication.jsx";
-import Home from "./pages/home/Home.jsx";
-import UserProfile from "./pages/user_profile/User_profile_view";
-import Selldb from "./pages/Sellers_dashboard/selldb.jsx";
-import SellerView from "./pages/seller_profile_for_customer/Seller_view.jsx";
-import Catagory from "./pages/CatagoryPage/catagoryHome";
-import Wishlist from "./pages/wishlist/wishlist";
-import About from "./pages/AboutUs/about";
-import Contact from "./pages/Contactus/contact";
-import NotFound from "./pages/page_not_found/page_not_found.jsx";
-import WishList from "./pages/wish-list/WishList";
+
 
 function App() {
   const [isAuth, setIsAuth] = useState(404);
@@ -38,35 +28,11 @@ function App() {
   return (
     <div>
       {isAuth === 404 ? (
-        <div
-          style={{
-            position: "absolute",
-            height: "100vh",
-            width: "100vw",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
+        <div style={{ position: "absolute", height: "100vh", width: "100vw", display: "flex", alignItems: "center", justifyContent: "center"}} >
           <img src={Loading} alt="loading_gif" style={{ width: "10vw" }} />
         </div>
       ) : (
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/seller/dashboard" element={<Selldb />} />
-              <Route path="/store/:store_name" element={<SellerView />} />
-              <Route path="/catagory" element={<Catagory />} />
-              <Route path="/profile" element={<UserProfile />} />
-              <Route path="/wishlist" element={<Wishlist />} />
-              <Route path="/auth" element={isAuth === true ? <Home /> : <Authentication />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              {/* <Route path="/wish-list" element={ isAuth === true ? <WishList /> : <Authentication />} /> */}
-              <Route path="/wish-list" element={ <WishList /> } />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </BrowserRouter>
+          <RouteContainer isAuth={isAuth} />
       )}
     </div>
   );

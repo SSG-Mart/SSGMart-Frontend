@@ -3,9 +3,6 @@ import "./seller_view.scss";
 import SecTwo from "./sec_two";
 import axios from "axios";
 
-// import Sidebar from "../navBar/Sidebar";
-import Nav from "../navBar/Nav";
-
 export default function UserProfile( props ) {
   const [apiUserData, setApiUserData] = useState({});
 
@@ -36,8 +33,7 @@ export default function UserProfile( props ) {
 
     <div className="user_view_container">
       <div className="firs_sec">
-      {/* <Sidebar /> */}
-      <Nav />
+
       </div>
 
       <div className="second_sec">

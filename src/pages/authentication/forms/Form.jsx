@@ -97,6 +97,7 @@ export default function Form() {
   const [userNameErrorText, setUserNameErrorText] = useState("");
   const [emailErrorText, setEmailErrorText] = useState("");
   const [confirmPasswordErrorText, setConfirmPasswordErrorText] = useState("");
+  const [PasswordErrorText, setPasswordErrorText] = useState("");
 
   const handleImageInputChange = (e) => {
     setImage({
@@ -219,6 +220,16 @@ export default function Form() {
       setTotalError(totalError + 1);
       return false;
     } else {
+      setPassword1Error(false);
+    }
+
+    if(password1.length < 8){
+      setPasswordErrorText("Password must be at least 8 characters");
+      setPassword1Error(true);
+      setTotalError(totalError + 1);
+      return false;
+    }
+    else{
       setPassword1Error(false);
     }
 
@@ -569,7 +580,7 @@ export default function Form() {
                     password1Error ? { display: "flex" } : { display: "none" }
                   }
                 >
-                  Password Required
+                  {PasswordErrorText}
                 </span>
               </div>
 
