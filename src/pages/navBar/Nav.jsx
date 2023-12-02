@@ -162,11 +162,11 @@ const Nav = () => {
               </span>
 
               <ul className="sub-list">
-                <NavLink to="/catagory/food">
+                <NavLink to="/catagory">
                   <li className="food">Food</li>
                 </NavLink>
                 
-                <NavLink to="/catagory/solid">
+                <NavLink to="/catagory">
                   <li className="solid">Solid</li>
                 </NavLink>
               </ul>
