@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './authentication_nav.scss';
 import Logo from '../../../assets/ssg_mart.png'
 
@@ -16,8 +17,8 @@ export default function Authentication_nav() {
           </div> {/* end name class */}
 
           <div className="links">
-            <a href="#about" className="about">About</a>
-            <a href="#contact" className="contact">Contact</a>
+            <Link to="/about" className="about">About</Link>
+            <Link to="/contact" className="contact">Contact</Link>
           </div> {/* end links class */}
         </nav>
     </div>
