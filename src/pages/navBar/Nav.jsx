@@ -46,13 +46,12 @@ const Nav = () => {
       .post("/api/auth/logout")
       .then((res) => {
         setUserID(-1);
-        setUserID(-1);
       })
       .catch((err) => {
         console.log(err);
       });
 
-    setTrigger(!trigger);
+    setTrigger(prv => !prv);
     navigate("/");
   };
   return (
@@ -120,18 +119,18 @@ const Nav = () => {
             </li>
           </NavLink>
           
-          {/* Home */}
-          <NavLink to="/wish-list">
+          {/* wish-list */}
+          {userID !== -1 && <NavLink to="/wish-list">
             <li>
               <i className="fa-solid fa-heart" title="Wish-List"></i>
               <span
                 className="pageName"
                 style={toggle ? null : { display: "none" }}
               >
-                Home
+                Wish List
               </span>
             </li>
-          </NavLink>
+          </NavLink>}
 
           {/* Category */}
           {seller && (

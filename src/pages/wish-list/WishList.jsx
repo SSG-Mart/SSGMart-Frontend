@@ -5,14 +5,16 @@ import '../seller_profile_for_customer/seller_view.scss'
 import CardThirdSec from '../seller_profile_for_customer/card_third_sec'
 import axios from 'axios'
 import PopUp from '../../components/popup-item/popup-i'
+import{useNavigate} from 'react-router-dom'
 
 const WishList = () => {
-  const [apiUserData, setApiUserData] = useState(null);
-  const [apiItemData, setApiItemData] = useState(null);
+  const navigate = useNavigate();
+
   const [data, setData] = useState(null);
   const [popUpToggle, setPopUpToggle] = useState(false);
   const[popUpData,setPopUpData] = useState({});
   const[refresh,setRefresh] = useState(false);
+  const [isAuth, setIsAuth] = useState(404);
 
   useEffect(() => {
     const getData = async () => {
@@ -34,6 +36,25 @@ const WishList = () => {
     getData()
   },[refresh])
 
+  
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        var res = await axios.post("/api/auth/checkAuth");
+        if (res.data.userID) {
+          setIsAuth(true);
+        } else {
+          setIsAuth(false);
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    checkAuth();
+    // eslint-disable-next-line
+  }, []);
+
   const clickShow = (e) => {
     // console.log("E : ",e);
     setPopUpData({
@@ -53,6 +74,7 @@ const WishList = () => {
   const clickClose = () => {
     setPopUpToggle(false)
   }
+  if(!isAuth) return navigate('/auth')
   if(data) return (
     <>
     <div style={popUpToggle ? null : {display:'none'}}>
@@ -60,7 +82,7 @@ const WishList = () => {
     </div>
     <div id='wish-list-container'>
 
-      <div className="nav"><Nav /></div>
+      
 
       <div className="content">
         <h2>Wish List</h2>
@@ -93,7 +115,6 @@ const WishList = () => {
         <h2>Wish List</h2>
         <div className="">
           <h6 style={{
-            // textAlign: 'center',
             marginTop: '10px',
             color: 'gray',
             fontSize: '20px',

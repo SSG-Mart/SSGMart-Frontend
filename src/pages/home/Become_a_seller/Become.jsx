@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { AiOutlineClose } from "react-icons/ai";
+import {useNavigate} from "react-router-dom";
 import "./Become.scss";
 import axios from "axios";
 
 function Select(props) {
+
+  const navigate = useNavigate();
 
   // Submit for
   const [form, setFormData] = useState();
@@ -96,6 +99,7 @@ function Select(props) {
       if (res.data === "success") {
         props.trigger(new Date());
         props.hiddenBecomeASeller();
+        navigate('/seller/dashboard')
       }
     });
   };
