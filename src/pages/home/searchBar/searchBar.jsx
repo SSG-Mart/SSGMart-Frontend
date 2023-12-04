@@ -49,7 +49,7 @@ const SearchBar = (props) => {
         {
             response === "unauthorized" ? (
                 <>
-                    <input className="Become-a-seller" type="button" value="Become a seller" onClick={() => navigate('/auth')} />
+                    {/* <input className="Become-a-seller" type="button" value="Become a seller" onClick={() => navigate('/auth')} /> */}
                 </>
             )
             : response === "exist" ? (

@@ -7,7 +7,6 @@ import UserProfile from "./pages/user_profile/User_profile_view";
 import Selldb from "./pages/Sellers_dashboard/selldb.jsx";
 import SellerView from "./pages/seller_profile_for_customer/Seller_view.jsx";
 import Catagory from "./pages/CatagoryPage/catagoryHome";
-import Wishlist from "./pages/wishlist/wishlist";
 import About from "./pages/AboutUs/about";
 import Contact from "./pages/Contactus/contact";
 import NotFound from "./pages/page_not_found/page_not_found.jsx";
@@ -31,7 +30,6 @@ const RouteContainer = ({ isAuth }) => {
           <Route path="/store/:store_name" element={<SellerView />} />
           <Route path="/catagory" element={<Catagory />} />
           <Route path="/profile" element={<UserProfile />} />
-          <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route

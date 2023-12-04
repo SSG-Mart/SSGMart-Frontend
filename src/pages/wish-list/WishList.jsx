@@ -60,7 +60,7 @@ const WishList = () => {
     </div>
     <div id='wish-list-container'>
 
-      <div className="nav"><Nav /></div>
+      
 
       <div className="content">
         <h2>Wish List</h2>
