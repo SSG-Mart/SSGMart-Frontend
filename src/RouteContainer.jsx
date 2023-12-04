@@ -21,7 +21,7 @@ const RouteContainer = ({ isAuth }) => {
         <Route path="/auth" element={<AuthLayout />}>
           <Route
             path="/auth"
-            element={isAuth === true ? <Home /> : <Authentication />}
+            element={<Authentication />}
           />
         </Route>
         <Route path="/" element={<OtherLayout />}>
@@ -34,7 +34,7 @@ const RouteContainer = ({ isAuth }) => {
           <Route path="/contact" element={<Contact />} />
           <Route
             path="/wish-list"
-            element={isAuth === true ? <WishList /> : <Authentication />}
+            element={<WishList />}
           />
           <Route path="*" element={<NotFound />} />
         </Route>

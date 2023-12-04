@@ -31,7 +31,12 @@ const CardThirdSec = (props) => {
         var res = await axios.get("/api/seller/like/"+api_data.item_id);
         if (res.data) {
           console.log("Like Data", res.data);
-          setLike(res.data.like)
+          if(res.data === "login first"){
+            setLike(null)
+          }
+          else{
+            setLike(res.data.like)
+          }
         }
         else{
           console.log(res);
@@ -117,8 +122,8 @@ const CardThirdSec = (props) => {
       <div
         className="card"
       >
-        <div className="item_image">
-        {typeof(like) !== 'undefined' && <FaHeart className="like-heart" color={like ? 'red' : null} onClick={() => clickLike(api_data.item_id)} />}
+        <div className="item_image" style={{overflow: 'hidden', height: 650}}>
+        {typeof(like) !== 'undefined' && like !== null && <FaHeart className="like-heart" color={like ? 'red' : null} onClick={() => clickLike(api_data.item_id)} />}
           {api_data.image ? (
             <img
               src={`http://localhost:${PORT}/api/img/item/${api_data.image}`}
@@ -131,7 +136,7 @@ const CardThirdSec = (props) => {
         </div>
 
         <div className="seller_info" onClick={() => displayPopup(api_data, api_user_data)}>
-          <div className="image">
+          <div className="image" >
             {/* <img src={require(`../../../../ssg_mart-backend/img/user/${api_user_data.image}`)} alt="userProfile" /> */}
             {api_user_data.image ? (
               <img
