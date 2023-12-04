@@ -119,6 +119,19 @@ const Nav = () => {
               </span>
             </li>
           </NavLink>
+          
+          {/* Home */}
+          <NavLink to="/wish-list">
+            <li>
+              <i className="fa-solid fa-heart" title="Wish-List"></i>
+              <span
+                className="pageName"
+                style={toggle ? null : { display: "none" }}
+              >
+                Home
+              </span>
+            </li>
+          </NavLink>
 
           {/* Category */}
           {seller && (
@@ -149,11 +162,11 @@ const Nav = () => {
               </span>
 
               <ul className="sub-list">
-                <NavLink to="/catagory/food">
+                <NavLink to="/catagory">
                   <li className="food">Food</li>
                 </NavLink>
                 
-                <NavLink to="/catagory/solid">
+                <NavLink to="/catagory">
                   <li className="solid">Solid</li>
                 </NavLink>
               </ul>
