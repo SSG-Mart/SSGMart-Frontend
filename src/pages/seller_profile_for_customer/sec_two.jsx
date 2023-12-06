@@ -33,14 +33,14 @@ const SecTwo = (props) => {
               api_data.verify_seller === 1 ?(
                 <div style={{backgroundColor:"#03C988", color:"#fff"}}>
                   <i className="fa-solid fa-circle-exclamation"></i>
-                  <span className="status_text">Verify Seller</span>
+                  <span className="status_text">Verified Seller</span>
                 </div>
               )
               :
               (
                 <div style={{backgroundColor:"#F16767", color:"#eee"}}>
                   <i className="fa-solid fa-circle-exclamation"></i>
-                  <span className="status_text">Seller Not Verify</span>
+                  <span className="status_text">Seller not verified</span>
                 </div>
               )
             }
