@@ -166,11 +166,11 @@ const Nav = ({setBackdrop}) => {
               </span>
 
               <ul className="sub-list">
-                <NavLink to="/catagory">
+                <NavLink to="/catagory/food">
                   <li className="food">Food</li>
                 </NavLink>
                 
-                <NavLink to="/catagory">
+                <NavLink to="/catagory/solid">
                   <li className="solid">Solid</li>
                 </NavLink>
               </ul>
