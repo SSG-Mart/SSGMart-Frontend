@@ -399,7 +399,7 @@ export default function Form() {
             </div>
 
             <button onClick={pressLogin}>Login</button>
-            <a href="#forget">Forget Password</a>
+            <br /> <br />
             <p style={{ padding: 0 }}>
               If you are not registered yet,{" "}
               <span onClick={() => setChoseMethod(false)}>Register</span>
