@@ -6,7 +6,8 @@ import Home from "./pages/home/Home.jsx";
 import UserProfile from "./pages/user_profile/User_profile_view";
 import Selldb from "./pages/Sellers_dashboard/selldb.jsx";
 import SellerView from "./pages/seller_profile_for_customer/Seller_view.jsx";
-import Catagory from "./pages/CatagoryPage/catagoryHome";
+import CategoryFood from "./pages/CatagoryPage/catagoryFood.jsx";
+import CategorySolid from "./pages/CatagoryPage/catagorySolid";
 import About from "./pages/AboutUs/about";
 import Contact from "./pages/Contactus/contact";
 import NotFound from "./pages/page_not_found/page_not_found.jsx";
@@ -28,7 +29,8 @@ const RouteContainer = ({ isAuth }) => {
           <Route path="/" element={<Home />} />
           <Route path="/seller/dashboard" element={<Selldb />} />
           <Route path="/store/:store_name" element={<SellerView />} />
-          <Route path="/catagory" element={<Catagory />} />
+          <Route path="/catagoryfood" element={<CategoryFood />} />
+          <Route path="/catagorysolid" element={<CategorySolid />} />
           <Route path="/profile" element={<UserProfile />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />

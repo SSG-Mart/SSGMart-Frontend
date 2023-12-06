@@ -118,7 +118,7 @@ const Nav = () => {
               </span>
             </li>
           </NavLink>
-          
+
           {/* wish-list */}
           {userID !== -1 && <NavLink to="/wish-list">
             <li>
@@ -151,21 +151,21 @@ const Nav = () => {
           <NavLink to="catagory">
             <li className="category_li catagory">
               <span>
-              <i className="fa-solid fa-sitemap" title="Category"></i>
-              <span
-                className="pageName"
-                style={toggle ? null : { display: "none" }}
-              >
-                Category
-              </span>
+                <i className="fa-solid fa-sitemap" title="Category"></i>
+                <span
+                  className="pageName"
+                  style={toggle ? null : { display: "none" }}
+                >
+                  Category
+                </span>
               </span>
 
               <ul className="sub-list">
-                <NavLink to="/catagory">
+                <NavLink to="/catagoryfood">
                   <li className="food">Food</li>
                 </NavLink>
-                
-                <NavLink to="/catagory">
+
+                <NavLink to="/catagorysolid">
                   <li className="solid">Solid</li>
                 </NavLink>
               </ul>
