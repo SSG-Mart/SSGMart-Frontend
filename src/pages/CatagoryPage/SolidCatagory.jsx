@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './catagoryHome.scss';
+import './filter.scss';
 import axios from 'axios';
 
 export default function SolidCatagory() {
