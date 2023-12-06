@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './catagoryHome.scss';
+import './filter.scss';
 import axios from 'axios';
 
 export default function FoodCatagory() {
@@ -55,7 +56,7 @@ export default function FoodCatagory() {
 
 
               <label><input type="radio" defaultChecked={true} name="radio" onClick={() => setRadioValue("range")} /> Select Your Price Range</label>
-              <input type="range" min="0" max={max} value={max} stop="1" style={radioValue === 'range' ? { display: 'block' } : { display: 'none' }} defaultValue={max} onChange={e => setRange(e.target.value)} />
+              <input type="range" min="0" max={max} defaultValue={max} stop="1" style={radioValue === 'range' ? { display: 'block' } : { display: 'none' }} defaultValue={max} onChange={e => setRange(e.target.value)} />
               <p style={radioValue === 'range' ? { display: 'block' } : { display: 'none' }}>{range}</p>
 
               {/* <label><input type="radio" name="radio" value="Best-match" onClick={() => setRadioValue("best_match")} />  Best Match </label>*/}
