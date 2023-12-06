@@ -4,7 +4,7 @@
   overflow-y: auto;
   overflow-x: hidden;
 
-  z-index: 2;
+  z-index: 200;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
   &::-webkit-scrollbar {
@@ -199,3 +199,5 @@
     }
   }
 }
+
+

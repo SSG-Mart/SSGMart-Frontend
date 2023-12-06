@@ -39,8 +39,9 @@ export default function Seller_view( props ) {
   }, []);
 
   const clickShow = (e) => {
-    // console.log("E : ",e);
+    console.log("E : ",e);
     setPopUpData({
+      item_id: e[0].item_id,
       item_name: e[0].name,
       description: e[0].description,
       unit_price: e[0].unit_price,
