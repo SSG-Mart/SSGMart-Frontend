@@ -81,7 +81,7 @@ export default function SolidCatagory() {
                     return (
                       <div className="card-frame" key={key}>
                         <div className="img1">
-                          <img src={`api/img/item/${data.image}`} alt="itemImage" />
+                          <img src={`http://localhost:8000/api/img/item/${data.image}`} alt="itemImage" />
                         </div>
                         <p className="shop-name">{data.store_name}</p>
                         <p className="item-name">{data.name}</p>
@@ -96,7 +96,7 @@ export default function SolidCatagory() {
                     return (
                       <div className="card-frame" key={key}>
                         <div className="img1">
-                          <img src={`api/img/item/${data.image}`} alt="itemImage" />
+                          <img src={`http://localhost:8000/api/img/item/${data.image}`} alt="itemImage" />
                         </div>
                         <p className="shop-name">{data.store_name}</p>
                         <p className="item-name">{data.name}</p>
