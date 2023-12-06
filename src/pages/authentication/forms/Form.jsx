@@ -137,7 +137,7 @@ export default function Form() {
 
     setTotalError(0); // reset total error
 
-    if (fName === "") {
+    if (fName.trim() === "") {
       setFNameError(true);
       setTotalError(totalError + 1);
       return false;
@@ -145,14 +145,14 @@ export default function Form() {
       setFNameError(false);
     }
 
-    if (fName === "") {
+    if (lName.trim() === "") {
       setLNameError(true);
       setTotalError(totalError + 1);
       return false;
     } else {
       setLNameError(false);
     }
-    if (lName === "") {
+    if (lName.trim() === "") {
       setLNameError(true);
       setTotalError(totalError + 1);
       return false;
@@ -160,7 +160,7 @@ export default function Form() {
       setLNameError(false);
     }
 
-    if (username === "") {
+    if (username.trim() === "") {
       setUserNameErrorText("Username is required");
       setUsernameError(true);
       setTotalError(totalError + 1);
@@ -169,7 +169,7 @@ export default function Form() {
       setUsernameError(false);
     }
 
-    if (mobile === "") {
+    if (mobile.trim() === "") {
       setMobileError(true);
       setTotalError(totalError + 1);
       return false;
@@ -177,7 +177,7 @@ export default function Form() {
       setMobileError(false);
     }
 
-    if (email === "") {
+    if (email.trim() === "") {
       setEmailErrorText("Email is required");
       setEmailError(true);
       setTotalError(totalError + 1);
@@ -191,7 +191,7 @@ export default function Form() {
       setEmailError(false);
     }
 
-    if (addressLine1 === "") {
+    if (addressLine1.trim() === "") {
       setAddress1Error(true);
       setTotalError(totalError + 1);
       return false;
@@ -199,7 +199,7 @@ export default function Form() {
       setAddress1Error(false);
     }
     
-    if (cityID === "") {
+    if (cityID.trim() === "") {
       setCityError(true);
       setTotalError(totalError + 1);
       return false;
@@ -215,7 +215,7 @@ export default function Form() {
       setImageError(false);
     }
 
-    if (password1 === "") {
+    if (password1.trim() === "") {
       setPassword1Error(true);
       setTotalError(totalError + 1);
       return false;
@@ -233,7 +233,7 @@ export default function Form() {
       setPassword1Error(false);
     }
 
-    if (password2 === "") {
+    if (password2.trim() === "") {
       setConfirmPasswordErrorText("Confirm password is required");
       setPassword2Error(true);
       setTotalError(totalError + 1);
