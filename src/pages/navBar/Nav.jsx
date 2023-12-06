@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import "./nav.scss";
 import { PORT } from "../../util";
 
-const Nav = () => {
+const Nav = ({setBackdrop}) => {
   const navigate = useNavigate();
   const [toggle, setToggle] = useState(false);
   const [userID, setUserID] = useState(-1);
@@ -55,6 +55,8 @@ const Nav = () => {
     navigate("/");
   };
   return (
+    <>
+   
     <motion.div
       className="sidebar_container"
       animate={{ width: toggle ? "170px" : "60px" }}
@@ -62,7 +64,10 @@ const Nav = () => {
       <div className="icon">
         <motion.i
           className="fa-solid fa-bars"
-          onClick={() => setToggle(!toggle)}
+          onClick={() => {
+            setToggle(prv => !prv)
+            setBackdrop(!toggle)
+          }}
           animate={{ rotate: toggle ? 90 : 0 }}
         ></motion.i>
       </div>
@@ -161,11 +166,11 @@ const Nav = () => {
               </span>
 
               <ul className="sub-list">
-                <NavLink to="/catagory">
+                <NavLink to="/catagory/food">
                   <li className="food">Food</li>
                 </NavLink>
                 
-                <NavLink to="/catagory">
+                <NavLink to="/catagory/solid">
                   <li className="solid">Solid</li>
                 </NavLink>
               </ul>
@@ -213,6 +218,11 @@ const Nav = () => {
         </ul>
       </div>
     </motion.div>
+
+    <motion.div 
+    animate={{ width: toggle ? "170px" : "60px" }}
+    className="backdrop"></motion.div>
+    </>
   );
 };
 

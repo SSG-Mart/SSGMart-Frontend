@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {useNavigate } from "react-router-dom"
 import "./popup-i.scss";
 // import Itempicture from "./tom.PNG";
@@ -9,36 +9,9 @@ import { MdMessage } from "react-icons/md";
 import { IoClose } from "react-icons/io5";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { PORT } from "../../util";
+import axios from "axios";
 
-// star ratind
-const Star = ({ starId, rating, onMouseEnter, onMouseLeave, onClick }) => {
-  let styleClass = "star-rating-blank";
-  if (rating && rating >= starId) {
-    styleClass = "star-rating-filled";
-  }
 
-  return (
-    <div
-      className="star"
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-      onClick={onClick}
-    >
-      <svg
-        height="30px"
-        width="30px"
-        className={styleClass}
-        viewBox="0 0 25 23"
-        data-rating="1"
-      >
-        <polygon
-          strokeWidth="0"
-          points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78"
-        />
-      </svg>
-    </div>
-  );
-};
 
 function Itempopup(props) {
   const navigate = useNavigate();
@@ -48,9 +21,42 @@ function Itempopup(props) {
     setState(!state);
   };
   //   star Rating
-  const [rating, setRating] = useState(0);
+  const [like, setLike] = useState(null);
   const [hoverRating, setHoverRating] = useState(0);
   const stars = [1, 2, 3, 4, 5];
+
+
+  // get data
+  useEffect(() => {
+    const getLike = async () => {
+      try{
+        var res = await axios.get("/api/seller/like/"+props.item_id);
+        if (res.data) {
+          console.log("Like Data 122", res.data);
+          if(res.data === "login first"){
+            setLike(null)
+          }
+          else{
+            console.log("Hello", props.item_id);
+            setLike(res.data.like)
+          }
+        }
+        else{
+          console.log(res);
+        }
+      }
+      catch(err){
+        console.log(err);
+      }
+
+    }
+
+    getLike()
+
+    console.log(data);
+  }, [like])
+
+
 
   // Set data ( ushan )
   let data = props.popUpData;
@@ -87,13 +93,13 @@ function Itempopup(props) {
               onClick={toggle}
               className={"toggle--button" + (state ? "toggle--close" : "")}
             >
-              {state ? (
+              {like ? (
                 <FaHeart color="red" size={20} />
               ) : (
                 <FaRegHeart color="red" size={20} />
               )}
-            </span>{" "}
-            {state ? "Added" : "Add wish List"}
+             </span>{" "}
+            {/*{state ? "Added" : "Add wish List"} */}
           </div>
           <div className="profmain">
             <div className="profile">
@@ -105,7 +111,7 @@ function Itempopup(props) {
                 <MdMessage className="massageicon" color="#3D64EE" size={27} />
               </div>
               <div className="flex-container">
-                {stars.map((star, i) => (
+                {/* {stars.map((star, i) => (
                   <Star
                     key={i}
                     starId={i}
@@ -114,7 +120,7 @@ function Itempopup(props) {
                     onMouseLeave={() => setHoverRating(0)}
                     onClick={() => setRating(i)}
                   />
-                ))}
+                ))} */}
               </div>
               <div className="contact">
                 <div className="location">
