@@ -6,7 +6,7 @@ import Home from "./pages/home/Home.jsx";
 import UserProfile from "./pages/user_profile/User_profile_view";
 import Selldb from "./pages/Sellers_dashboard/selldb.jsx";
 import SellerView from "./pages/seller_profile_for_customer/Seller_view.jsx";
-import Catagory from "./pages/CatagoryPage/catagoryHome";
+import Catagory from "./pages/CatagoryPage/Catagory.jsx";
 import About from "./pages/AboutUs/about";
 import Contact from "./pages/Contactus/contact";
 import NotFound from "./pages/page_not_found/page_not_found.jsx";
