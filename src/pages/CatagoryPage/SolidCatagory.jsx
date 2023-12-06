@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './catagoryHome.scss';
-import Filter from './filterSection/Filter';
-import potato from './Catagory-imaeg/potato.png';
 import axios from 'axios';
 
 export default function SolidCatagory() {
@@ -122,7 +120,7 @@ export default function SolidCatagory() {
                 //   )
                 // }
                 
-                
+                return true
               })
             }
 
