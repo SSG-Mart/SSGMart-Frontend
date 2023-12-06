@@ -56,7 +56,7 @@ export default function FoodCatagory() {
 
 
               <label><input type="radio" defaultChecked={true} name="radio" onClick={() => setRadioValue("range")} /> Select Your Price Range</label>
-              <input type="range" min="0" max={max} defaultValue={max} stop="1" style={radioValue === 'range' ? { display: 'block' } : { display: 'none' }} defaultValue={max} onChange={e => setRange(e.target.value)} />
+              <input type="range" min="0" max={max} defaultValue={max} stop="1" style={radioValue === 'range' ? { display: 'block' } : { display: 'none' }} onChange={e => setRange(e.target.value)} />
               <p style={radioValue === 'range' ? { display: 'block' } : { display: 'none' }}>{range}</p>
 
               {/* <label><input type="radio" name="radio" value="Best-match" onClick={() => setRadioValue("best_match")} />  Best Match </label>*/}
