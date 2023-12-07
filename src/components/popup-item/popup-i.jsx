@@ -22,9 +22,6 @@ function Itempopup(props) {
   };
   //   star Rating
   const [like, setLike] = useState(null);
-  const [hoverRating, setHoverRating] = useState(0);
-  const stars = [1, 2, 3, 4, 5];
-
 
   // get data
   useEffect(() => {
@@ -53,8 +50,8 @@ function Itempopup(props) {
 
     getLike()
 
-    console.log(data);
-  }, [like])
+    // eslint-disable-next-line
+  }, [like, props.item_id, data])
 
 
 
