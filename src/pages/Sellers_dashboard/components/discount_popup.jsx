@@ -67,9 +67,11 @@ const DiscountPopup = (props) => {
             flexDirection: "column",
           }}
         >
-          <label>Discount (Rs.)</label>
+          <label>Discount (%)</label>
           <input
             type="number"
+            max={100}
+            min={0}
             style={{ minWidth: "220px", padding: "7px", marginBottom: 20 }}
             value={discount}
             onChange={(e) => setDiscount(e.target.value)}

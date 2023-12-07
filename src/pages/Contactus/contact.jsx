@@ -5,6 +5,7 @@ import { MdHome, MdMail, MdMessage, MdPhone } from "react-icons/md";
 import Small from "./1.png";
 import Medium from "./2.png";
 import Large from "./3.png";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   
@@ -20,7 +21,7 @@ export default function Home() {
           </button> */}
           <div className="media">
             <button className="facebook">
-              <FaFacebook size={45} />
+              <a href="#" target="blank"><FaFacebook size={45} /></a>
             </button>
             <button className="whatsapp">
               <FaWhatsapp size={45} />
@@ -43,7 +44,7 @@ export default function Home() {
         </div>
 
         <div className="right">
-          <MdHome className="home" />
+          <Link to='/' className="home"><MdHome /></Link>
           <MdMail className="mail" />
           <MdMessage className="message" />
           <MdPhone className="phone" />
