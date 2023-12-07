@@ -51,7 +51,7 @@ function Itempopup(props) {
     getLike()
 
     // eslint-disable-next-line
-  }, [like, props.item_id, data])
+  }, [like, props.item_id])
 
 
 
@@ -97,19 +97,7 @@ function Itempopup(props) {
             </div>
           </div> : null}
           <hr />
-          <div className="wrish">
-            <span
-              onClick={toggle}
-              className={"toggle--button" + (state ? "toggle--close" : "")}
-            >
-              {like ? (
-                <FaHeart color="red" size={20} />
-              ) : (
-                <FaRegHeart color="red" size={20} />
-              )}
-             </span>{" "}
-            {/*{state ? "Added" : "Add wish List"} */}
-          </div>
+          
           <div className="profmain">
             <div className="profile">
               <img className="pro_pic" src={`http://localhost:${PORT}/api/img/user/${data.user_image}`} alt="Profile_picture" />
@@ -117,7 +105,7 @@ function Itempopup(props) {
             <div className="name">
               <div className="nameandmassage">
                 <h3 onClick={() => gotoSellerProfile(data.store_name)}>{data.store_name}</h3>
-                <MdMessage className="massageicon" color="#3D64EE" size={27} />
+                {/* <MdMessage className="massageicon" color="#3D64EE" size={27} /> */}
               </div>
               <div className="flex-container">
                 {/* {stars.map((star, i) => (
