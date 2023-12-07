@@ -87,6 +87,18 @@ function Itempopup(props) {
             </h2>
             
           </div>
+         {data.discount > 0 ? <div className="descount">
+            <div className="precentage">
+              <span className="dot"><b>o</b></span>
+              <span className="despres"><b>{data.discount}%</b></span>
+              <span className="off"><b>OFF</b></span>
+
+            </div>
+            <div className="New_Price">
+              <span className="now"><b>NOW</b></span><br />
+              <span className="off"><b>Rs. {data.unit_price-((data.unit_price*data.discount)/100)}</b></span>
+            </div>
+          </div> : null}
           <hr />
           <div className="wrish">
             <span
