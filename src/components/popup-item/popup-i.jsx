@@ -5,9 +5,7 @@ import "./popup-i.scss";
 // import Profilepic from "./pro.jpeg";
 import { ImLocation } from "react-icons/im";
 import { BsPhone } from "react-icons/bs";
-import { MdMessage } from "react-icons/md";
 import { IoClose } from "react-icons/io5";
-import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { PORT } from "../../util";
 import axios from "axios";
 
